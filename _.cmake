@@ -40,9 +40,9 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
 endif()
 
 
-if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
+if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "NetBSD")
 
-    message(FATAL_ERROR "File originally designed for OpenBSD systems...")
+    message(FATAL_ERROR "File originally designed for NetBSD systems...")
 
 endif ()
 
@@ -97,6 +97,13 @@ elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
     set(DESKTOP_ENVIRONMENT_NAME "lxde")
+elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "Xfce")
+    set(XFCE_DESKTOP TRUE)
+    set(GTK_BASED_DESKTOP TRUE)
+    message(STATUS "System is XFCE")
+    set(DESKTOP_ENVIRONMENT_NAME "xfce")
+#    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
+#    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
 endif ()
 
 
@@ -162,7 +169,7 @@ SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH $ORIGIN)
 #set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
-set(OPERATING_SYSTEM_NAME "openbsd")
+set(OPERATING_SYSTEM_NAME "netbsd")
 set(OPERATING_SYSTEM_POSIX TRUE)
 set(FILE_SYSTEM_INOTIFY TRUE)
 set(POSIX_SPAWN TRUE)
@@ -176,19 +183,19 @@ set(PTHREAD TRUE)
 
 message(STATUS "OPERATING_SYSTEM is ${OPERATING_SYSTEM}")
 
-if (${OPERATING_SYSTEM} STREQUAL "openbsd")
+if (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
-    set(OPENBSD TRUE)
+    set(NETBSD TRUE)
 
-    message(STATUS "OPENBSD has been set TRUE")
+    message(STATUS "NETBSD has been set TRUE")
 
     set(BSD_LIKE TRUE)
 
     set(DONT_USE_PKG_CONFIG FALSE)
 
-    add_compile_definitions(OPENBSD)
+    add_compile_definitions(NETBSD)
 
-    message(STATUS "added OPENBSD compile definition!!")
+    message(STATUS "added NETBSD compile definition!!")
 
     add_compile_definitions(__BSD__)
 
