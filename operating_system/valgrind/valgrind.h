@@ -112,16 +112,16 @@
 #undef PLAT_amd64_darwin
 #undef PLAT_x86_win32
 #undef PLAT_amd64_win64
-#undef PLAT_x86_openbsd
-#undef PLAT_amd64_openbsd
-#undef PLAT_ppc32_openbsd
-#undef PLAT_ppc64be_openbsd
-#undef PLAT_ppc64le_openbsd
-#undef PLAT_arm_openbsd
-#undef PLAT_arm64_openbsd
-#undef PLAT_s390x_openbsd
-#undef PLAT_mips32_openbsd
-#undef PLAT_mips64_openbsd
+#undef PLAT_x86_netbsd
+#undef PLAT_amd64_netbsd
+#undef PLAT_ppc32_netbsd
+#undef PLAT_ppc64be_netbsd
+#undef PLAT_ppc64le_netbsd
+#undef PLAT_arm_netbsd
+#undef PLAT_arm64_netbsd
+#undef PLAT_s390x_netbsd
+#undef PLAT_mips32_netbsd
+#undef PLAT_mips64_netbsd
 #undef PLAT_x86_solaris
 #undef PLAT_amd64_solaris
 
@@ -137,28 +137,28 @@
 #elif defined(__MINGW64__) \
       || (defined(_WIN64) && defined(_M_X64))
 #  define PLAT_amd64_win64 1
-#elif defined(__openbsd__) && defined(__i386__)
-#  define PLAT_x86_openbsd 1
-#elif defined(__openbsd__) && defined(__x86_64__) && !defined(__ILP32__)
-#  define PLAT_amd64_openbsd 1
-#elif defined(__openbsd__) && defined(__powerpc__) && !defined(__powerpc64__)
-#  define PLAT_ppc32_openbsd 1
-#elif defined(__openbsd__) && defined(__powerpc__) && defined(__powerpc64__) && _CALL_ELF != 2
+#elif defined(__netbsd__) && defined(__i386__)
+#  define PLAT_x86_netbsd 1
+#elif defined(__netbsd__) && defined(__x86_64__) && !defined(__ILP32__)
+#  define PLAT_amd64_netbsd 1
+#elif defined(__netbsd__) && defined(__powerpc__) && !defined(__powerpc64__)
+#  define PLAT_ppc32_netbsd 1
+#elif defined(__netbsd__) && defined(__powerpc__) && defined(__powerpc64__) && _CALL_ELF != 2
 /* Big Endian uses ELF version 1 */
-#  define PLAT_ppc64be_openbsd 1
-#elif defined(__openbsd__) && defined(__powerpc__) && defined(__powerpc64__) && _CALL_ELF == 2
+#  define PLAT_ppc64be_netbsd 1
+#elif defined(__netbsd__) && defined(__powerpc__) && defined(__powerpc64__) && _CALL_ELF == 2
 /* Little Endian uses ELF version 2 */
-#  define PLAT_ppc64le_openbsd 1
-#elif defined(__openbsd__) && defined(__arm__) && !defined(__aarch64__)
-#  define PLAT_arm_openbsd 1
-#elif defined(__openbsd__) && defined(__aarch64__) && !defined(__arm__)
-#  define PLAT_arm64_openbsd 1
-#elif defined(__openbsd__) && defined(__s390__) && defined(__s390x__)
-#  define PLAT_s390x_openbsd 1
-#elif defined(__openbsd__) && defined(__mips__) && (__mips==64)
-#  define PLAT_mips64_openbsd 1
-#elif defined(__openbsd__) && defined(__mips__) && (__mips!=64)
-#  define PLAT_mips32_openbsd 1
+#  define PLAT_ppc64le_netbsd 1
+#elif defined(__netbsd__) && defined(__arm__) && !defined(__aarch64__)
+#  define PLAT_arm_netbsd 1
+#elif defined(__netbsd__) && defined(__aarch64__) && !defined(__arm__)
+#  define PLAT_arm64_netbsd 1
+#elif defined(__netbsd__) && defined(__s390__) && defined(__s390x__)
+#  define PLAT_s390x_netbsd 1
+#elif defined(__netbsd__) && defined(__mips__) && (__mips==64)
+#  define PLAT_mips64_netbsd 1
+#elif defined(__netbsd__) && defined(__mips__) && (__mips!=64)
+#  define PLAT_mips32_netbsd 1
 #elif defined(__sun) && defined(__i386__)
 #  define PLAT_x86_solaris 1
 #elif defined(__sun) && defined(__x86_64__)
@@ -239,7 +239,7 @@
    a lot simpler.  VALGRIND_GET_NR_CONTEXT returns the value of the
    guest's NRADDR pseudo-register and whatever other information is
    needed to safely run the call original from the wrapper: on
-   ppc64-openbsd, the R2 value at the divert point is also needed.  This
+   ppc64-netbsd, the R2 value at the divert point is also needed.  This
    information is abstracted into a user-visible type, OrigFn.
 
    VALGRIND_CALL_NOREDIR_* behaves the same as the following on the
@@ -250,9 +250,9 @@
    inline asm stuff to be useful.
 */
 
-/* ----------------- x86-{openbsd,darwin,solaris} ---------------- */
+/* ----------------- x86-{netbsd,darwin,solaris} ---------------- */
 
-#if defined(PLAT_x86_openbsd)  ||  defined(PLAT_x86_darwin)  \
+#if defined(PLAT_x86_netbsd)  ||  defined(PLAT_x86_darwin)  \
     ||  (defined(PLAT_x86_win32) && defined(__GNUC__)) \
     ||  defined(PLAT_x86_solaris)
 
@@ -314,7 +314,7 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_x86_openbsd || PLAT_x86_darwin || (PLAT_x86_win32 && __GNUC__)
+#endif /* PLAT_x86_netbsd || PLAT_x86_darwin || (PLAT_x86_win32 && __GNUC__)
           || PLAT_x86_solaris */
 
 /* ------------------------- x86-Win32 ------------------------- */
@@ -390,9 +390,9 @@ valgrind_do_client_request_expr(uintptr_t _zzq_default, uintptr_t _zzq_request,
 
 #endif /* PLAT_x86_win32 */
 
-/* ----------------- amd64-{openbsd,darwin,solaris} --------------- */
+/* ----------------- amd64-{netbsd,darwin,solaris} --------------- */
 
-#if defined(PLAT_amd64_openbsd)  ||  defined(PLAT_amd64_darwin) \
+#if defined(PLAT_amd64_netbsd)  ||  defined(PLAT_amd64_darwin) \
     ||  defined(PLAT_amd64_solaris) \
     ||  (defined(PLAT_amd64_win64) && defined(__GNUC__))
 
@@ -454,7 +454,7 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_amd64_openbsd || PLAT_amd64_darwin || PLAT_amd64_solaris */
+#endif /* PLAT_amd64_netbsd || PLAT_amd64_darwin || PLAT_amd64_solaris */
 
 /* ------------------------- amd64-Win64 ------------------------- */
 
@@ -464,9 +464,9 @@ typedef
 
 #endif /* PLAT_amd64_win64 */
 
-/* ------------------------ ppc32-openbsd ------------------------ */
+/* ------------------------ ppc32-netbsd ------------------------ */
 
-#if defined(PLAT_ppc32_openbsd)
+#if defined(PLAT_ppc32_netbsd)
 
 typedef
    struct { 
@@ -531,11 +531,11 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_ppc32_openbsd */
+#endif /* PLAT_ppc32_netbsd */
 
-/* ------------------------ ppc64-openbsd ------------------------ */
+/* ------------------------ ppc64-netbsd ------------------------ */
 
-#if defined(PLAT_ppc64be_openbsd)
+#if defined(PLAT_ppc64be_netbsd)
 
 typedef
    struct { 
@@ -610,9 +610,9 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_ppc64be_openbsd */
+#endif /* PLAT_ppc64be_netbsd */
 
-#if defined(PLAT_ppc64le_openbsd)
+#if defined(PLAT_ppc64le_netbsd)
 
 typedef
    struct {
@@ -687,11 +687,11 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_ppc64le_openbsd */
+#endif /* PLAT_ppc64le_netbsd */
 
-/* ------------------------- arm-openbsd ------------------------- */
+/* ------------------------- arm-netbsd ------------------------- */
 
-#if defined(PLAT_arm_openbsd)
+#if defined(PLAT_arm_netbsd)
 
 typedef
    struct { 
@@ -755,11 +755,11 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_arm_openbsd */
+#endif /* PLAT_arm_netbsd */
 
-/* ------------------------ arm64-openbsd ------------------------- */
+/* ------------------------ arm64-netbsd ------------------------- */
 
-#if defined(PLAT_arm64_openbsd)
+#if defined(PLAT_arm64_netbsd)
 
 typedef
    struct { 
@@ -824,11 +824,11 @@ typedef
                     );                                           \
  } while (0)
 
-#endif /* PLAT_arm64_openbsd */
+#endif /* PLAT_arm64_netbsd */
 
-/* ------------------------ s390x-openbsd ------------------------ */
+/* ------------------------ s390x-netbsd ------------------------ */
 
-#if defined(PLAT_s390x_openbsd)
+#if defined(PLAT_s390x_netbsd)
 
 typedef
   struct {
@@ -901,11 +901,11 @@ typedef
                      __VEX_INJECT_IR_CODE);                      \
  } while (0)
 
-#endif /* PLAT_s390x_openbsd */
+#endif /* PLAT_s390x_netbsd */
 
-/* ------------------------- mips32-openbsd ---------------- */
+/* ------------------------- mips32-netbsd ---------------- */
 
-#if defined(PLAT_mips32_openbsd)
+#if defined(PLAT_mips32_netbsd)
 
 typedef
    struct { 
@@ -974,11 +974,11 @@ typedef
  } while (0)
 
 
-#endif /* PLAT_mips32_openbsd */
+#endif /* PLAT_mips32_netbsd */
 
-/* ------------------------- mips64-openbsd ---------------- */
+/* ------------------------- mips64-netbsd ---------------- */
 
-#if defined(PLAT_mips64_openbsd)
+#if defined(PLAT_mips64_netbsd)
 
 typedef
    struct {
@@ -1043,7 +1043,7 @@ typedef
                     );                                              \
  } while (0)
 
-#endif /* PLAT_mips64_openbsd */
+#endif /* PLAT_mips64_netbsd */
 
 /* Insert assembly code for other platforms here... */
 
@@ -1142,9 +1142,9 @@ typedef
    do { volatile unsigned long _junk;                             \
         CALL_FN_W_7W(_junk,fnptr,arg1,arg2,arg3,arg4,arg5,arg6,arg7); } while (0)
 
-/* ----------------- x86-{openbsd,darwin,solaris} ---------------- */
+/* ----------------- x86-{netbsd,darwin,solaris} ---------------- */
 
-#if defined(PLAT_x86_openbsd)  ||  defined(PLAT_x86_darwin) \
+#if defined(PLAT_x86_netbsd)  ||  defined(PLAT_x86_darwin) \
     ||  defined(PLAT_x86_solaris)
 
 /* These regs are trashed by the hidden call.  No need to mention eax
@@ -1162,7 +1162,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "movl %%edi,%%esp\n\t"
 
-/* These CALL_FN_ macros assume that on x86-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on x86-netbsd, sizeof(unsigned
    long) == 4. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -1572,11 +1572,11 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_x86_openbsd || PLAT_x86_darwin || PLAT_x86_solaris */
+#endif /* PLAT_x86_netbsd || PLAT_x86_darwin || PLAT_x86_solaris */
 
-/* ---------------- amd64-{openbsd,darwin,solaris} --------------- */
+/* ---------------- amd64-{netbsd,darwin,solaris} --------------- */
 
-#if defined(PLAT_amd64_openbsd)  ||  defined(PLAT_amd64_darwin) \
+#if defined(PLAT_amd64_netbsd)  ||  defined(PLAT_amd64_darwin) \
     ||  defined(PLAT_amd64_solaris)
 
 /* ARGREGS: rdi rsi rdx rcx r8 r9 (the rest on stack in R-to-L order) */
@@ -1667,7 +1667,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "movq %%r14,%%rsp\n\t"
 
-/* These CALL_FN_ macros assume that on amd64-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on amd64-netbsd, sizeof(unsigned
    long) == 8. */
 
 /* NB 9 Sept 07.  There is a nasty kludge here in all these CALL_FN_
@@ -1686,7 +1686,7 @@ typedef
    redzone, for the duration of the hidden call, to make it safe.
 
    Probably the same problem afflicts the other redzone-style ABIs too
-   (ppc64-openbsd); but for those, the stack is
+   (ppc64-netbsd); but for those, the stack is
    self describing (none of this CFI nonsense) so at least messing
    with the stack pointer doesn't give a danger of non-unwindable
    stack. */
@@ -2126,11 +2126,11 @@ typedef
       lval = (__typeof__(lval)) _res;                                  \
    } while (0)
 
-#endif /* PLAT_amd64_openbsd || PLAT_amd64_darwin || PLAT_amd64_solaris */
+#endif /* PLAT_amd64_netbsd || PLAT_amd64_darwin || PLAT_amd64_solaris */
 
-/* ------------------------ ppc32-openbsd ------------------------ */
+/* ------------------------ ppc32-netbsd ------------------------ */
 
-#if defined(PLAT_ppc32_openbsd)
+#if defined(PLAT_ppc32_netbsd)
 
 /* This is useful for finding out about the on-stack stuff:
 
@@ -2173,7 +2173,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "mr 1,28\n\t"
 
-/* These CALL_FN_ macros assume that on ppc32-openbsd,
+/* These CALL_FN_ macros assume that on ppc32-netbsd,
    sizeof(unsigned long) == 4. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -2626,11 +2626,11 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_ppc32_openbsd */
+#endif /* PLAT_ppc32_netbsd */
 
-/* ------------------------ ppc64-openbsd ------------------------ */
+/* ------------------------ ppc64-netbsd ------------------------ */
 
-#if defined(PLAT_ppc64be_openbsd)
+#if defined(PLAT_ppc64be_netbsd)
 
 /* ARGREGS: r3 r4 r5 r6 r7 r8 r9 r10 (the rest on stack somewhere) */
 
@@ -2652,7 +2652,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "mr 1,28\n\t"
 
-/* These CALL_FN_ macros assume that on ppc64-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on ppc64-netbsd, sizeof(unsigned
    long) == 8. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -3183,10 +3183,10 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_ppc64be_openbsd */
+#endif /* PLAT_ppc64be_netbsd */
 
-/* ------------------------- ppc64le-openbsd ----------------------- */
-#if defined(PLAT_ppc64le_openbsd)
+/* ------------------------- ppc64le-netbsd ----------------------- */
+#if defined(PLAT_ppc64le_netbsd)
 
 /* ARGREGS: r3 r4 r5 r6 r7 r8 r9 r10 (the rest on stack somewhere) */
 
@@ -3208,7 +3208,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "mr 1,28\n\t"
 
-/* These CALL_FN_ macros assume that on ppc64-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on ppc64-netbsd, sizeof(unsigned
    long) == 8. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -3739,11 +3739,11 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_ppc64le_openbsd */
+#endif /* PLAT_ppc64le_netbsd */
 
-/* ------------------------- arm-openbsd ------------------------- */
+/* ------------------------- arm-netbsd ------------------------- */
 
-#if defined(PLAT_arm_openbsd)
+#if defined(PLAT_arm_netbsd)
 
 /* These regs are trashed by the hidden call. */
 #define __CALLER_SAVED_REGS "r0", "r1", "r2", "r3","r4", "r12", "r14"
@@ -3769,7 +3769,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "mov sp,  r10\n\t"
 
-/* These CALL_FN_ macros assume that on arm-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on arm-netbsd, sizeof(unsigned
    long) == 4. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -4198,11 +4198,11 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_arm_openbsd */
+#endif /* PLAT_arm_netbsd */
 
-/* ------------------------ arm64-openbsd ------------------------ */
+/* ------------------------ arm64-netbsd ------------------------ */
 
-#if defined(PLAT_arm64_openbsd)
+#if defined(PLAT_arm64_netbsd)
 
 /* These regs are trashed by the hidden call. */
 #define __CALLER_SAVED_REGS \
@@ -4222,7 +4222,7 @@ typedef
 #define VALGRIND_RESTORE_STACK             \
       "mov sp,  x21\n\t"
 
-/* These CALL_FN_ macros assume that on arm64-openbsd,
+/* These CALL_FN_ macros assume that on arm64-netbsd,
    sizeof(unsigned long) == 8. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -4649,11 +4649,11 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_arm64_openbsd */
+#endif /* PLAT_arm64_netbsd */
 
-/* ------------------------- s390x-openbsd ------------------------- */
+/* ------------------------- s390x-netbsd ------------------------- */
 
-#if defined(PLAT_s390x_openbsd)
+#if defined(PLAT_s390x_netbsd)
 
 /* Similar workaround as amd64 (see above), but we use r11 as frame
    pointer and save the old r11 in r7. r11 might be used for
@@ -5137,18 +5137,18 @@ typedef
    } while (0)
 
 
-#endif /* PLAT_s390x_openbsd */
+#endif /* PLAT_s390x_netbsd */
 
-/* ------------------------- mips32-openbsd ----------------------- */
+/* ------------------------- mips32-netbsd ----------------------- */
  
-#if defined(PLAT_mips32_openbsd)
+#if defined(PLAT_mips32_netbsd)
 
 /* These regs are trashed by the hidden call. */
 #define __CALLER_SAVED_REGS "$2", "$3", "$4", "$5", "$6",       \
 "$7", "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "$24", \
 "$25", "$31"
 
-/* These CALL_FN_ macros assume that on mips-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on mips-netbsd, sizeof(unsigned
    long) == 4. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -5676,18 +5676,18 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_mips32_openbsd */
+#endif /* PLAT_mips32_netbsd */
 
-/* ------------------------- mips64-openbsd ------------------------- */
+/* ------------------------- mips64-netbsd ------------------------- */
 
-#if defined(PLAT_mips64_openbsd)
+#if defined(PLAT_mips64_netbsd)
 
 /* These regs are trashed by the hidden call. */
 #define __CALLER_SAVED_REGS "$2", "$3", "$4", "$5", "$6",       \
 "$7", "$8", "$9", "$10", "$11", "$12", "$13", "$14", "$15", "$24", \
 "$25", "$31"
 
-/* These CALL_FN_ macros assume that on mips-openbsd, sizeof(unsigned
+/* These CALL_FN_ macros assume that on mips-netbsd, sizeof(unsigned
    long) == 4. */
 
 #define CALL_FN_W_v(lval, orig)                                   \
@@ -6093,7 +6093,7 @@ typedef
       lval = (__typeof__(lval)) _res;                             \
    } while (0)
 
-#endif /* PLAT_mips64_openbsd */
+#endif /* PLAT_mips64_netbsd */
 
 /* ------------------------------------------------------------------ */
 /* ARCHITECTURE INDEPENDENT MACROS for CLIENT REQUESTS.               */
@@ -6629,15 +6629,15 @@ VALGRIND_PRINTF_BACKTRACE(const char *format, ...)
 #undef PLAT_amd64_darwin
 #undef PLAT_x86_win32
 #undef PLAT_amd64_win64
-#undef PLAT_x86_openbsd
-#undef PLAT_amd64_openbsd
-#undef PLAT_ppc32_openbsd
-#undef PLAT_ppc64be_openbsd
-#undef PLAT_ppc64le_openbsd
-#undef PLAT_arm_openbsd
-#undef PLAT_s390x_openbsd
-#undef PLAT_mips32_openbsd
-#undef PLAT_mips64_openbsd
+#undef PLAT_x86_netbsd
+#undef PLAT_amd64_netbsd
+#undef PLAT_ppc32_netbsd
+#undef PLAT_ppc64be_netbsd
+#undef PLAT_ppc64le_netbsd
+#undef PLAT_arm_netbsd
+#undef PLAT_s390x_netbsd
+#undef PLAT_mips32_netbsd
+#undef PLAT_mips64_netbsd
 #undef PLAT_x86_solaris
 #undef PLAT_amd64_solaris
 

@@ -3,7 +3,7 @@
 
 #include "apex/_.h"
 #include "apex_posix/_apex_posix.h"
-#include "acme_openbsd/_acme_openbsd.h"
+#include "acme_netbsd/_acme_netbsd.h"
 
 
 #include "dir_system.h"

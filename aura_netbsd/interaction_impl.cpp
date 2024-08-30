@@ -13,7 +13,7 @@
 #define TEST 0
 
 
-namespace aura_openbsd
+namespace aura_netbsd
 {
 
 
@@ -4355,7 +4355,7 @@ namespace aura_openbsd
    }
 
 
-} // namespace aura_openbsd
+} // namespace aura_netbsd
 
 
 

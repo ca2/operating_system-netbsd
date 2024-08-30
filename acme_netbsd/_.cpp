@@ -7,7 +7,7 @@
 char * get_current_dir_name();
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
@@ -23,7 +23,7 @@ namespace acme_openbsd
    }
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

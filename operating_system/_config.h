@@ -16,19 +16,19 @@
 
 
 
-#define OPERATING_SYSTEM_NAMESPACE openbsd
+#define OPERATING_SYSTEM_NAMESPACE netbsd
 
 #define PLATFORM_COMMON_NAMESPACE posix
 
-#define PLATFORM_STRING "openbsd"
+#define PLATFORM_STRING "netbsd"
 
 #define PLATFORM_COMMON_STRING "posix"
 
 #define DEFAULT_DIR_SEPARATOR "/"
 
-#define OPERATING_SYSTEM_NAME "openbsd"
+#define OPERATING_SYSTEM_NAME "netbsd"
 
-#define OPERATING_SYSTEM_NAMESPACE openbsd
+#define OPERATING_SYSTEM_NAMESPACE netbsd
 
 
 

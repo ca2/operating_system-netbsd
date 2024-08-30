@@ -181,7 +181,7 @@
 //   }
 //
 //
-//} // namespace openbsd
+//} // namespace netbsd
 
 
 
@@ -193,7 +193,7 @@
 //{
 //
 //
-//   ::comm::command * pmaininitdata = new ::openbsd::command;
+//   ::comm::command * pmaininitdata = new ::netbsd::command;
 //
 //
 //   pmaininitdata->m_hInstance = hInstance;

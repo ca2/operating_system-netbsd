@@ -8,7 +8,7 @@
 #include <sys/sysctl.h>
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 

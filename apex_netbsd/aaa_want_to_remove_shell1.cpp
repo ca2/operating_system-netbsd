@@ -1,5 +1,5 @@
 ﻿#include "framework.h"
-#include "apex/node/openbsd/_openbsd.h"
+#include "apex/node/netbsd/_netbsd.h"
 
 
 /***
@@ -236,7 +236,7 @@ return 0;
 return 1;
 }*/
 
-namespace openbsd
+namespace netbsd
 {
 
    shell shell::theWindowsShell;
@@ -807,6 +807,6 @@ namespace openbsd
    //}
    //*/
 
-} // namespace openbsd
+} // namespace netbsd
 
 

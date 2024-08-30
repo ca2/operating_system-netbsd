@@ -8,16 +8,16 @@
 #pragma once
 
 
-#include "acme_openbsd/node.h"
+#include "acme_netbsd/node.h"
 #include "apex_posix/node.h"
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
-   class CLASS_DECL_APEX_OPENBSD node :
-           virtual public ::acme_openbsd::node,
+   class CLASS_DECL_APEX_NETBSD node :
+           virtual public ::acme_netbsd::node,
            virtual public ::apex_posix::node
    {
    public:
@@ -107,7 +107,7 @@ namespace apex_openbsd
    };
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

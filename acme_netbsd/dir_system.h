@@ -4,11 +4,11 @@
 #include "acme/filesystem/filesystem/dir_system.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD dir_system :
+   class CLASS_DECL_ACME_NETBSD dir_system :
       virtual public ::dir_system
    {
    public:
@@ -27,7 +27,7 @@ namespace acme_openbsd
    };
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

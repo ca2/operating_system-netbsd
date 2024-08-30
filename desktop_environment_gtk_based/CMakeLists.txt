@@ -36,14 +36,14 @@ list(APPEND library_source
 list(APPEND library_references
    acme
    acme_posix
-   acme_openbsd
+   acme_netbsd
    apex
    apex_posix
-   apex_openbsd
+   apex_netbsd
    aqua
    aura
    aura_posix
-   aura_openbsd
+   aura_netbsd
    windowing_x11
    #node_gtk
    node_gdk

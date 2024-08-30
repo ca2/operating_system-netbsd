@@ -8,7 +8,7 @@
 #include "platform/os/lnx.h"
 
 
-#ifdef OPENBSD
+#ifdef NETBSD
     #define CLASS_DECL_lnx2
 #endif
 

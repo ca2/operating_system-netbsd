@@ -12,12 +12,12 @@ namespace aura
 {
 
 
-   namespace openbsd
+   namespace netbsd
    {
 
 
-      class CLASS_DECL_AURA_OPENBSD node :
-         virtual public ::apex::openbsd::node,
+      class CLASS_DECL_AURA_NETBSD node :
+         virtual public ::apex::netbsd::node,
          virtual public ::aura::posix::node
       {
       public:
@@ -60,7 +60,7 @@ namespace aura
       };
 
 
-   } // namespace openbsd
+   } // namespace netbsd
 
 
 } // namespace aura

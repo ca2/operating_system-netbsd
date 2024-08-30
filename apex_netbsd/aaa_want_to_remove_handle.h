@@ -12,7 +12,7 @@
 // CHandleMap
 //
 //  Note: Do not access the members of this class directly.
-//      Use ::openbsd::window::from_handle, ::openbsd::graphics::from_handle, etc.
+//      Use ::netbsd::window::from_handle, ::netbsd::graphics::from_handle, etc.
 //      The actual definition is only included because it is
 //      necessary for the definition of WindowsThread.
 //
@@ -75,7 +75,7 @@ inline ::u32 HashKey < HIMAGELIST >(HIMAGELIST key)
 }
 
 
-namespace openbsd
+namespace netbsd
 {
 
    class window;
@@ -119,7 +119,7 @@ namespace openbsd
    typedef handle1 < HGDIOBJ > hgdiobj_handle;
    typedef handle1 < HIMAGELIST > himagelist_handle;
 
-} // namespace openbsd
+} // namespace netbsd
 
 
 template<class TYPE>
@@ -185,27 +185,27 @@ public:
 };
 
 class CLASS_DECL_APEX oswindow_map :
-   public handle_map < ::openbsd::oswindow_handle, ::openbsd::window >
+   public handle_map < ::netbsd::oswindow_handle, ::netbsd::window >
 {
 public:
-   oswindow_map(::object * pobject) : handle_map < ::openbsd::oswindow_handle, ::openbsd::window >(pobject) {}
+   oswindow_map(::object * pobject) : handle_map < ::netbsd::oswindow_handle, ::netbsd::window >(pobject) {}
 };
 
 /*class CLASS_DECL_APEX hdc_map :
-   public handle_map < ::openbsd::hdc_handle, ::openbsd::graphics >
+   public handle_map < ::netbsd::hdc_handle, ::netbsd::graphics >
 {
 public:
 };*/
 
 /*class hgdiobj_map :
-   public handle_map < ::openbsd::hgdiobj_handle, ::openbsd::object >
+   public handle_map < ::netbsd::hgdiobj_handle, ::netbsd::object >
 {
 public:
 };*/
 
 /*
 class CLASS_DECL_APEX hdc_map :
-   public handle_map < ::openbsd::hmenu_handle, ::openbsd::menu >
+   public handle_map < ::netbsd::hmenu_handle, ::netbsd::menu >
 {
 public:
 };

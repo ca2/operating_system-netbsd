@@ -5,7 +5,7 @@
 
 
 #include "aura/operating_system.h"
-#include "apex_openbsd/_apex_openbsd.h"
+#include "apex_netbsd/_apex_netbsd.h"
 #include "platform-posix/aura_posix/_aura_posix.h"
 
 

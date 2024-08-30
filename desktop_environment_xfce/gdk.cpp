@@ -733,7 +733,7 @@ namespace node_xfce
 
 
 
-#ifdef OPENBSD
+#ifdef NETBSD
 static void
 log_handler (const gchar   *log_domain,
              GLogLevelFlags log_level,

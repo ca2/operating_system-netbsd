@@ -1,4 +1,4 @@
-#define OPENBSD_COMMAND_LINE
+#define NETBSD_COMMAND_LINE
 #include "aura/application.h"
 
 //
@@ -13,7 +13,7 @@
 //}
 
 //#include "app/appseed/aura/.h"
-//#include "aura/node/openbsd/openbsd.h"
+//#include "aura/node/netbsd/netbsd.h"
 //
 //
 //const char * g_psz_br_init_symbol_app = "";

@@ -12,7 +12,7 @@ namespace nano::user
 } // namespace nano::user
 
 
-__FACTORY_EXPORT void node_openbsd_factory(::factory::factory * pfactory)
+__FACTORY_EXPORT void node_netbsd_factory(::factory::factory * pfactory)
 {
 
    auto edesktop = ::nano::user::get_edesktop();
@@ -96,11 +96,11 @@ __FACTORY_EXPORT void node_openbsd_factory(::factory::factory * pfactory)
 //#endif
 
 
-//      apex_openbsd_factory( pfactory);
+//      apex_netbsd_factory( pfactory);
 //
 //   aura_posix_factory( pfactory);
 //
-//   pfactory->add_factory_item < ::aura::openbsd::node, ::acme::node >();
+//   pfactory->add_factory_item < ::aura::netbsd::node, ::acme::node >();
 
 }
 

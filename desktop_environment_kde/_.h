@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "aura_openbsd/_.h"
+#include "aura_netbsd/_.h"
 #include "platform-posix/node_kde/_.h"
 
 

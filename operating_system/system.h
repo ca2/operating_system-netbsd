@@ -1,14 +1,14 @@
 #pragma once
 
 
-#define index openbsd_bsd_index
+#define index netbsd_bsd_index
 
-#ifndef OPENBSD
-#define OPENBSD 1
+#ifndef NETBSD
+#define NETBSD 1
 #endif
 
-#ifndef _OPENBSD
-#define _OPENBSD 1
+#ifndef _NETBSD
+#define _NETBSD 1
 #endif
 
 #define __cdecl
@@ -309,7 +309,7 @@ typedef void * PVOID;
 #define WINBOOL int
 
 
-#ifndef OPENBSD
+#ifndef NETBSD
 #define offsetof(type, member)  __builtin_offsetof (type, member)
 #endif
 

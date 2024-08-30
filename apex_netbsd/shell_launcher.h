@@ -1,11 +1,11 @@
 #pragma once
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
-   class CLASS_DECL_APEX_OPENBSD shell_launcher :
+   class CLASS_DECL_APEX_NETBSD shell_launcher :
       virtual public ::apex::shell_launcher
    {
    public:
@@ -39,7 +39,7 @@ namespace apex_openbsd
    };
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

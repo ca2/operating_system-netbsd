@@ -7,7 +7,7 @@
 #include "_.h"
 
 
-//#include "_aura_openbsd.h"
+//#include "_aura_netbsd.h"
 
 
 //#include "aura/_defer.h"

@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "acme/node/openbsd/registry.h"
+#include "acme/node/netbsd/registry.h"
 #include <shlobj.h>
 #include <RestartManager.h>
 #include <string.h>

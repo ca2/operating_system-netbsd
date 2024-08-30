@@ -1,11 +1,11 @@
 #include "framework.h"
 #include "xfce_xfce.h"
-//#include "apex/os/openbsd/appindicator.h"
+//#include "apex/os/netbsd/appindicator.h"
 
 
 
 //
-//namespace openbsd
+//namespace netbsd
 //{
 //
 //
@@ -16,7 +16,7 @@
 //
 //   }
 //
-//} // namespace openbsd
+//} // namespace netbsd
 
 namespace os
 {

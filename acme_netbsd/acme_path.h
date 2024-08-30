@@ -5,11 +5,11 @@
 #include "acme_posix/acme_path.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD acme_path :
+   class CLASS_DECL_ACME_NETBSD acme_path :
       virtual public ::acme_posix::acme_path
    {
    public:
@@ -25,7 +25,7 @@ namespace acme_openbsd
    };
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

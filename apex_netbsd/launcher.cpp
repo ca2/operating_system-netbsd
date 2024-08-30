@@ -3,7 +3,7 @@
 #include "launcher.h"
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
@@ -43,7 +43,7 @@ namespace apex_openbsd
    }
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

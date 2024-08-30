@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "node.h"
 #include "gnome_shared.h"
-#if !defined(OPENBSD)
+#if !defined(NETBSD)
 #include "appindicator.h"
 #endif
 //#include "gdk.h"
@@ -96,7 +96,7 @@ namespace desktop_environment_gtk_based
 ////      ////
 ////      ////      //auto idle_source = g_idle_source_new();
 ////      ////
-////      ////      //g_source_set_callback(idle_source, &openbsd_start_system, (::apex::system *) m_psystem, nullptr);
+////      ////      //g_source_set_callback(idle_source, &netbsd_start_system, (::apex::system *) m_psystem, nullptr);
 ////      ////
 ////      ////      //g_source_attach(idle_source, g_main_context_default());
 ////      ////
@@ -197,7 +197,7 @@ namespace desktop_environment_gtk_based
 
       ///auto estatus =
 
-      ::aura_openbsd::node::initialize(pparticle);
+      ::aura_netbsd::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -225,7 +225,7 @@ namespace desktop_environment_gtk_based
 //   void node::os_calc_user_dark_mode()
 //   {
 //
-//      ::openbsd::aura::node::os_calc_user_dark_mode();
+//      ::netbsd::aura::node::os_calc_user_dark_mode();
 //
 //   }
 
@@ -484,7 +484,7 @@ namespace desktop_environment_gtk_based
 //
 //      return str;
 //
-//      //return ::openbsd_g_direct_get_file_icon_path(pszPath, iSize);
+//      //return ::netbsd_g_direct_get_file_icon_path(pszPath, iSize);
 //
 //   }
 
@@ -496,7 +496,7 @@ namespace desktop_environment_gtk_based
 //
 //      return str;
 //
-//      //return ::openbsd_g_direct_get_file_content_type(pszPath);
+//      //return ::netbsd_g_direct_get_file_content_type(pszPath);
 //
 //   }
 //
@@ -571,7 +571,7 @@ namespace desktop_environment_gtk_based
 //   }
 
 
-//   ::nopenbsd::appindicator * node::appindicator_allocate()
+//   ::nnetbsd::appindicator * node::appindicator_allocate()
 //   {
 //
 //      return new ::node_gnome::appindicator();
@@ -579,10 +579,10 @@ namespace desktop_environment_gtk_based
 //   }
 //
 //
-//   void node::appindicator_destroy(::openbsd::appindicator * pappindicator)
+//   void node::appindicator_destroy(::netbsd::appindicator * pappindicator)
 //   {
 //
-//      //::openbsd::appindicator_destroy(pappindicator);
+//      //::netbsd::appindicator_destroy(pappindicator);
 //
 //      delete pappindicator;
 //

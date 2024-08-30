@@ -3,7 +3,7 @@
 #include "acme_path.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
    
@@ -68,7 +68,7 @@ namespace acme_openbsd
 //   }
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

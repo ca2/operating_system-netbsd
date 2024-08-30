@@ -3,16 +3,16 @@
 //
 
 #include "framework.h"
-//#include "apex/os/openbsd/xfce_xfce.h"
+//#include "apex/os/netbsd/xfce_xfce.h"
 #include "aura/user/_user.h"
 
 
 static ::user::notify_icon * g_pnotifyiconLast = nullptr;
 
 
-#ifdef OPENBSD
+#ifdef NETBSD
 
-#include "aura/os/openbsd/appindicator.h"
+#include "aura/os/netbsd/appindicator.h"
 
 #endif
 
@@ -30,7 +30,7 @@ namespace node_xfce
 
       //m_nid.cbSize = sizeof(m_nid);
 
-#elif defined(OPENBSD)
+#elif defined(NETBSD)
 
       m_pindicator = nullptr;
 
@@ -106,7 +106,7 @@ namespace node_xfce
       //m_nid.uFlags               = NIF_ICON | NIF_MESSAGE;
       //m_nid.uCallbackMessage     = MessageNotifyIcon;
 
-#elif defined(OPENBSD)
+#elif defined(NETBSD)
 
 #elif defined(MACOS)
 
@@ -136,7 +136,7 @@ namespace node_xfce
 
       //}
 
-#elif defined(OPENBSD) && !defined(RASPBIAN)
+#elif defined(NETBSD) && !defined(RASPBIAN)
 
       {
 
@@ -374,7 +374,7 @@ namespace node_xfce
 //      return true;
 //
 //
-//#elif defined(OPENBSD) && !defined(RASPBIAN)
+//#elif defined(NETBSD) && !defined(RASPBIAN)
 //
 //      if(m_pindicator)
 //      {
@@ -471,12 +471,12 @@ namespace node_xfce
    ::e_status notify_icon::step()
    {
 
-#if defined(OPENBSD)
+#if defined(NETBSD)
 
 //      main_async([&]
 //      {
 //
-//         openbsd_g_direct_app_indicator_step(m_pindicator);
+//         netbsd_g_direct_app_indicator_step(m_pindicator);
 //
 //      });
 
@@ -487,7 +487,7 @@ namespace node_xfce
    }
 
 
-//#if defined(OPENBSD) || defined(MACOS)
+//#if defined(NETBSD) || defined(MACOS)
 
 
    int notify_icon::_get_notification_area_action_count()

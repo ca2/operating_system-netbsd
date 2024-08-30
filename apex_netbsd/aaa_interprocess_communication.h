@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
@@ -127,7 +127,7 @@ namespace apex_openbsd
    CLASS_DECL_APEX string app_install(string strPlatform = "");
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

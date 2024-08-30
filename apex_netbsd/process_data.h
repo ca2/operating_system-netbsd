@@ -11,7 +11,7 @@
 
 #pragma once
 
-#ifdef OPENBSD
+#ifdef NETBSD
 
 template<typename T> class process_data
 {

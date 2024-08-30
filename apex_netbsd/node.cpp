@@ -9,7 +9,7 @@ bool __node_node_pre_init();
 bool __node_node_pos_init();
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
@@ -49,7 +49,7 @@ namespace apex_openbsd
 
       //auto estatus =
       //
-      ::acme_openbsd::node::initialize(pparticle);
+      ::acme_netbsd::node::initialize(pparticle);
 
 //      if (!estatus)
 //      {
@@ -101,7 +101,7 @@ namespace apex_openbsd
    }
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

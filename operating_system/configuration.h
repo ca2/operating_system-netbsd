@@ -27,12 +27,12 @@
 #define HAS_FREEDESKTOP
 
 
-#ifndef OPENBSD
-#define OPENBSD
+#ifndef NETBSD
+#define NETBSD
 #endif
 
-#ifndef _OPENBSD
-#define _OPENBSD
+#ifndef _NETBSD
+#define _NETBSD
 #endif
 
 
@@ -52,13 +52,13 @@
 
 using errno_t = int;
 
-#define OPERATING_SYSTEM_NAMESPACE openbsd
+#define OPERATING_SYSTEM_NAMESPACE netbsd
 
 #define PLATFORM_COMMON_NAMESPACE posix
 
 #define PLATFORM_FAMILY_NAMESPACE bsd
 
-#define PLATFORM_STRING "openbsd"
+#define PLATFORM_STRING "netbsd"
 
 #define PLATFORM_COMMON_STRING "posix"
 
@@ -66,14 +66,14 @@ using errno_t = int;
 
 #define DEFAULT_DIR_SEPARATOR "/"
 
-#define OPERATING_SYSTEM_NAME "openbsd"
+#define OPERATING_SYSTEM_NAME "netbsd"
 
-#define OPERATING_SYSTEM_NAMESPACE openbsd
+#define OPERATING_SYSTEM_NAMESPACE netbsd
 
 
 
-#ifndef __openbsd__
-#define __openbsd__
+#ifndef __netbsd__
+#define __netbsd__
 #endif
 
 #define _OPENGL 1

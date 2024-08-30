@@ -4,12 +4,12 @@
 #include "service_handler.h"
 
 
-//#ifdef OPENBSD
+//#ifdef NETBSD
 //u32 Win32FromHResult(HRESULT value);
 //#endif
 //
 //
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
@@ -23,7 +23,7 @@ namespace apex_openbsd
 
       m_dwStopTimeout = 30 * 1000; // 30 seconds
 
-   #ifdef OPENBSD_DESKTOP
+   #ifdef NETBSD_DESKTOP
       m_status.dwServiceType = SERVICE_WIN32_OWN_PROCESS;
       m_status.dwCurrentState = SERVICE_START_PENDING;
       m_status.dwControlsAccepted = controlsAccepted;
@@ -49,7 +49,7 @@ namespace apex_openbsd
    void service_handler::_server()
    {
 
-#ifdef OPENBSD_DESKTOP
+#ifdef NETBSD_DESKTOP
 
       SERVICE_TABLE_ENTRYW serviceTable[] =
       {
@@ -94,7 +94,7 @@ namespace apex_openbsd
 
       }
 
-#ifdef OPENBSD_DESKTOP
+#ifdef NETBSD_DESKTOP
 
       if (!::SetServiceStatus(m_handle, &m_status))
       {
@@ -366,13 +366,13 @@ namespace apex_openbsd
    }
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 
 
 
-//#ifdef OPENBSD
+//#ifdef NETBSD
 //
 //
 //u32 Win32FromHResult(HRESULT value)

@@ -30,10 +30,10 @@
 //}
 
 
-//const char * openbsd_g_direct_get_file_icon_path(const char * pszPath, int iSize);
+//const char * netbsd_g_direct_get_file_icon_path(const char * pszPath, int iSize);
 //
 //
-//const char * openbsd_g_direct_get_file_content_type(const char * pszPath);
+//const char * netbsd_g_direct_get_file_content_type(const char * pszPath);
 //
 //
 //void x11_add_idle_source();
@@ -201,7 +201,7 @@ namespace desktop_environment_kde
 //         ////
 //         ////      //auto idle_source = g_idle_source_new();
 //         ////
-//         ////      //g_source_set_callback(idle_source, &openbsd_start_system, (::apex::system *) m_psystem, nullptr);
+//         ////      //g_source_set_callback(idle_source, &netbsd_start_system, (::apex::system *) m_psystem, nullptr);
 //         ////
 //         ////      //g_source_attach(idle_source, g_main_context_default());
 //         ////
@@ -505,7 +505,7 @@ namespace desktop_environment_kde
 //   string node::get_file_icon_path(const char *pszPath, int iSize)
 //   {
 //
-//      return ::openbsd_g_direct_get_file_icon_path(pszPath, iSize);
+//      return ::netbsd_g_direct_get_file_icon_path(pszPath, iSize);
 //
 //   }
 
@@ -513,7 +513,7 @@ namespace desktop_environment_kde
 //   string node::get_file_content_type(const char *pszPath)
 //   {
 //
-//      return ::openbsd_g_direct_get_file_content_type(pszPath);
+//      return ::netbsd_g_direct_get_file_content_type(pszPath);
 //
 //   }
 //
@@ -542,7 +542,7 @@ namespace desktop_environment_kde
 //   }
 //
 
-//   ::node_openbsd::appindicator *node::appindicator_allocate()
+//   ::node_netbsd::appindicator *node::appindicator_allocate()
 //   {
 //
 //      return new ::node_kde::appindicator();
@@ -550,10 +550,10 @@ namespace desktop_environment_kde
 //   }
 //
 //
-//   void node::appindicator_destroy(::openbsd::appindicator *pappindicator)
+//   void node::appindicator_destroy(::netbsd::appindicator *pappindicator)
 //   {
 //
-//      //::openbsd::appindicator_destroy(pappindicator);
+//      //::netbsd::appindicator_destroy(pappindicator);
 //
 //      delete pappindicator;
 //

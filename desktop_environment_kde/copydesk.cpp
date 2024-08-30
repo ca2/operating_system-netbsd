@@ -1,8 +1,8 @@
 #include "framework.h"
 #include "_.h"
-#include "aura/os/openbsd/_openbsd.h"
-//#include "apex/os/openbsd/gnome_gnome.h"
-#include "aura/node/openbsd/_openbsd.h"
+#include "aura/os/netbsd/_netbsd.h"
+//#include "apex/os/netbsd/gnome_gnome.h"
+#include "aura/node/netbsd/_netbsd.h"
 #include "clipboard_data.h"
 //#include <gtk/gtk.h>
 

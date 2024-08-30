@@ -9,7 +9,7 @@ namespace node_kde
 
 
    class appindicator :
-      virtual public ::node_openbsd::appindicator
+      virtual public ::node_netbsd::appindicator
    {
    public:
 

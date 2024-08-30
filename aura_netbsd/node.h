@@ -8,16 +8,16 @@
 #pragma once
 
 
-#include "apex_openbsd/node.h"
+#include "apex_netbsd/node.h"
 #include "aura_posix/node.h"
 
 
-namespace aura_openbsd
+namespace aura_netbsd
 {
 
 
-   class CLASS_DECL_AURA_OPENBSD node :
-           virtual public ::apex_openbsd::node,
+   class CLASS_DECL_AURA_NETBSD node :
+           virtual public ::apex_netbsd::node,
            virtual public ::aura_posix::node
    {
    public:
@@ -60,7 +60,7 @@ namespace aura_openbsd
    };
 
 
-} // namespace aura_openbsd
+} // namespace aura_netbsd
 
 
 

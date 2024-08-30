@@ -84,7 +84,7 @@ void apex_application_set_application_menu(::application_menu * papplicationmenu
 
 
 
-gboolean openbsd_start_system(gpointer data)
+gboolean netbsd_start_system(gpointer data)
 {
 
    GApplication * papp = g_application_get_default ();

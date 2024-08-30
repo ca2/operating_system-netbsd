@@ -4,7 +4,7 @@
 #include "acme_file.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
    
@@ -106,7 +106,7 @@ namespace acme_openbsd
    ::file::path acme_directory::sensitive()
    {
 
-   #ifdef OPENBSD
+   #ifdef NETBSD
 
       return "C:\\sensitive\\sensitive";
 
@@ -178,7 +178,7 @@ namespace acme_openbsd
    ::file::path acme_directory::inplace_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
-   #ifdef OPENBSD_DESKTOP
+   #ifdef NETBSD_DESKTOP
 
       ::file::path path;
 
@@ -235,7 +235,7 @@ namespace acme_openbsd
    ::file::path acme_directory::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
-   #ifdef OPENBSD_DESKTOP
+   #ifdef NETBSD_DESKTOP
 
       ::file::path path;
 
@@ -519,7 +519,7 @@ namespace acme_openbsd
    }
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

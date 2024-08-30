@@ -8,7 +8,7 @@
 #pragma once
 
 
-#include "aura_openbsd/node.h"
+#include "aura_netbsd/node.h"
 #include "node_gtk_based/node.h"
 
 
@@ -17,7 +17,7 @@ namespace desktop_environment_gtk_based
 
 
    class CLASS_DECL_DESKTOP_ENVIRONMENT_GTK_BASED node :
-      virtual public ::aura_openbsd::node,
+      virtual public ::aura_netbsd::node,
       virtual public ::node_gtk_based::node
    {
    public:
@@ -83,9 +83,9 @@ namespace desktop_environment_gtk_based
 
       //virtual void _os_process_user_theme_color(string strTheme);
 
-      //virtual ::node_openbsd::appindicator * appindicator_allocate() override;
+      //virtual ::node_netbsd::appindicator * appindicator_allocate() override;
 
-      //virtual void appindicator_destroy(::openbsd::appindicator * pappindicator) override;
+      //virtual void appindicator_destroy(::netbsd::appindicator * pappindicator) override;
 
       //virtual void enum_display_monitors(::aura::session * psession) override;
 

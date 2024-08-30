@@ -17,7 +17,7 @@ namespace desktop_environment_kde
 
 
    class CLASS_DECL_ACME node :
-      virtual public ::aura::openbsd::node,
+      virtual public ::aura::netbsd::node,
       virtual public ::node_kde::node
    {
    public:
@@ -65,11 +65,11 @@ namespace desktop_environment_kde
 
       //virtual void node_post_quit() override;
 
-      //virtual ::openbsd::appindicator * appindicator_allocate() override;
+      //virtual ::netbsd::appindicator * appindicator_allocate() override;
 
-      //::extended::transport < ::openbsd::appindicator > new_appindicator();
+      //::extended::transport < ::netbsd::appindicator > new_appindicator();
 
-      //virtual void appindicator_destroy(::openbsd::appindicator * pappindicator) override;
+      //virtual void appindicator_destroy(::netbsd::appindicator * pappindicator) override;
 
       //virtual void enum_display_monitors(::aura::session * psession) override;
 

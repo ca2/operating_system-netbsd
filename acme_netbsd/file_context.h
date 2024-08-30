@@ -4,11 +4,11 @@
 #include "acme_posix/file_context.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD file_context :
+   class CLASS_DECL_ACME_NETBSD file_context :
       virtual public ::acme_posix::file_context
    {
    public:
@@ -31,7 +31,7 @@ namespace acme_openbsd
    };
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

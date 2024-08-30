@@ -10,11 +10,11 @@
 #include "acme_posix/node.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD node :
+   class CLASS_DECL_ACME_NETBSD node :
       virtual public ::acme_posix::node
    {
    public:
@@ -72,7 +72,7 @@ namespace acme_openbsd
    };
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

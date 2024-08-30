@@ -4,11 +4,11 @@
 #include "acme/filesystem/filesystem/file_system.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD file_system:
+   class CLASS_DECL_ACME_NETBSD file_system:
       virtual public ::file_system
    {
    public:
@@ -27,7 +27,7 @@ namespace acme_openbsd
    };
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

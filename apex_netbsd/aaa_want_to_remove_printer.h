@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace openbsd
+namespace netbsd
 {
 
 
@@ -25,7 +25,7 @@ namespace openbsd
          virtual ~document_properties();
 
 
-         virtual bool initialize(::openbsd::printer * pprinter, DEVMODE * pdevmode = nullptr);
+         virtual bool initialize(::netbsd::printer * pprinter, DEVMODE * pdevmode = nullptr);
          virtual bool close();
          virtual ::draw2d::graphics * create_graphics();
 

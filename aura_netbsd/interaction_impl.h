@@ -4,7 +4,7 @@
 #include "aura/user/user/interaction_impl.h"
 
 
-namespace aura_openbsd
+namespace aura_netbsd
 {
 
 
@@ -380,7 +380,7 @@ namespace aura_openbsd
    };
 
 
-} // namespace aura_openbsd
+} // namespace aura_netbsd
 
 
 

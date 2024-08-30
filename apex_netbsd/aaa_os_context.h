@@ -4,7 +4,7 @@
 #include "apex_posix/os_context.h"
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
@@ -27,7 +27,7 @@ namespace apex_openbsd
       void terminate_processes_by_title(const ::string & strName) override;
 
 
-      virtual bool openbsd_can_exec(const char *file);
+      virtual bool netbsd_can_exec(const char *file);
 
 
       //virtual ::file::path get_module_path(HMODULE hmodule) override;
@@ -87,7 +87,7 @@ namespace apex_openbsd
    };
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

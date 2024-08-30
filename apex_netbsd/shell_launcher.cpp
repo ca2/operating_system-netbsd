@@ -3,7 +3,7 @@
 #include "shell_launcher.h"
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
    
@@ -33,7 +33,7 @@ namespace apex_openbsd
       //      wstring(m_strFile),
       //      wstring(m_strParameters),
       //      wstring(m_strDirectory),
-      //      openbsd_show_window(m_edisplay, m_eactivation));
+      //      netbsd_show_window(m_edisplay, m_eactivation));
 
       //}
 
@@ -54,7 +54,7 @@ namespace apex_openbsd
    //}
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

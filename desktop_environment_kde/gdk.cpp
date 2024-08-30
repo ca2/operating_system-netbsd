@@ -508,7 +508,7 @@ bool bOk = true;
 
 
 
-//#ifdef OPENBSD
+//#ifdef NETBSD
 //static void
 //log_handler (const gchar   *log_domain,
 //             GLogLevelFlags log_level,

@@ -33,32 +33,32 @@
 #ifndef __PUB_TOOL_VKISCNUMS_ASM_H
 #define __PUB_TOOL_VKISCNUMS_ASM_H
 
-#if defined(VGP_x86_openbsd)
-#  include "vki/vki-scnums-x86-openbsd.h"
+#if defined(VGP_x86_netbsd)
+#  include "vki/vki-scnums-x86-netbsd.h"
 
-#elif defined(VGP_amd64_openbsd)
-#  include "vki/vki-scnums-amd64-openbsd.h"
+#elif defined(VGP_amd64_netbsd)
+#  include "vki/vki-scnums-amd64-netbsd.h"
 
-#elif defined(VGP_ppc32_openbsd)
-#  include "vki/vki-scnums-ppc32-openbsd.h"
+#elif defined(VGP_ppc32_netbsd)
+#  include "vki/vki-scnums-ppc32-netbsd.h"
 
-#elif defined(VGP_ppc64be_openbsd) || defined(VGP_ppc64le_openbsd)
-#  include "vki/vki-scnums-ppc64-openbsd.h"
+#elif defined(VGP_ppc64be_netbsd) || defined(VGP_ppc64le_netbsd)
+#  include "vki/vki-scnums-ppc64-netbsd.h"
 
-#elif defined(VGP_s390x_openbsd)
-#  include "vki/vki-scnums-s390x-openbsd.h"
+#elif defined(VGP_s390x_netbsd)
+#  include "vki/vki-scnums-s390x-netbsd.h"
 
-#elif defined(VGP_arm_openbsd)
-#  include "vki/vki-scnums-arm-openbsd.h"
+#elif defined(VGP_arm_netbsd)
+#  include "vki/vki-scnums-arm-netbsd.h"
 
-#elif defined(VGP_arm64_openbsd)
-#  include "vki/vki-scnums-arm64-openbsd.h"
+#elif defined(VGP_arm64_netbsd)
+#  include "vki/vki-scnums-arm64-netbsd.h"
 
-#elif defined(VGP_mips32_openbsd)
-#  include "vki/vki-scnums-mips32-openbsd.h"
+#elif defined(VGP_mips32_netbsd)
+#  include "vki/vki-scnums-mips32-netbsd.h"
 
-#elif defined(VGP_mips64_openbsd)
-#  include "vki/vki-scnums-mips64-openbsd.h"
+#elif defined(VGP_mips64_netbsd)
+#  include "vki/vki-scnums-mips64-netbsd.h"
 
 #elif defined(VGP_x86_darwin) || defined(VGP_amd64_darwin)
 #  include "vki/vki-scnums-darwin.h"

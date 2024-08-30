@@ -9,7 +9,7 @@
 #include "acme_posix/acme_file.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
@@ -29,7 +29,7 @@ namespace acme_openbsd
    };
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

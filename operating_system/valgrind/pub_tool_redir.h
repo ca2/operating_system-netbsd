@@ -243,7 +243,7 @@
 
 /* --- Soname of the standard C library. --- */
 
-#if defined(VGO_openbsd) || defined(VGO_solaris)
+#if defined(VGO_netbsd) || defined(VGO_solaris)
 # if defined(MUSL_LIBC)
 #  define  VG_Z_LIBC_SONAME  libcZdZa              // libc.*
 #else
@@ -278,7 +278,7 @@
 
 /* --- Soname of the pthreads library. --- */
 
-#if defined(VGO_openbsd)
+#if defined(VGO_netbsd)
 # if defined(MUSL_LIBC)
 #  define  VG_Z_LIBPTHREAD_SONAME  libcZdZa              // libc.*
 #else
@@ -294,17 +294,17 @@
 
 /* --- Sonames for Linux ELF linkers, plus unencoded versions. --- */
 
-#if defined(VGO_openbsd)
+#if defined(VGO_netbsd)
 
-#define  VG_Z_LD_OPENBSD_SO_3         ldZhopenbsdZdsoZd3           // ld-openbsd.so.3
-#define  VG_U_LD_OPENBSD_SO_3         "ld-openbsd.so.3"
+#define  VG_Z_LD_NETBSD_SO_3         ldZhnetbsdZdsoZd3           // ld-netbsd.so.3
+#define  VG_U_LD_NETBSD_SO_3         "ld-netbsd.so.3"
 
-#define  VG_Z_LD_OPENBSD_SO_2         ldZhopenbsdZdsoZd2           // ld-openbsd.so.2
-#define  VG_U_LD_OPENBSD_SO_2         "ld-openbsd.so.2"
+#define  VG_Z_LD_NETBSD_SO_2         ldZhnetbsdZdsoZd2           // ld-netbsd.so.2
+#define  VG_U_LD_NETBSD_SO_2         "ld-netbsd.so.2"
 
-#define  VG_Z_LD_OPENBSD_X86_64_SO_2  ldZhopenbsdZhx86Zh64ZdsoZd2
-                                                        // ld-openbsd-x86-64.so.2
-#define  VG_U_LD_OPENBSD_X86_64_SO_2  "ld-openbsd-x86-64.so.2"
+#define  VG_Z_LD_NETBSD_X86_64_SO_2  ldZhnetbsdZhx86Zh64ZdsoZd2
+                                                        // ld-netbsd-x86-64.so.2
+#define  VG_U_LD_NETBSD_X86_64_SO_2  "ld-netbsd-x86-64.so.2"
 
 #define  VG_Z_LD64_SO_1             ld64ZdsoZd1                // ld64.so.1
 #define  VG_U_LD64_SO_1             "ld64.so.1"
@@ -313,8 +313,8 @@
 #define  VG_Z_LD_SO_1               ldZdsoZd1                  // ld.so.1
 #define  VG_U_LD_SO_1               "ld.so.1"
 
-#define  VG_U_LD_OPENBSD_AARCH64_SO_1 "ld-openbsd-aarch64.so.1"
-#define  VG_U_LD_OPENBSD_ARMHF_SO_3   "ld-openbsd-armhf.so.3"
+#define  VG_U_LD_NETBSD_AARCH64_SO_1 "ld-netbsd-aarch64.so.1"
+#define  VG_U_LD_NETBSD_ARMHF_SO_3   "ld-netbsd-armhf.so.3"
 
 #endif
 

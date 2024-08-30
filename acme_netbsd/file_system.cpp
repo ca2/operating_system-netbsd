@@ -2,7 +2,7 @@
 #include "file_system.h"
 
 
-namespace acme_openbsd
+namespace acme_netbsd
 {
 
 
@@ -34,7 +34,7 @@ namespace acme_openbsd
    }
 
 
-} // namespace acme_openbsd
+} // namespace acme_netbsd
 
 
 

@@ -15,11 +15,11 @@ Copyright (ca) 1998 by PJ Naughter.
 #include "apex/networking/ip_enum.h"
 
 
-namespace apex_openbsd
+namespace apex_netbsd
 {
 
 
-   class CLASS_DECL_APEX_OPENBSD ip_enum :
+   class CLASS_DECL_APEX_NETBSD ip_enum :
       virtual public ::networking::ip_enum
    {
    public:
@@ -38,7 +38,7 @@ namespace apex_openbsd
    };
 
 
-} // namespace apex_openbsd
+} // namespace apex_netbsd
 
 
 

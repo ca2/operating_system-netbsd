@@ -1,7 +1,7 @@
 #pragma once
 
 
-#ifdef OPENBSD
+#ifdef NETBSD
 
 class CLASS_DECL_APEX simple_hold_handle
 {

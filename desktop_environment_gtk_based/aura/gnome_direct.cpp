@@ -10,7 +10,7 @@
 #include "aura/const/_const.h"
 #include "acme/const/id.h"
 #include "platform/_.h"
-#include "aura/os/openbsd/appindicator.h"
+#include "aura/os/netbsd/appindicator.h"
 
 
 // apt-get install libgtk2.0-dev
@@ -46,9 +46,9 @@
 //
 //#endif
 
-//bool openbsd_g_direct_app_indicator_new(const char * pszId, const char * pszIcon, const char * pszFolder, user_notify_icon_bridge * pbridge);
-// /void openbsd_g_direct_app_indicator_term(AppIndicator * pindicator);
-//void openbsd_g_direct_app_indicator_step(void * pvoidInd);
+//bool netbsd_g_direct_app_indicator_new(const char * pszId, const char * pszIcon, const char * pszFolder, user_notify_icon_bridge * pbridge);
+// /void netbsd_g_direct_app_indicator_term(AppIndicator * pindicator);
+//void netbsd_g_direct_app_indicator_step(void * pvoidInd);
 
 
 
@@ -106,7 +106,7 @@ void os_post_quit();
 
 #ifndef RASPBIAN
 
-GtkWidget * openbsd_g_direct_app_indicator_init(AppIndicator * pindicator, user_notify_icon_bridge * pbridge);
+GtkWidget * netbsd_g_direct_app_indicator_init(AppIndicator * pindicator, user_notify_icon_bridge * pbridge);
 
 
 static void ___extra_action(GtkAction * action, void * data)
@@ -140,7 +140,7 @@ extern "C"
 
 
 class gnome_appindicator :
-   virtual public ::openbsd::appindicator
+   virtual public ::netbsd::appindicator
 {
 public:
 
@@ -201,7 +201,7 @@ void gnome_appindicator::close()
 
 }
 
-namespace openbsd
+namespace netbsd
 {
 
 
@@ -216,7 +216,7 @@ namespace openbsd
    }
 
 
-} // namespace openbsd
+} // namespace netbsd
 
 
 bool gnome_appindicator::create(const char * pszId, const char * pszIcon, const char * pszFolder, user_notify_icon_bridge * pbridge)
@@ -639,7 +639,7 @@ namespace node_gnome
 } // namespace node_gnome
 
 
-const char * openbsd_g_direct_get_file_icon_path(const char * pszPath, int iSize)
+const char * netbsd_g_direct_get_file_icon_path(const char * pszPath, int iSize)
 {
 
    GFile * pfile = g_file_new_for_path (pszPath);
@@ -741,7 +741,7 @@ const char * openbsd_g_direct_get_file_icon_path(const char * pszPath, int iSize
 }
 
 
-const char * openbsd_g_direct_get_file_content_type(const char * pszPath)
+const char * netbsd_g_direct_get_file_content_type(const char * pszPath)
 {
 
    GFile * pfile = g_file_new_for_path (pszPath);

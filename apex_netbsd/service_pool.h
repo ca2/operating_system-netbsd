@@ -1,7 +1,7 @@
 #pragma once
 
 
-//namespace openbsd
+//namespace netbsd
 //{
 //
 //

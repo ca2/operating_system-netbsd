@@ -2,7 +2,7 @@
 #include "node.h"
 
 
-__FACTORY_EXPORT void aura_openbsd_factory(::factory::factory * pfactory);
+__FACTORY_EXPORT void aura_netbsd_factory(::factory::factory * pfactory);
 
 
 __FACTORY_EXPORT void node_gtk_based_factory(::factory::factory * pfactory);
@@ -11,7 +11,7 @@ __FACTORY_EXPORT void node_gtk_based_factory(::factory::factory * pfactory);
 __FACTORY_EXPORT void desktop_environment_gtk_based_factory(::factory::factory * pfactory)
 {
 
-   aura_openbsd_factory(pfactory);
+   aura_netbsd_factory(pfactory);
 
    node_gtk_based_factory(pfactory);
 

@@ -2,10 +2,10 @@
 
 
 extern "C"
-void node_openbsd_factory(::factory::factory * pfactory)
+void node_netbsd_factory(::factory::factory * pfactory)
 {
 
-   add_factory_item < node_openbsd::node, ::acme::node >();
+   add_factory_item < node_netbsd::node, ::acme::node >();
 
 }
 
