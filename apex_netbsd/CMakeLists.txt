@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(apex_openbsd CXX)
+project(apex_netbsd CXX)
 
 
 list(APPEND library_source
@@ -33,7 +33,7 @@ if(USE_KQUEUE_FILE_WATCHER_DIRECTLY)
 endif()
 
 
-list(APPEND library_references acme acme_posix acme_posix acme_openbsd apex apex_posix)
+list(APPEND library_references acme acme_posix acme_posix acme_netbsd apex apex_posix)
 
 add_library(${PROJECT_NAME} SHARED ${library_source})
 add_library(static_${PROJECT_NAME} STATIC ${library_source})
@@ -62,10 +62,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 if (MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
     target_link_options(${PROJECT_NAME} PRIVATE "/DEFAULTLIB:msvcrt$<$<CONFIG:Debug>:d>")
-    target_link_options(${PROJECT_NAME} PRIVATE "/IMPLIB:${LIBRARY_OUTPUT_PATH}/apex_openbsd.lib")
-    target_link_options(${PROJECT_NAME} PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/apex_openbsd.def")
+    target_link_options(${PROJECT_NAME} PRIVATE "/IMPLIB:${LIBRARY_OUTPUT_PATH}/apex_netbsd.lib")
+    target_link_options(${PROJECT_NAME} PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/apex_netbsd.def")
     target_link_libraries(${PROJECT_NAME} PRIVATE acme apex aqua aura Gdiplus)
-elseif(${OPENBSD})
+elseif(${NETBSD})
     #pkg_check_modules(PKGCONFIG glib-2.0 gtk+-3.0 gdk-3.0 appindicator-0.1)
     pkg_check_modules(PKGCONFIG glib-2.0 freetype2 gtk+-3.0 gdk-3.0)
     target_compile_options(${PROJECT_NAME} PRIVATE -fpermissive)
@@ -96,7 +96,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${library_include_directories
 target_include_directories(static_${PROJECT_NAME} PRIVATE ${library_include_directories})
 
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE _APEX_OPENBSD_LIBRARY)
+target_compile_definitions(${PROJECT_NAME} PRIVATE _${PROJECT_NAME}_project)
 
 
 

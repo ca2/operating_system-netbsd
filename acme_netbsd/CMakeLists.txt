@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(acme_openbsd CXX)
+project(acme_netbsd CXX)
 
 
 list(APPEND library_source
@@ -64,7 +64,7 @@ if (MSVC)
     target_link_options(${PROJECT_NAME} PRIVATE "/IMPLIB:${LIBRARY_OUTPUT_PATH}/${PROJECT_NAME}.lib")
     target_link_options(${PROJECT_NAME} PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.def")
     target_link_libraries(${PROJECT_NAME} PRIVATE acme apex aqua aura Gdiplus)
-elseif(${OPENBSD})
+elseif(${NETBSD})
 
 
     target_compile_options(${PROJECT_NAME} PRIVATE -fpermissive)
@@ -97,7 +97,7 @@ target_include_directories(static_${PROJECT_NAME} PRIVATE ${library_include_dire
 
 
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE _acme_openbsd_project)
+target_compile_definitions(${PROJECT_NAME} PRIVATE _${PROJECT_NAME}_project)
 target_compile_definitions(${PROJECT_NAME} PRIVATE UNICODE)
 target_compile_definitions(${PROJECT_NAME} PRIVATE _UNICODE)
 
