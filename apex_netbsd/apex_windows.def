@@ -1,0 +1,5 @@
+LIBRARY "apex_openbsd"
+
+EXPORTS
+apex_openbsd_factory
+
