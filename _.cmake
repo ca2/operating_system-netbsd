@@ -102,8 +102,8 @@ elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "Xfce")
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is XFCE")
     set(DESKTOP_ENVIRONMENT_NAME "xfce")
-#    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
-#    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
+    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake")
+    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake)
 endif ()
 
 
@@ -339,7 +339,7 @@ list(APPEND global_library_references
             c)
 
 
-if (LXDE_DESKTOP)
+if (${LXDE_DESKTOP})
 
     list(APPEND app_common_dependencies
             desktop_environment_gnome)
@@ -356,10 +356,7 @@ if (LXDE_DESKTOP)
 
     add_compile_definitions(default_windowing=windowing_x11)
 
-endif ()
-
-
-if (XFCE_DESKTOP)
+elseif (${XFCE_DESKTOP})
 
     list(APPEND app_common_dependencies
             desktop_environment_xfce)
@@ -373,10 +370,7 @@ if (XFCE_DESKTOP)
 
     add_compile_definitions(default_windowing=windowing_x11)
 
-endif ()
-
-
-if (${GTK_BASED_DESKTOP})
+elseif (${GTK_BASED_DESKTOP})
 
 
     message(STATUS "Adding GTK/X11 dependency.")
@@ -396,10 +390,7 @@ if (${GTK_BASED_DESKTOP})
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 
-endif ()
-
-
-if (KDE_DESKTOP)
+elseif(${KDE_DESKTOP})
 
     list(APPEND app_common_dependencies
             desktop_environment_kde)
