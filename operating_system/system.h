@@ -18,7 +18,9 @@
 
 #include <stdarg.h>
 //#include <cstring>
-#include <cstddef>
+#include <stddef.h>
+#include <cmath>
+#include <climits>
 
 // Ubuntu apt-get install libx11-dev
 // CentOS yum install libX11-devel
