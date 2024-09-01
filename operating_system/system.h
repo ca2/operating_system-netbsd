@@ -11,16 +11,31 @@
 #define _NETBSD 1
 #endif
 
+#ifndef _NETBSD_SOURCE
+#define _NETBSD_SOURCE 1
+#endif 
+
 #define __cdecl
 #define _stdcall
 
 #define _NORMAL_BLOCK  1
 
 #include <stdarg.h>
-//#include <cstring>
 #include <stddef.h>
 #include <cmath>
 #include <climits>
+#include <string.h>
+
+
+
+
+
+//#include <wchar.h>
+//#include <wctype.h>
+
+
+
+
 
 // Ubuntu apt-get install libx11-dev
 // CentOS yum install libX11-devel
@@ -314,6 +329,13 @@ typedef void * PVOID;
 #ifndef NETBSD
 #define offsetof(type, member)  __builtin_offsetof (type, member)
 #endif
+
+
+#ifndef va_copy
+#define va_copy __va_copy
+#endif // va_copy
+
+
 
 
 
