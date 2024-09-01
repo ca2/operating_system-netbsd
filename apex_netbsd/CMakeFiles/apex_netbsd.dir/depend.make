@@ -1,2 +1,2 @@
-# Empty dependencies file for apex_openbsd.
+# Empty dependencies file for apex_netbsd.
 # This may be replaced when dependencies are built.

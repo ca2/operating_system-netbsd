@@ -1,2 +1,2 @@
-# Empty dependencies file for node_openbsd.
+# Empty dependencies file for node_netbsd.
 # This may be replaced when dependencies are built.

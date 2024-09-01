@@ -119,6 +119,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} tolower_cmake_build_type)
 
 
 message(STATUS "tolower_cmake_build_type = ${tolower_cmake_build_type}")
+message(STATUS "SLASHED_OPERATING_SYSTEM is ${SLASHED_OPERATING_SYSTEM}")
 
 
 if (${tolower_cmake_build_type} STREQUAL "debug")
@@ -171,7 +172,7 @@ set(CMAKE_INSTALL_RPATH $ORIGIN)
 
 set(OPERATING_SYSTEM_NAME "netbsd")
 set(OPERATING_SYSTEM_POSIX TRUE)
-set(FILE_SYSTEM_INOTIFY TRUE)
+set(FILE_SYSTEM_INOTIFY FALSE)
 set(POSIX_SPAWN TRUE)
 set(POSIX_LIST_SERIAL_PORTS TRUE)
 set(WITH_X11 TRUE)
@@ -356,20 +357,6 @@ if (${LXDE_DESKTOP})
 
     add_compile_definitions(default_windowing=windowing_x11)
 
-elseif (${XFCE_DESKTOP})
-
-    list(APPEND app_common_dependencies
-            desktop_environment_xfce)
-
-    list(APPEND static_app_common_dependencies
-            static_desktop_environment_xfce)
-
-    set(default_windowing "windowing_x11")
-
-    add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
-
-    add_compile_definitions(default_windowing=windowing_x11)
-
 elseif (${GTK_BASED_DESKTOP})
 
 
@@ -389,6 +376,21 @@ elseif (${GTK_BASED_DESKTOP})
     set(default_windowing "windowing_x11")
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
+
+elseif (${XFCE_DESKTOP})
+
+    list(APPEND app_common_dependencies
+            desktop_environment_xfce)
+
+    list(APPEND static_app_common_dependencies
+            static_desktop_environment_xfce)
+
+    set(default_windowing "windowing_x11")
+
+    add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
+
+    add_compile_definitions(default_windowing=windowing_x11)
+
 
 elseif(${KDE_DESKTOP})
 

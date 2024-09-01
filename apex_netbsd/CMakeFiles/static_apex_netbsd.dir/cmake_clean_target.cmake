@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../../../library/libstatic_apex_openbsd.a"
+  "../../../library/libstatic_apex_netbsd.a"
 )

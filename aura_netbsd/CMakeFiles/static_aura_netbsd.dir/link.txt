@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../../../library/libstatic_aura_openbsd.a CMakeFiles/static_aura_openbsd.dir/_.cpp.o CMakeFiles/static_aura_openbsd.dir/_factory.cpp.o CMakeFiles/static_aura_openbsd.dir/appindicator.cpp.o CMakeFiles/static_aura_openbsd.dir/interaction_impl.cpp.o CMakeFiles/static_aura_openbsd.dir/node.cpp.o
-/usr/bin/ranlib ../../../library/libstatic_aura_openbsd.a
+/usr/bin/ar qc ../../../library/libstatic_aura_netbsd.a CMakeFiles/static_aura_netbsd.dir/_.cpp.o CMakeFiles/static_aura_netbsd.dir/_factory.cpp.o CMakeFiles/static_aura_netbsd.dir/appindicator.cpp.o CMakeFiles/static_aura_netbsd.dir/interaction_impl.cpp.o CMakeFiles/static_aura_netbsd.dir/node.cpp.o
+/usr/bin/ranlib ../../../library/libstatic_aura_netbsd.a
