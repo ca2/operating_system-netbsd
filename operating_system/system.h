@@ -17,7 +17,7 @@
 #define _NORMAL_BLOCK  1
 
 #include <stdarg.h>
-
+//#include <cstring>
 #include <cstddef>
 
 // Ubuntu apt-get install libx11-dev
