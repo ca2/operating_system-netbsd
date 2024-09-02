@@ -420,26 +420,6 @@ elseif(${KDE_DESKTOP})
 endif ()
 
 
-#set(static_acme_extra_pkgconfig cairo xcb x11 xkbcommon xcb-render xcb-aux x11-xcb)
-#set(static_aura_posix_pkgconfig libstartup-notification-1.0)
-#
-#set(static_acme_pkgconfig freetype2 libidn ${static_acme_extra_pkgconfig} ncurses dbus-glib-1)
-#set(static_apex_pkgconfig libcrypto libssl libarchive)
-#set(static_database_cairo_pkgconfig freetype2 pango cairo pangocairo)
-#set(static_database_sqlite3_pkgconfig sqlite3)
-#set(static_desktop_environment_gnome_pkgconfig glib-2.0 gtk+-3.0 gdk-3.0 ${APPINDICATOR_PKG_MODULE})
-#set(static_desktop_environment_kde_pkgconfig Qt5X11Extras Qt5Core Qt5UiTools)
-
-#if (KDE_DESKTOP)
-#    set(static_desktop_environment_pkgconfig ${static_desktop_environment_kde_pkgconfig})
-#elseif (GNOME_DESKTOP)
-#    set(static_desktop_environment_pkgconfig ${static_desktop_environment_gnome_pkgconfig})
-#else ()
-#    set(static_desktop_environment_pkgconfig ${static_desktop_environment_gnome_pkgconfig})
-#endif()
-#
-
-
 set(LIBCXX_TARGETING_MSVC OFF)
 
 
@@ -447,12 +427,7 @@ add_compile_definitions(UNICODE)
 add_compile_definitions(_UNICODE)
 
 
-#list(APPEND app_common_dependencies _console_application_build_helper)
-
-
-#set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/time-${OPERATING_SYSTEM_NAME}/x64/basis)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/library)
-#set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/time-${OPERATING_SYSTEM_NAME}/x64/basis)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/output)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/library)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
