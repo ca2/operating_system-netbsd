@@ -786,11 +786,11 @@ namespace acme_netbsd
       
          ::string strUnameA = get_posix_shell_command_output("uname -a");
 
-         printf_line("uname -a output: %s", strUnameA.c_str());
+         debugf("uname -a output: %s", strUnameA.c_str());
 
          ::string strUnameR = get_posix_shell_command_output("uname -r");
 
-         printf_line("uname -r output: %s", strUnameR.c_str());
+         debugf("uname -r output: %s", strUnameR.c_str());
          
          strUnameA.trim();
          
@@ -862,7 +862,7 @@ namespace acme_netbsd
 
          }
 
-         printf_line("xfce4-about -V output: %s", strXfceAbout.c_str());
+         debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
 
       }
 
