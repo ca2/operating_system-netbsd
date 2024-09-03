@@ -799,11 +799,11 @@ namespace acme_netbsd
 //            psummary->m_strDistroBranch = "bsd";
             psummary->m_strDistroRelease = strUnameR;
             psummary->m_strDistroFamily = "netbsd";
-         
+
+
          }
       
       }
-
 
       auto strLowerCaseCurrentDesktop = this->get_environment_variable("XDG_CURRENT_DESKTOP").lowered();
 
@@ -844,6 +844,21 @@ namespace acme_netbsd
          //# echo "lower case xdg_current_desktop contains lxde"
 
          psummary->m_strDesktopEnvironment = "lxde";
+
+      }
+      else
+      {
+
+         ::string strXfceAbout = get_posix_shell_command_output("xfce4-about -V");
+
+         if(strXfceAbout.case_insensitive_begins("xfce4-about "))
+         {
+
+            psummary->m_strDesktopEnvironment = "xfce";
+
+         }
+
+
 
       }
 
