@@ -6,6 +6,8 @@ message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 
 #include(FindPkgConfig)
 
+set(ENV{PKG_CONFIG_PATH} /usr/pkg/lib/ffmpeg5/pkgconfig/)
+
 #IF(PKG_CONFIG_FOUND)
     # use pkg_check_modules()
 #ENDIF(PKG_CONFIG_FOUND)
