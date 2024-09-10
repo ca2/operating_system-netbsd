@@ -717,7 +717,7 @@ namespace acme_netbsd
    string node::audio_get_default_implementation_name()
    {
 
-      return "alsa";
+      return "audio";
 
    }
 
