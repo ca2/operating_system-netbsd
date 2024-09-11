@@ -437,7 +437,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
 
 
 link_directories(/usr/lib)
-link_directories(/usr/local/lib)
+link_directories(/usr/pkg/lib)
 link_directories(/usr/X11R6/lib)
 link_directories(${LIBRARY_OUTPUT_PATH})
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/operating_system/storage-${OPERATING_SYSTEM_NAME}/library/x64/basis)
@@ -445,7 +445,7 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/operating_system/storage-${OPERATIN
 
 
 include_directories(/usr/include)
-include_directories(/usr/local/include)
+include_directories(/usr/pkg/include)
 include_directories(${WORKSPACE_FOLDER})
 include_directories($ENV{HOME}/__config)
 include_directories(${WORKSPACE_FOLDER}/source)
