@@ -208,6 +208,8 @@ if (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
     set(HAS_NO_APPINDICATOR TRUE)
 
+    set(LAUNCH_STORE_SYSTEM "netbsd")
+
 elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
     set(NETBSD TRUE)
