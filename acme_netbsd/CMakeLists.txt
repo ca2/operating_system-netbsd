@@ -6,26 +6,22 @@ list(APPEND library_source
    _.cpp
    _.h
    _factory.cpp
+   directory_context.cpp
+   directory_context.h
    directory_system.cpp
    directory_system.h
    file_system.cpp
    file_system.h
-   path_system.cpp
-   path_system.h
-   directory_context.cpp
-   directory_context.h
-   dir_system.cpp
-   dir_system.h
    file_context.cpp
    file_context.h
-   file_system.cpp
-   file_system.h
    #file.cpp
    #file.h
    framework.cpp
    framework.h
    node.cpp
    node.h
+   path_system.cpp
+   path_system.h
    )
 
 
