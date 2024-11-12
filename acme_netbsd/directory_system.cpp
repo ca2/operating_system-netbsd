@@ -89,18 +89,18 @@ namespace acme_netbsd
    }
 
 
-   ::file::path directory_system::public_system()
+   // ::file::path directory_system::public_system()
+   // {
+
+   //    return public_root() / "system";
+
+   // }
+
+
+   ::file::path directory_system::userconfig()
    {
 
-      return public_root() / "system";
-
-   }
-
-
-   ::file::path directory_system::system()
-   {
-
-      return ca2roaming() / "system";
+      return ca2roaming() / "user";
 
    }
 
