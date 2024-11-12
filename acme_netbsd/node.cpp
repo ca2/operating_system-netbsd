@@ -4,7 +4,7 @@
 #include "acme/filesystem/filesystem/file_system.h"
 
 
-::user::enum_desktop _get_edesktop();
+//::user::enum_desktop _get_edesktop();
 
 
 namespace acme_netbsd

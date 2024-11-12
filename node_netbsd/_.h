@@ -6,7 +6,7 @@
 #include "operating_system-posix/aura_posix/_.h"
 
 
-#if defined(_NODE_NETBSD_LIBRARY)
+#if defined(_node_netbsd_project)
 #define CLASS_DECL_NODE_NETBSD  CLASS_DECL_EXPORT
 #else
 #define CLASS_DECL_NODE_NETBSD  CLASS_DECL_IMPORT
@@ -17,8 +17,16 @@
 #include "_const.h"
 
 
-CLASS_DECL_NODE_NETBSD ::user::enum_desktop get_edesktop();
-CLASS_DECL_NODE_NETBSD ::user::enum_desktop calculate_edesktop();
+namespace windowing
+{
+
+
+   CLASS_DECL_ACME ::windowing::enum_desktop get_edesktop();
+   CLASS_DECL_ACME ::windowing::enum_desktop calculate_edesktop();
+
+
+} // namespace windowing
+
 
 
 

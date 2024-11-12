@@ -2,14 +2,14 @@
 #include "acme/platform/system.h"
 
 
-namespace nano::user
+namespace windowing
 {
 
 
-::user::enum_desktop get_edesktop();
+   CLASS_DECL_ACME ::windowing::enum_desktop get_edesktop();
 
 
-} // namespace nano::user
+} // namespace windowing
 
 
 __FACTORY_EXPORT void node_netbsd_factory(::factory::factory * pfactory)

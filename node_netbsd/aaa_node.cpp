@@ -476,27 +476,27 @@ namespace aura
 //
 //      }
 
-      ::user::enum_desktop node::get_edesktop()
-      {
+      // ::user::enum_desktop node::get_edesktop()
+      // {
 
-         if (m_edesktop == ::user::e_desktop_none)
-         {
+      //    if (m_edesktop == ::user::e_desktop_none)
+      //    {
 
-            m_edesktop = calculate_edesktop();
+      //       m_edesktop = calculate_edesktop();
 
-         }
+      //    }
 
-         return m_edesktop;
+      //    return m_edesktop;
 
-      }
+      // }
 
 
-      ::user::enum_desktop node::calculate_edesktop()
-      {
+      // ::user::enum_desktop node::calculate_edesktop()
+      // {
 
-         return ::user::e_desktop_none;
+      //    return ::user::e_desktop_none;
 
-      }
+      // }
 
 
 

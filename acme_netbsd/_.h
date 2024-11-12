@@ -11,8 +11,14 @@
 #endif
 
 
-CLASS_DECL_ACME_NETBSD ::user::enum_desktop get_edesktop();
+namespace windowing
+{
 
+
+   CLASS_DECL_ACME ::windowing::enum_desktop get_edesktop();
+
+
+} // namespace windowing
 
 
 
