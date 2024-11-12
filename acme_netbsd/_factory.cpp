@@ -3,7 +3,7 @@
 #include "directory_system.h"
 #include "file_system.h"
 #include "path_system.h"
-#include "dir_system.h"
+#include "directory_system.h"
 #include "file_system.h"
 #include "directory_context.h"
 #include "file_context.h"
@@ -23,7 +23,7 @@ __FACTORY_EXPORT void acme_netbsd_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < ::acme_netbsd::file_system, ::file_system >();
    pfactory->add_factory_item < ::acme_netbsd::path_system, ::path_system >();
    
-   pfactory->add_factory_item < ::acme_netbsd::dir_system, ::dir_system >();
+   pfactory->add_factory_item < ::acme_netbsd::directory_system, ::directory_system >();
    pfactory->add_factory_item < ::acme_netbsd::file_system, ::file_system >();
 
    pfactory->add_factory_item < ::acme_netbsd::directory_context, ::directory_context >();

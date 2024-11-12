@@ -6,7 +6,7 @@
 #include "acme_netbsd/_acme_netbsd.h"
 
 
-#include "dir_system.h"
+#include "directory_system.h"
 #include "directory_context.h"
 #include "file_system.h"
 #include "file_context.h"

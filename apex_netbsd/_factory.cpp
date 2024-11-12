@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "apex/platform/launcher.h"
 #include "launcher.h"
-//#include "dir_system.h"
+//#include "directory_system.h"
 //#include "file_system.h"
 //#include "directory_context.h"
 //#include "file_context.h"
@@ -29,7 +29,7 @@ IMPLEMENT_FACTORY(apex_netbsd)
 
    acme_netbsd_factory(pfactory);
 
-   //pfactory->add_factory_item < ::apex_netbsd::dir_system, ::dir_system >();
+   //pfactory->add_factory_item < ::apex_netbsd::directory_system, ::directory_system >();
    //pfactory->add_factory_item < ::apex_netbsd::file_system, ::file_system >();
 
    //pfactory->add_factory_item < ::apex_netbsd::directory_context, ::directory_context >();

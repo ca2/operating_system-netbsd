@@ -1,38 +1,38 @@
 #include "framework.h"
-#include "dir_system.h"
+#include "directory_system.h"
 
 
 namespace acme_netbsd
 {
 
 
-   dir_system::dir_system()
+   directory_system::directory_system()
    {
 
    }
 
 
-   dir_system::~dir_system()
+   directory_system::~directory_system()
    {
 
    }
 
 
-   void dir_system::initialize(::particle * pparticle)
+   void directory_system::initialize(::particle * pparticle)
    {
 
       //auto estatus =
 
-      ::dir_system::initialize(pparticle);
+      ::directory_system::initialize(pparticle);
 
 
    }
 
 
-   void dir_system::init_system()
+   void directory_system::init_system()
    {
 
-      ::dir_system::init_system();
+      ::directory_system::init_system();
 
    }
 
