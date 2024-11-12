@@ -147,7 +147,7 @@ namespace acme_netbsd
 
       ::file::path pathSystemShortName = localconfig() / "system_short_name.txt";
 
-      return m_pacmefile->as_string(pathSystemShortName).trimmed();
+      return file_system()->as_string(pathSystemShortName).trimmed();
 
    }
 
@@ -180,7 +180,7 @@ namespace acme_netbsd
    ::string directory_system::appid()
    {
 
-      ::file::path path = m_pacmefile->module();
+      ::file::path path = file_system()->module();
 
       path = file_path_folder(path);
 
@@ -202,7 +202,7 @@ namespace acme_netbsd
 
       string strFolder;
 
-      strsize iFind = strAppId.find('/');
+      character_count iFind = strAppId.find('/');
 
       if (strPlatform.compare_ci("win32") == 0 || strPlatform.compare_ci("x86") == 0)
       {
@@ -259,7 +259,7 @@ namespace acme_netbsd
 
       string strFolder;
 
-      strsize iFind = strAppId.find('/');
+      character_count iFind = strAppId.find('/');
 
       path = ca2roaming();
 

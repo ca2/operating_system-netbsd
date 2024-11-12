@@ -1092,7 +1092,7 @@ namespace apex_netbsd
 //
 //            ::file::path path = pnode->module_path_from_pid(iPid);
 //
-//            if(path.has_char())
+//            if(path.has_character())
 //            {
 //
 //               patha.add(path);
@@ -1118,7 +1118,7 @@ namespace apex_netbsd
       if(str.case_insensitive_begins_eat("\""))
       {
 
-         strsize iFind = str.find_index("\"");
+         character_count iFind = str.find_index("\"");
 
          if(iFind < 0)
          {
@@ -1133,7 +1133,7 @@ namespace apex_netbsd
       else if(str.case_insensitive_begins_eat("\'"))
       {
 
-         strsize iFind = str.find_index("\'");
+         character_count iFind = str.find_index("\'");
 
          if(iFind < 0)
          {
@@ -1148,7 +1148,7 @@ namespace apex_netbsd
       else
       {
 
-         strsize iFind = str.find_index(" ");
+         character_count iFind = str.find_index(" ");
 
          if(iFind > 0)
          {

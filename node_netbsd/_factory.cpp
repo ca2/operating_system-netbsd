@@ -100,7 +100,7 @@ __FACTORY_EXPORT void node_netbsd_factory(::factory::factory * pfactory)
 //
 //   aura_posix_factory( pfactory);
 //
-//   pfactory->add_factory_item < ::aura::netbsd::node, ::acme::node >();
+//   pfactory->add_factory_item < ::aura::netbsd::node, ::platform::node >();
 
 }
 

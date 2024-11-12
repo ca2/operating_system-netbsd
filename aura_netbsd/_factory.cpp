@@ -16,7 +16,7 @@ __FACTORY_EXPORT void aura_netbsd_factory(::factory::factory * pfactory)
 
    aura_posix_factory(pfactory);
 
-   pfactory->add_factory_item < ::aura_netbsd::node, ::acme::node >();
+   pfactory->add_factory_item < ::aura_netbsd::node, ::platform::node >();
    pfactory->add_factory_item < ::aura_netbsd::interaction_impl, ::user::interaction_impl >();
 
 }

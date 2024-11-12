@@ -61,7 +61,7 @@ IMPLEMENT_FACTORY(apex_netbsd)
    //pfactory->add_factory_item < ::apex_netbsd::file_context, ::file_context >();
    pfactory->add_factory_item < ::apex_netbsd::service_handler, ::service_handler >();
 
-   pfactory->add_factory_item < ::apex_netbsd::node, ::acme::node >();
+   pfactory->add_factory_item < ::apex_netbsd::node, ::platform::node >();
 
    //add_factory_item < ::netbsd::copydesk, ::user::cop
    // 

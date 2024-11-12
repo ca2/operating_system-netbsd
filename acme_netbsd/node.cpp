@@ -558,7 +558,7 @@ namespace acme_netbsd
 //
 //      }
 //
-//      if (str.has_char())
+//      if (str.has_character())
 //         return "audio_" + str;
 //      else
 //         return "audio_mmsystem";
@@ -763,7 +763,7 @@ namespace acme_netbsd
          psummary->m_strDistroRelease = set["VERSION_ID"];
          psummary->m_strDistroFamily = set["ID_LIKE"];
 
-         strsize iDot = psummary->m_strDistroRelease.find_index('.');
+         character_count iDot = psummary->m_strDistroRelease.find_index('.');
 
          if(iDot > 0)
          {
@@ -796,7 +796,7 @@ namespace acme_netbsd
          
          strUnameR.trim();
          
-         if(strUnameA.case_insensitive_begins("netbsd ") && strUnameR.has_char())
+         if(strUnameA.case_insensitive_begins("netbsd ") && strUnameR.has_character())
          {
          
             psummary->m_strDistro = "netbsd";

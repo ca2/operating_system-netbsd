@@ -52,7 +52,7 @@ namespace apex_netbsd
          if(!file_exists(strChannel))
          {
 
-            m_psystem->m_pacmefile->put_contents(strChannel, strChannel);
+            m_psystem->file_system()->put_contents(strChannel, strChannel);
 
          }
 
@@ -245,7 +245,7 @@ namespace apex_netbsd
          if(!file_exists(strChannel))
          {
 
-            m_psystem->m_pacmefile->put_contents(strChannel, strChannel);
+            m_psystem->file_system()->put_contents(strChannel, strChannel);
 
          }
 

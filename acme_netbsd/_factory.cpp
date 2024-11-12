@@ -18,7 +18,7 @@ __FACTORY_EXPORT void acme_netbsd_factory(::factory::factory * pfactory)
 
    acme_posix_factory(pfactory);
 
-   pfactory->add_factory_item < ::acme_netbsd::node, ::acme::node >();
+   pfactory->add_factory_item < ::acme_netbsd::node, ::platform::node >();
    pfactory->add_factory_item < ::acme_netbsd::directory_system, ::directory_system >();
    pfactory->add_factory_item < ::acme_netbsd::file_system, ::file_system >();
    pfactory->add_factory_item < ::acme_netbsd::path_system, ::path_system >();
