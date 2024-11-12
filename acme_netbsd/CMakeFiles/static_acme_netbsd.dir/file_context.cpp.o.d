@@ -578,7 +578,7 @@ operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_op
   /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/file_context.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/file_context.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/file/plain_text_file_options.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_directory.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/directory_system.h \
   /home/camilo/cmake/integration/source/app/acme/primitive/media_library/item.h \
   /home/camilo/cmake/integration/source/app/acme/constant/media_library.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/enumerator.h

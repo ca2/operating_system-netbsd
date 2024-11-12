@@ -13,7 +13,7 @@ namespace apex_netbsd
 
 #ifdef _UWP
 
-      //i32              m_iSerial;
+      //int              m_iSerial;
 
 #elif defined(WINDOWS_DESKTOP)
 
@@ -108,7 +108,7 @@ namespace apex_netbsd
 
       //virtual void on_interprocess_receive(::string && strMessage) override;
       //virtual void on_interprocess_receive(int message, memory && memory) override;
-      //virtual void on_interprocess_post(i64 a, i64 b) override;
+      //virtual void on_interprocess_post(huge_integer a, huge_integer b) override;
 
 
       bool on_idle() override;

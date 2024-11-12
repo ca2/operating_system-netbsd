@@ -1,7 +1,7 @@
 // Create on 2021-03-21 20:00 <3ThomasBS_
 #include "framework.h"
 #include "directory_system.h"
-#include "acme_file.h"
+#include "file_system.h"
 
 
 namespace acme_netbsd
@@ -242,7 +242,7 @@ namespace acme_netbsd
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -273,7 +273,7 @@ namespace acme_netbsd
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -309,7 +309,7 @@ namespace acme_netbsd
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -499,7 +499,7 @@ namespace acme_netbsd
 
       string strCandidate;
 
-      for (i32 i = 0; i < stra.get_count(); i++)
+      for (int i = 0; i < stra.get_count(); i++)
       {
 
          strCandidate = stra[i] / pszTopic;

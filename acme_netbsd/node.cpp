@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/operating_system/summary.h"
-#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/file_system.h"
 
 
 ::user::enum_desktop _get_edesktop();
@@ -68,7 +68,7 @@ namespace acme_netbsd
 //
 //         key.open(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
 //
-//         ::u32 dw;
+//         unsigned int dw;
 //
 //         auto estatus = key._get("AppsUseLightTheme", dw);
 //
@@ -109,7 +109,7 @@ namespace acme_netbsd
 //
 //         key.open(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
 //
-//         ::u32 dw;
+//         unsigned int dw;
 //
 //         auto estatus = key._get("SystemUseLightTheme", dw);
 //
@@ -140,7 +140,7 @@ namespace acme_netbsd
 //   }
 //
 //
-//   ::color::color node::get_default_color(::u64 u)
+//   ::color::color node::get_default_color(huge_natural u)
 //   {
 //
 //      switch (u)
@@ -166,7 +166,7 @@ namespace acme_netbsd
 //   }
 //
 //   
-//   void node::set_console_colors(::u32 dwScreenColors, ::u32 dwPopupColors, ::u32 dwWindowAlpha)
+//   void node::set_console_colors(unsigned int dwScreenColors, unsigned int dwPopupColors, unsigned int dwWindowAlpha)
 //   {
 //
 //      ::netbsd::registry::key key(HKEY_CURRENT_USER, "Console", true);
@@ -184,7 +184,7 @@ namespace acme_netbsd
 //
 //      ::netbsd::registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
 //
-//      ::u32 dwSystemUseLightTheme;
+//      unsigned int dwSystemUseLightTheme;
 //      if (bSet)
 //      {
 //         dwSystemUseLightTheme = 0;
@@ -205,7 +205,7 @@ namespace acme_netbsd
 //
 //      ::netbsd::registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
 //
-//      ::u32 dwAppsUseLightTheme;
+//      unsigned int dwAppsUseLightTheme;
 //      if (bSet)
 //      {
 //         dwAppsUseLightTheme = 0;
@@ -235,7 +235,7 @@ namespace acme_netbsd
 //
 //         DYNAMIC_TIME_ZONE_INFORMATION i = {};
 //
-//         ::u32 dw = GetDynamicTimeZoneInformation(&i);
+//         unsigned int dw = GetDynamicTimeZoneInformation(&i);
 //
 //         if (dw == TIME_ZONE_ID_STANDARD)
 //         {
@@ -581,8 +581,8 @@ namespace acme_netbsd
 //      {
 //         ::file::path str = m_psystem->m_pnodedir->system() / "CrashDumps" / strModuleNameWithTheExeExtension;
 //         wstring wstr = str;
-//         RegSetValueExW(k.m_hkey, L"DumpFolder", 0, REG_EXPAND_SZ, (byte*)wstr.c_str(), ::u32((wcslen(wstr) + 1) * sizeof(wchar_t)));
-//         ::u32 dw = 10;
+//         RegSetValueExW(k.m_hkey, L"DumpFolder", 0, REG_EXPAND_SZ, (byte*)wstr.c_str(), unsigned int((wcslen(wstr) + 1) * sizeof(wchar_t)));
+//         unsigned int dw = 10;
 //         RegSetValueExW(k.m_hkey, L"DumpCount", 0, REG_DWORD, (byte*)&dw, sizeof(dw));
 //         dw = 2;
 //         RegSetValueExW(k.m_hkey, L"DumpType", 0, REG_DWORD, (byte*)&dw, sizeof(dw));
@@ -657,12 +657,12 @@ namespace acme_netbsd
 //
 //      SYSTEMTIME sysTime;
 //
-//      sysTime.wYear = (::u16)time.GetYear();
-//      sysTime.wMonth = (::u16)time.GetMonth();
-//      sysTime.wDay = (::u16)time.GetDay();
-//      sysTime.wHour = (::u16)time.GetHour();
-//      sysTime.wMinute = (::u16)time.GetMinute();
-//      sysTime.wSecond = (::u16)time.GetSecond();
+//      sysTime.wYear = (unsigned short)time.GetYear();
+//      sysTime.wMonth = (unsigned short)time.GetMonth();
+//      sysTime.wDay = (unsigned short)time.GetDay();
+//      sysTime.wHour = (unsigned short)time.GetHour();
+//      sysTime.wMinute = (unsigned short)time.GetMinute();
+//      sysTime.wSecond = (unsigned short)time.GetSecond();
 //      sysTime.wMilliseconds = 0;
 //
 //      // convert system time to local file time
@@ -750,12 +750,12 @@ namespace acme_netbsd
       //}
 
       // freedesktop.org and systemd
-      if (acmefile()->exists("/etc/os-release"))
+      if (file_system()->exists("/etc/os-release"))
       {
       
 //         printf("/etc/os-release exists?!?!");
 
-         auto set = acmefile()->parse_standard_configuration("/etc/os-release");
+         auto set = file_system()->parse_standard_configuration("/etc/os-release");
 
          psummary->m_strDistro = set["ID"];
          psummary->m_strDistroBranch = set["VARIANT_ID"];

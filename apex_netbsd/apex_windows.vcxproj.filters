@@ -50,7 +50,7 @@
     <ClInclude Include="crypto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dir_context.h">
+    <ClInclude Include="directory_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dir_system.h">
@@ -124,7 +124,7 @@
     <ClCompile Include="crypto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dir_context.cpp">
+    <ClCompile Include="directory_context.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dir_system.cpp">

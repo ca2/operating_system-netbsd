@@ -17,7 +17,7 @@ namespace apex_netbsd
 {
 
 
-   class dir_context;
+   class directory_context;
    class dir_system;
 
    class file_context;

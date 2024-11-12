@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "dir_context.h"
+#include "directory_context.h"
 #include "acme/filesystem/filesystem/listing.h"
 
 
@@ -7,45 +7,45 @@ namespace acme_netbsd
 {
 
 
-   dir_context::dir_context()
+   directory_context::directory_context()
    {
 
 
    }
 
 
-   dir_context::~dir_context()
+   directory_context::~directory_context()
    {
 
 
    }
 
 
-   void dir_context::initialize(::particle * pparticle)
+   void directory_context::initialize(::particle * pparticle)
    {
 
-      ::acme_posix::dir_context::initialize(pparticle);
+      ::acme_posix::directory_context::initialize(pparticle);
 
    }
 
 
-   void dir_context::init_system()
+   void directory_context::init_system()
    {
 
-      ::acme_posix::dir_context::init_system();
+      ::acme_posix::directory_context::init_system();
 
    }
 
 
-   void dir_context::init_context()
+   void directory_context::init_context()
    {
 
-      ::acme_posix::dir_context::init_context();
+      ::acme_posix::directory_context::init_context();
 
    }
 
 
-   ::file::listing& dir_context::root_ones(::file::listing& listing)
+   ::file::listing& directory_context::root_ones(::file::listing& listing)
    {
 
       ::file::path path;

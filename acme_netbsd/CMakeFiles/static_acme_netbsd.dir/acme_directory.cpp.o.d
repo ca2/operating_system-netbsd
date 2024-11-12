@@ -1,5 +1,5 @@
-operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_openbsd.dir/acme_directory.cpp.o: \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/acme_directory.cpp \
+operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_openbsd.dir/directory_system.cpp.o: \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/directory_system.cpp \
   /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/framework.h \
   /home/camilo/cmake/integration/source/app/acme/_start.h \
   /home/camilo/cmake/integration/source/app/acme/include/_acme.h \
@@ -574,12 +574,12 @@ operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_op
   /home/camilo/cmake/integration/source/app/acme/primitive/collection/_impl_generic_map.h \
   /home/camilo/cmake/integration/source/app/acme/primitive/collection/_impl_numeric_array.h \
   /home/camilo/cmake/integration/source/app/acme/memory/_impl.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/acme_directory.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/acme_directory.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_directory.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/directory_system.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/directory_system.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/directory_system.h \
   /home/camilo/cmake/integration/source/app/acme/primitive/media_library/item.h \
   /home/camilo/cmake/integration/source/app/acme/constant/media_library.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/enumerator.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/acme_file.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/acme_file.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_file.h
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/file_system.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/file_system.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/file_system.h

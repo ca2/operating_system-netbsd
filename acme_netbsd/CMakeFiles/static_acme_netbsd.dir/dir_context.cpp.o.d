@@ -1,5 +1,5 @@
-operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_openbsd.dir/dir_context.cpp.o: \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/dir_context.cpp \
+operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_openbsd.dir/directory_context.cpp.o: \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/directory_context.cpp \
   /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/framework.h \
   /home/camilo/cmake/integration/source/app/acme/_start.h \
   /home/camilo/cmake/integration/source/app/acme/include/_acme.h \
@@ -574,8 +574,8 @@ operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_op
   /home/camilo/cmake/integration/source/app/acme/primitive/collection/_impl_generic_map.h \
   /home/camilo/cmake/integration/source/app/acme/primitive/collection/_impl_numeric_array.h \
   /home/camilo/cmake/integration/source/app/acme/memory/_impl.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/dir_context.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/dir_context.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/dir_context.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/directory_context.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/directory_context.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/directory_context.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/enumerator.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/listing.h

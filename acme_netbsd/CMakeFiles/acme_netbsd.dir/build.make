@@ -97,61 +97,61 @@ operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/_factory.cpp.s"
 	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/_factory.cpp -o CMakeFiles/acme_netbsd.dir/_factory.cpp.s
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/acme_directory.cpp
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o -MF CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o.d -o CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_directory.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/directory_system.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.o"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.o -MF CMakeFiles/acme_netbsd.dir/directory_system.cpp.o.d -o CMakeFiles/acme_netbsd.dir/directory_system.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/directory_system.cpp
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/acme_directory.cpp.i"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_directory.cpp > CMakeFiles/acme_netbsd.dir/acme_directory.cpp.i
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/directory_system.cpp.i"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/directory_system.cpp > CMakeFiles/acme_netbsd.dir/directory_system.cpp.i
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/acme_directory.cpp.s"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_directory.cpp -o CMakeFiles/acme_netbsd.dir/acme_directory.cpp.s
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/directory_system.cpp.s"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/directory_system.cpp -o CMakeFiles/acme_netbsd.dir/directory_system.cpp.s
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/acme_file.cpp
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.o"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.o -MF CMakeFiles/acme_netbsd.dir/acme_file.cpp.o.d -o CMakeFiles/acme_netbsd.dir/acme_file.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_file.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/file_system.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o -MF CMakeFiles/acme_netbsd.dir/file_system.cpp.o.d -o CMakeFiles/acme_netbsd.dir/file_system.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/file_system.cpp
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/acme_file.cpp.i"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_file.cpp > CMakeFiles/acme_netbsd.dir/acme_file.cpp.i
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/file_system.cpp.i"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/file_system.cpp > CMakeFiles/acme_netbsd.dir/file_system.cpp.i
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/acme_file.cpp.s"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_file.cpp -o CMakeFiles/acme_netbsd.dir/acme_file.cpp.s
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/file_system.cpp.s"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/file_system.cpp -o CMakeFiles/acme_netbsd.dir/file_system.cpp.s
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/acme_path.cpp
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.o"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.o -MF CMakeFiles/acme_netbsd.dir/acme_path.cpp.o.d -o CMakeFiles/acme_netbsd.dir/acme_path.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_path.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/path_system.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.o"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.o -MF CMakeFiles/acme_netbsd.dir/path_system.cpp.o.d -o CMakeFiles/acme_netbsd.dir/path_system.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/path_system.cpp
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/acme_path.cpp.i"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_path.cpp > CMakeFiles/acme_netbsd.dir/acme_path.cpp.i
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/path_system.cpp.i"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/path_system.cpp > CMakeFiles/acme_netbsd.dir/path_system.cpp.i
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/acme_path.cpp.s"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/acme_path.cpp -o CMakeFiles/acme_netbsd.dir/acme_path.cpp.s
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/path_system.cpp.s"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/path_system.cpp -o CMakeFiles/acme_netbsd.dir/path_system.cpp.s
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/dir_context.cpp
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.o"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.o -MF CMakeFiles/acme_netbsd.dir/dir_context.cpp.o.d -o CMakeFiles/acme_netbsd.dir/dir_context.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/dir_context.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/directory_context.cpp
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.o"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.o -MF CMakeFiles/acme_netbsd.dir/directory_context.cpp.o.d -o CMakeFiles/acme_netbsd.dir/directory_context.cpp.o -c /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/directory_context.cpp
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/dir_context.cpp.i"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/dir_context.cpp > CMakeFiles/acme_netbsd.dir/dir_context.cpp.i
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/acme_netbsd.dir/directory_context.cpp.i"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/directory_context.cpp > CMakeFiles/acme_netbsd.dir/directory_context.cpp.i
 
-operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/dir_context.cpp.s"
-	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/dir_context.cpp -o CMakeFiles/acme_netbsd.dir/dir_context.cpp.s
+operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/acme_netbsd.dir/directory_context.cpp.s"
+	cd /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/camilo/cmake/integration/operating_system/operating_system-netbsd/acme_netbsd/directory_context.cpp -o CMakeFiles/acme_netbsd.dir/directory_context.cpp.s
 
 operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/flags.make
 operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_system.cpp.o: operating_system/operating_system-netbsd/acme_netbsd/dir_system.cpp
@@ -227,10 +227,10 @@ operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/
 acme_netbsd_OBJECTS = \
 "CMakeFiles/acme_netbsd.dir/_.cpp.o" \
 "CMakeFiles/acme_netbsd.dir/_factory.cpp.o" \
-"CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o" \
-"CMakeFiles/acme_netbsd.dir/acme_file.cpp.o" \
-"CMakeFiles/acme_netbsd.dir/acme_path.cpp.o" \
-"CMakeFiles/acme_netbsd.dir/dir_context.cpp.o" \
+"CMakeFiles/acme_netbsd.dir/directory_system.cpp.o" \
+"CMakeFiles/acme_netbsd.dir/file_system.cpp.o" \
+"CMakeFiles/acme_netbsd.dir/path_system.cpp.o" \
+"CMakeFiles/acme_netbsd.dir/directory_context.cpp.o" \
 "CMakeFiles/acme_netbsd.dir/dir_system.cpp.o" \
 "CMakeFiles/acme_netbsd.dir/file_context.cpp.o" \
 "CMakeFiles/acme_netbsd.dir/file_system.cpp.o" \
@@ -242,10 +242,10 @@ acme_netbsd_EXTERNAL_OBJECTS =
 
 output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/_.cpp.o
 output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/_factory.cpp.o
-output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_directory.cpp.o
-output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_file.cpp.o
-output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/acme_path.cpp.o
-output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_context.cpp.o
+output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_system.cpp.o
+output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o
+output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/path_system.cpp.o
+output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/directory_context.cpp.o
 output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/dir_system.cpp.o
 output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_context.cpp.o
 output/libacme_netbsd.so: operating_system/operating_system-netbsd/acme_netbsd/CMakeFiles/acme_netbsd.dir/file_system.cpp.o

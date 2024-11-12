@@ -75,9 +75,9 @@ namespace acme_openbsd
 //
 //      //virtual bool PASCAL GetStatus(const char * pszFileName, ::file::file_status& rStatus);
 //
-//      u64 ReadHuge(void * pBuffer, u64 dwCount);
+//      huge_natural ReadHuge(void * pBuffer, huge_natural dwCount);
 //
-//      void WriteHuge(const void * pBuffer, u64 dwCount);
+//      void WriteHuge(const void * pBuffer, huge_natural dwCount);
 //
 //
 ////      virtual __pointer(::file::file) Duplicate() const;
@@ -100,7 +100,7 @@ namespace acme_openbsd
 //
 //      virtual bool IsOpened();
 //
-//      virtual u64 GetBufferPtr(::u32 nCommand, u64 nCount = 0, void ** ppBufStart = nullptr, void ** ppBufMax = nullptr);
+//      virtual huge_natural GetBufferPtr(unsigned int nCommand, huge_natural nCount = 0, void ** ppBufStart = nullptr, void ** ppBufMax = nullptr);
 //
 //
 //      //int put_character_back(int iCharacter) override;
@@ -113,11 +113,11 @@ namespace acme_openbsd
 //   {
 //
 //
-//      ::e_status os_error_to_exception(::i32 lOsError);
-////      ::e_status PASCAL ErrnoToException(i32 nErrno);
-//      void throw_os_error(::i32 lOsError, const char * pszFileName = nullptr);
+//      ::e_status os_error_to_exception(int lOsError);
+////      ::e_status PASCAL ErrnoToException(int nErrno);
+//      void throw_os_error(int lOsError, const char * pszFileName = nullptr);
 
-//      //void PASCAL ThrowErrno(__pointer(::acme::application) papp, i32 nErrno, const char * pszFileName = nullptr);
+//      //void PASCAL ThrowErrno(__pointer(::acme::application) papp, int nErrno, const char * pszFileName = nullptr);
 
 //
 //

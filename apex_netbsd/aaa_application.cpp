@@ -79,7 +79,7 @@
 //
 //      DWORD dw;
 //
-//      ::u32 dwResSize = GetFileVersionInfoSizeW(
+//      unsigned int dwResSize = GetFileVersionInfoSizeW(
 //                        pszModuleFilePath,
 //                        &dw);
 //
@@ -98,11 +98,11 @@
 //            memory.get_data()))
 //
 //         {
-//            ::u32 cbTranslate;
+//            unsigned int cbTranslate;
 //            struct LANGANDCODEPAGE
 //            {
-//               ::u16 wLanguage;
-//               ::u16 wCodePage;
+//               unsigned short wLanguage;
+//               unsigned short wCodePage;
 //            } *pTranslate;
 //
 //
@@ -115,7 +115,7 @@
 //
 //            string strKey;
 //
-//            for( ::u32 u = 0; u < (cbTranslate/sizeof(struct LANGANDCODEPAGE)); u++ )
+//            for( unsigned int u = 0; u < (cbTranslate/sizeof(struct LANGANDCODEPAGE)); u++ )
 //            {
 //
 //               WCHAR * psz;

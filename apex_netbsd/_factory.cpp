@@ -3,7 +3,7 @@
 #include "launcher.h"
 //#include "dir_system.h"
 //#include "file_system.h"
-//#include "dir_context.h"
+//#include "directory_context.h"
 //#include "file_context.h"
 //#include "os_context.h"
 //#include "ip_enum.h"
@@ -32,7 +32,7 @@ IMPLEMENT_FACTORY(apex_netbsd)
    //pfactory->add_factory_item < ::apex_netbsd::dir_system, ::dir_system >();
    //pfactory->add_factory_item < ::apex_netbsd::file_system, ::file_system >();
 
-   //pfactory->add_factory_item < ::apex_netbsd::dir_context, ::dir_context >();
+   //pfactory->add_factory_item < ::apex_netbsd::directory_context, ::directory_context >();
    //pfactory->add_factory_item < ::apex_netbsd::file_context, ::file_context >();
 
    //add_factory_item < ::netbsd::stdio_file, ::file::text_file >();

@@ -71,7 +71,7 @@ namespace node_gnome
    }*/
 
 
-   bool notify_icon::create_notify_icon(::u32 uId, ::user::notify_icon_listener * plistener, ::windowing::icon * picon)
+   bool notify_icon::create_notify_icon(unsigned int uId, ::user::notify_icon_listener * plistener, ::windowing::icon * picon)
    {
 
       if(m_bCreated)
@@ -235,7 +235,7 @@ namespace node_gnome
 //
 //      string strUrl = "https://server.ca2.cc/matter/" + strFolder + strFile;
 //
-//      strFile = Context.dir().appdata() / strFolder / strFile;
+//      strFile = Context.directory().appdata() / strFolder / strFile;
 //
 //      int iRetry = 3;
 //
@@ -456,7 +456,7 @@ namespace node_gnome
 
    //   }
 
-   //   m_plistener->OnNotifyIconMessage(m_uiId, (::u32) pusermessage->m_lparam);
+   //   m_plistener->OnNotifyIconMessage(m_uiId, (unsigned int) pusermessage->m_lparam);
 
    //}
 

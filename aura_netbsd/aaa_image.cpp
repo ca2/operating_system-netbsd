@@ -450,13 +450,13 @@ namespace draw2d_gdiplus
 
          }
 
-         i32 scanDst = pimageDst->scan_size();
+         int scanDst = pimageDst->scan_size();
 
-         i32 scanSrc = pimageSrc->scan_size();
+         int scanSrc = pimageSrc->scan_size();
 
-         u8 * pdst = &((u8 *)pimageDst->colorref())[scanDst * rectDst.top + rectDst.left * sizeof(COLORREF)];
+         unsigned char * pdst = &((unsigned char *)pimageDst->colorref())[scanDst * rectDst.top + rectDst.left * sizeof(COLORREF)];
 
-         u8 * psrc = &((u8 *)pimageSrc->colorref())[scanSrc * pointSrc.y + pointSrc.x * sizeof(COLORREF)];
+         unsigned char * psrc = &((unsigned char *)pimageSrc->colorref())[scanSrc * pointSrc.y + pointSrc.x * sizeof(COLORREF)];
 
          COLORREF * pdst2;
 
@@ -494,7 +494,7 @@ namespace draw2d_gdiplus
    }*/
 
 
-   ::e_status image::SetIconMask(::draw2d::icon * picon, i32 cx, i32 cy)
+   ::e_status image::SetIconMask(::draw2d::icon * picon, int cx, int cy)
    {
 
       if (cx <= 0 || cy <= 0)
@@ -593,11 +593,11 @@ namespace draw2d_gdiplus
 
       pimageM->g()->draw(::rect_dim(0, 0, cx, cy), picon);
 
-      u8 * r1 = (u8 *)pimage1->colorref();
-      u8 * r2 = (u8 *)pimage2->colorref();
-      u8 * srcM = (u8 *)pimageM->colorref();
-      u8 * dest = (u8 *)colorref();
-      i32 iSize = cx*cy;
+      unsigned char * r1 = (unsigned char *)pimage1->colorref();
+      unsigned char * r2 = (unsigned char *)pimage2->colorref();
+      unsigned char * srcM = (unsigned char *)pimageM->colorref();
+      unsigned char * dest = (unsigned char *)colorref();
+      int iSize = cx*cy;
 
       byte b;
       byte bMax;

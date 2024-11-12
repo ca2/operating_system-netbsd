@@ -14,8 +14,8 @@
 #include "crypto.h"
 //#include "netbsd_ip_enum.h"
 
-i32 crypto_encrypt(memory & storageEncrypt, const memory & storageDecrypt, memory & key);
-i32 crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memory & key);
+int crypto_encrypt(memory & storageEncrypt, const memory & storageDecrypt, memory & key);
+int crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memory & key);
 //
 //namespace netbsd
 //{
@@ -36,7 +36,7 @@ i32 crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memor
 //   ::file::path crypto::get_crypt_key_file_path()
 //   {
 //
-//      return m_pcontext->m_papexcontext->dir().appdata() / ".ca2/databin.bin";
+//      return m_pcontext->m_papexcontext->directory().appdata() / ".ca2/databin.bin";
 //
 //   }
 //
@@ -58,13 +58,13 @@ i32 crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memor
 //      memory memorySalt;
 //      memorySalt.from_string(pszSalt);
 //      DataSalt.pbData = memorySalt.get_data();
-//      DataSalt.cbData = (::u32)memorySalt.get_size();
+//      DataSalt.cbData = (unsigned int)memorySalt.get_size();
 //
 //      //--------------------------------------------------------------------
 //      // Initialize the DataIn structure.
 //
 //      DataIn.pbData = storageEncrypt.get_data();
-//      DataIn.cbData = (::u32)storageEncrypt.get_size();
+//      DataIn.cbData = (unsigned int)storageEncrypt.get_size();
 //
 //      unichar * pwsz = nullptr;
 //
@@ -143,14 +143,14 @@ i32 crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memor
 //      memory memorySalt;
 //      memorySalt.from_string(pszSalt);
 //      DataSalt.pbData = memorySalt.get_data();
-//      DataSalt.cbData = (::u32)memorySalt.get_size();
+//      DataSalt.cbData = (unsigned int)memorySalt.get_size();
 //
 //
 //      //--------------------------------------------------------------------
 //      // Initialize the DataIn structure.
 //
 //      DataIn.pbData = (byte *)storageDecrypt.get_data();
-//      DataIn.cbData = (::u32)storageDecrypt.get_size();
+//      DataIn.cbData = (unsigned int)storageDecrypt.get_size();
 //
 //      //      unichar * pwsz = nullptr;
 //

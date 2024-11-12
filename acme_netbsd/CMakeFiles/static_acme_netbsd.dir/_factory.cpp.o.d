@@ -582,25 +582,25 @@ operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_op
   /home/camilo/cmake/integration/source/app/acme/primitive/collection/atom_array.h \
   /home/camilo/cmake/integration/source/app/acme/platform/shell.h \
   /home/camilo/cmake/integration/source/app/acme/platform/trace.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/acme_directory.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/acme_directory.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_directory.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/directory_system.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/directory_system.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/directory_system.h \
   /home/camilo/cmake/integration/source/app/acme/primitive/media_library/item.h \
   /home/camilo/cmake/integration/source/app/acme/constant/media_library.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/enumerator.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/acme_file.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/acme_file.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_file.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/acme_path.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/acme_path.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_path.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/file_system.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/file_system.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/file_system.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/path_system.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/path_system.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/path_system.h \
   /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/dir_system.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/dir_system.h \
   /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/file_system.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/file_system.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/dir_context.h \
-  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/dir_context.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/dir_context.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/directory_context.h \
+  /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/directory_context.h \
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/directory_context.h \
   /home/camilo/cmake/integration/operating_system/operating_system-openbsd/acme_openbsd/file_context.h \
   /home/camilo/cmake/integration/operating_system/operating_system-posix/acme_posix/file_context.h \
   /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/file_context.h \

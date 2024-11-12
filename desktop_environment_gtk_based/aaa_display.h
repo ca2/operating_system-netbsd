@@ -64,7 +64,7 @@
 //      return ::is_null(this);
 //   }
 //
-////   Atom get_window_long_atom(i32 nIndex);
+////   Atom get_window_long_atom(int nIndex);
 ////
 ////
 ////   Atom intern_atom(const char *pszAtomName, bool bCreate);
@@ -74,7 +74,7 @@
 ////   Atom net_wm_state_atom(bool bCreate);
 //
 //
-////   inline i64 get_ref_count()
+////   inline huge_integer get_ref_count()
 ////   {
 ////
 ////      return m_countReference;
@@ -82,7 +82,7 @@
 ////   }
 ////
 ////
-////   inline i64 add_ref(OBJ_REF_DBG_PARAMS)
+////   inline huge_integer add_ref(OBJ_REF_DBG_PARAMS)
 ////   {
 ////
 ////#ifdef WINDOWS
@@ -102,7 +102,7 @@
 ////   }
 ////
 ////
-////   inline i64 dec_ref(OBJ_REF_DBG_PARAMS)
+////   inline huge_integer dec_ref(OBJ_REF_DBG_PARAMS)
 ////   {
 ////
 ////#ifdef WINDOWS
@@ -122,10 +122,10 @@
 ////   }
 ////
 ////
-////   inline i64 release(OBJ_REF_DBG_PARAMS)
+////   inline huge_integer release(OBJ_REF_DBG_PARAMS)
 ////   {
 ////
-////      i64 i = dec_ref(OBJ_REF_DBG_ARGS);
+////      huge_integer i = dec_ref(OBJ_REF_DBG_ARGS);
 ////
 ////      if (i == 0)
 ////      {

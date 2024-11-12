@@ -583,4 +583,4 @@ operating_system/operating_system-openbsd/acme_openbsd/CMakeFiles/static_acme_op
   /home/camilo/cmake/integration/source/app/acme/platform/shell.h \
   /home/camilo/cmake/integration/source/app/acme/platform/trace.h \
   /home/camilo/cmake/integration/source/app/acme/operating_system/summary.h \
-  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/acme_file.h
+  /home/camilo/cmake/integration/source/app/acme/filesystem/filesystem/file_system.h
