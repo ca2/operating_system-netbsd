@@ -2,21 +2,21 @@
 #pragma once
 
 
-#include "acme_posix/acme_path.h"
+#include "acme_posix/path_system.h"
 
 
 namespace acme_netbsd
 {
 
 
-   class CLASS_DECL_ACME_NETBSD acme_path :
-      virtual public ::acme_posix::acme_path
+   class CLASS_DECL_ACME_NETBSD path_system :
+      virtual public ::acme_posix::path_system
    {
    public:
 
 
-      acme_path();
-      ~acme_path() override;
+      path_system();
+      ~path_system() override;
 
 
       //virtual ::file::path app_module() override;

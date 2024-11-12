@@ -1,5 +1,11 @@
+// From acme_posix/file_system.cpp by camilo on 2021-11-22 00:07 AM <3ThomasBorregaardSørensen!!
+// Created by camilo
+// on 2021-08-12 17:38 BRT
+// <3ThomasBorregaardSørensen!!
 #include "framework.h"
 #include "file_system.h"
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 
 namespace acme_netbsd
@@ -9,11 +15,13 @@ namespace acme_netbsd
    file_system::file_system()
    {
 
+
    }
 
 
-   file_system::~file_system()
+   file_system::~file_system() noexcept
    {
+
 
    }
 
@@ -33,8 +41,39 @@ namespace acme_netbsd
 
    }
 
+//   ::file::path file_system::module()
+//   {
+//
+//      int mib[4];
+//
+//      mib[0] = CTL_KERN;
+//      mib[1] = KERN_PROC;
+//      mib[2] = KERN_PROC_PATHNAME;
+//      mib[3] = -1;
+//
+//      char buf[PATH_MAX * 4];
+//
+//      size_t cb = sizeof(buf);
+//
+//      int iError = sysctl(mib, 4, buf, &cb, NULL, 0);
+//
+//      if(iError < 0)
+//      {
+//
+//         int iErrNo = errno;
+//
+//         auto estatus = errno_status(iErrNo);
+//
+//         throw ::exception(estatus, "error getting module path");
+//
+//      }
+//
+//      return buf;
+//
+//   }
 
-} // namespace acme_netbsd
+
+}  // namespace acme_frebsd
 
 
 
