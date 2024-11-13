@@ -2,6 +2,7 @@
 #include "node.h"
 #include "acme/operating_system/summary.h"
 #include "acme/filesystem/filesystem/file_system.h"
+#include "acme/windowing/windowing.h"
 
 
 //::user::enum_desktop _get_edesktop();
@@ -724,13 +725,30 @@ namespace acme_netbsd
 
    void node::shell_open(const ::file::path & path, const ::string & strParams, const ::file::path & pathFolder)
    {
+      
+      printf_line("acme_netbsd::node::shell_open for path : \"%s\"", path.c_str());
+      
+      if(strParams.is_empty() && pathFolder.is_empty())
+      {
+         printf_line("acme_netbsd::node::shell_open trying shell open from windowing for path : \"%s\"", path.c_str());
+         
+         if(system()->acme_windowing()->shell_open(path))
+         {
+            
+            return;
+            
+         }
+         
+      }
+      
+      printf_line("acme_netbsd::node::shell_open doing alternate opening for path : \"%s\"", path.c_str());
 
       string str(path);
 
       fork([this, str]()
            {
 
-              ::system("xdg-open \"" + str + "\" & ");
+            posix_shell_command("xdg-open \"" + str + "\" &");
 
            });
 
