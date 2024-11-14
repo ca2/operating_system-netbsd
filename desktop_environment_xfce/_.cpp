@@ -1,39 +1,39 @@
 #include "framework.h"
-#include <gtk/gtk.h>
+//~ #include <gtk/gtk.h>
 
 
-bool g_bInitGtk = false;
+//~ bool g_bInitGtk = false;
 
 
-::e_status g_estatusInitGtk = ::error_none;
+//~ ::e_status g_estatusInitGtk = ::error_none;
 
 
-::e_status os_defer_init_gtk()
-{
+//~ ::e_status os_defer_init_gtk()
+//~ {
 
-   if (!g_bInitGtk)
-   {
+   //~ if (!g_bInitGtk)
+   //~ {
 
-      g_bInitGtk = true;
+      //~ g_bInitGtk = true;
 
-      if (!gtk_init_check(process_get_pargc(), process_get_pargv()))
-      {
+      //~ if (!gtk_init_check(process_get_pargc(), process_get_pargv()))
+      //~ {
 
-         g_estatusInitGtk = ::error_failed;
+         //~ g_estatusInitGtk = ::error_failed;
 
-      }
-      else
-      {
+      //~ }
+      //~ else
+      //~ {
 
-         g_estatusInitGtk = ::success;
+         //~ g_estatusInitGtk = ::success;
 
-      }
+      //~ }
 
-   }
+   //~ }
 
-   return g_estatusInitGtk;
+   //~ return g_estatusInitGtk;
 
 
-}
+//~ }
 
 

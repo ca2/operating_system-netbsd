@@ -3,13 +3,13 @@
 //
 #include "framework.h"
 #include "node.h"
-#include "xfce_shared.h"
-#include "appindicator.h"
-#include "gdk.h"
-#include "windowing_x11/windowing_x11.h"
+//#include "xfce_shared.h"
+//#include "appindicator.h"
+//#include "gdk.h"
+//#include "windowing_x11/windowing_x11.h"
 
 
-void gdk_branch(const ::routine & routine);
+void gdk_branch(const ::procedure & procedure);
 
 
 namespace desktop_environment_xfce
@@ -22,11 +22,11 @@ namespace desktop_environment_xfce
    node::node()
    {
 
-      m_pNodeDesktopEnvironmentXfce = this;
+      //m_pNodeDesktopEnvironmentXfce = this;
 
       //deferx_initializex_x11();
 
-      m_pGtkSettingsDefault = nullptr;
+      //m_pGtkSettingsDefault = nullptr;
 
    }
 
@@ -34,180 +34,180 @@ namespace desktop_environment_xfce
    node::~node()
    {
 
-      if(m_pGtkSettingsDefault)
-      {
+      //if(m_pGtkSettingsDefault)
+      //{
 
-         g_object_unref(m_pGtkSettingsDefault);
+        // g_object_unref(m_pGtkSettingsDefault);
 
-      }
-
-   }
-
-
-   int node::node_init_check(int *pi, char ***ppz)
-   {
-
-      auto iResult = gtk_init_check(pi, ppz);
-
-      return iResult;
+      //}
 
    }
 
 
-   void node::defer_notify_startup_complete()
+   //~ int node::node_init_check(int *pi, char ***ppz)
+   //~ {
+
+      //~ auto iResult = gtk_init_check(pi, ppz);
+
+      //~ return iResult;
+
+   //~ }
+
+
+   //~ void node::defer_notify_startup_complete()
+   //~ {
+
+      //~ auto psystem = m_psystem->m_papexsystem;
+
+      //~ string strApplicationServerName = psystem->get_application_server_name();
+
+      //~ gdk_notify_startup_complete_with_id (strApplicationServerName);
+
+      //~ gdk_notify_startup_complete();
+
+   //~ }
+
+
+   //~ ::e_status node::start_node()
+   //~ {
+
+      //~ auto estatus = node_xfce::node::start_node();
+
+      //~ return estatus;
+
+//~ //      auto psystem = m_psystem->m_papexsystem;
+//~ //
+//~ //      if (psystem->m_bGtkApp)
+//~ //      {
+//~ //
+//~ //         apex_application_run(psystem->m_XstrAppId, psystem->m_strProgName);
+//~ //
+//~ //      }
+//~ //      else
+//~ //      {
+//~ //
+//~ //         //g_set_application_name(System.m_XstrAppId);
+//~ //
+//~ //         //g_set_prgname(System.m_strProgName);
+//~ //      ////
+//~ //      ////      //auto idle_source = g_idle_source_new();
+//~ //      ////
+//~ //      ////      //g_source_set_callback(idle_source, &netbsd_start_system, (::apex::system *) m_psystem, nullptr);
+//~ //      ////
+//~ //      ////      //g_source_attach(idle_source, g_main_context_default());
+//~ //      ////
+//~ //      ////      //int c = 2;
+//~ //      ////
+//~ //      ////      //const char * argv[]={"app", "--g-fatal-warnings"};
+//~ //      ////
+//~ //      ////#if !defined(__SANITIZE_ADDRESS__)
+//~ //      ////
+//~ //      ////      gtk_init_check(&psystem->m_argc, &psystem->m_argv);
+//~ //      ////
+//~ //      ////#endif
+//~ //
+//~ //            node_fork([this]()
+//~ //            {
+//~ //
+//~ //             // This seems not to work with "foreign" windows
+//~ //             // (X11 windows not created with Gdk)
+//~ //             //x11_add_filter();
+//~ //
+//~ //
+//~ //             auto pgtksettingsDefault = gtk_settings_get_default();
+//~ //
+//~ //             if(pgtksettingsDefault)
+//~ //             {
+//~ //
+//~ //
+//~ //                m_pGtkSettingsDefault = G_OBJECT(pgtksettingsDefault);
+//~ //
+//~ //                g_object_ref (m_pGtkSettingsDefault);
+//~ //
+//~ //                gchar *theme_name = nullptr;
+//~ //
+//~ //                g_object_get(m_pGtkSettingsDefault, "gtk-theme-name", &theme_name, NULL);
+//~ //
+//~ //                m_strTheme = theme_name;
+//~ //
+//~ //                g_free(theme_name);
+//~ //
+//~ //                auto preturn = g_signal_connect_data(
+//~ //                   m_pGtkSettingsDefault,
+//~ //                   "notify::gtk-theme-name",
+//~ //                   G_CALLBACK(gtk_settings_gtk_theme_name_callback),
+//~ //                   this,
+//~ //                   NULL,
+//~ //                   G_CONNECT_AFTER);
+//~ //
+//~ //                //g_object_ref(preturn);
+//~ //
+//~ //                //printf("return %" PRIiPTR, preturn);
+//~ //
+//~ //                //printf("return %" PRIiPTR, preturn);
+//~ //
+//~ //             }
+//~ //
+//~ //            x11_add_idle_source(this);
+//~ //
+//~ //             auto psystem = m_psystem->m_papexsystem;
+//~ //
+//~ //               psystem->on_start_system();
+//~ //
+//~ //
+//~ //         });
+//~ //
+//~ //
+//~ //         //x11_add_filter();
+//~ ////
+//~ ////         System.fork([this]()
+//~ ////         {
+//~ ////
+//~ ////            //m_pwindowing->windowing_main();
+//~ ////
+//~ ////         });
+//~ //
+//~ //         //x11_add_idle_source(this);
+//~ //
+//~ //         //x11_add_idle_source(this);
+//~ //
+//~ //         gtk_main();
+//~ //
+//~ //         //x11_main();
+//~ //
+//~ //      }
+//~ //      //
+//~ //      //::parallelization::post_quit_and_wait(get_context_system(), one_minute());
+//~ //
+//~ //      return ::success;
+
+   //~ }
+
+
+   void node::initialize(::particle * pparticle)
    {
 
-      auto psystem = m_psystem->m_papexsystem;
+      //::node_xfce::g_defer_init();
 
-      string strApplicationServerName = psystem->get_application_server_name();
+      ::aura_netbsd::node::initialize(pparticle);
 
-      gdk_notify_startup_complete_with_id (strApplicationServerName);
+      //~ if(!estatus)
+      //~ {
 
-      gdk_notify_startup_complete();
+         //~ return estatus;
 
-   }
+      //~ }
 
+      ::node_xfce::node::initialize(pparticle);
 
-   ::e_status node::start_node()
-   {
+      //~ if(!estatus)
+      //~ {
 
-      auto estatus = node_xfce::node::start_node();
+         //~ return estatus;
 
-      return estatus;
+      //~ }
 
-//      auto psystem = m_psystem->m_papexsystem;
-//
-//      if (psystem->m_bGtkApp)
-//      {
-//
-//         apex_application_run(psystem->m_XstrAppId, psystem->m_strProgName);
-//
-//      }
-//      else
-//      {
-//
-//         //g_set_application_name(System.m_XstrAppId);
-//
-//         //g_set_prgname(System.m_strProgName);
-//      ////
-//      ////      //auto idle_source = g_idle_source_new();
-//      ////
-//      ////      //g_source_set_callback(idle_source, &netbsd_start_system, (::apex::system *) m_psystem, nullptr);
-//      ////
-//      ////      //g_source_attach(idle_source, g_main_context_default());
-//      ////
-//      ////      //int c = 2;
-//      ////
-//      ////      //const char * argv[]={"app", "--g-fatal-warnings"};
-//      ////
-//      ////#if !defined(__SANITIZE_ADDRESS__)
-//      ////
-//      ////      gtk_init_check(&psystem->m_argc, &psystem->m_argv);
-//      ////
-//      ////#endif
-//
-//            node_fork([this]()
-//            {
-//
-//             // This seems not to work with "foreign" windows
-//             // (X11 windows not created with Gdk)
-//             //x11_add_filter();
-//
-//
-//             auto pgtksettingsDefault = gtk_settings_get_default();
-//
-//             if(pgtksettingsDefault)
-//             {
-//
-//
-//                m_pGtkSettingsDefault = G_OBJECT(pgtksettingsDefault);
-//
-//                g_object_ref (m_pGtkSettingsDefault);
-//
-//                gchar *theme_name = nullptr;
-//
-//                g_object_get(m_pGtkSettingsDefault, "gtk-theme-name", &theme_name, NULL);
-//
-//                m_strTheme = theme_name;
-//
-//                g_free(theme_name);
-//
-//                auto preturn = g_signal_connect_data(
-//                   m_pGtkSettingsDefault,
-//                   "notify::gtk-theme-name",
-//                   G_CALLBACK(gtk_settings_gtk_theme_name_callback),
-//                   this,
-//                   NULL,
-//                   G_CONNECT_AFTER);
-//
-//                //g_object_ref(preturn);
-//
-//                //printf("return %" PRIiPTR, preturn);
-//
-//                //printf("return %" PRIiPTR, preturn);
-//
-//             }
-//
-//            x11_add_idle_source(this);
-//
-//             auto psystem = m_psystem->m_papexsystem;
-//
-//               psystem->on_start_system();
-//
-//
-//         });
-//
-//
-//         //x11_add_filter();
-////
-////         System.fork([this]()
-////         {
-////
-////            //m_pwindowing->windowing_main();
-////
-////         });
-//
-//         //x11_add_idle_source(this);
-//
-//         //x11_add_idle_source(this);
-//
-//         gtk_main();
-//
-//         //x11_main();
-//
-//      }
-//      //
-//      //::parallelization::post_quit_and_wait(get_context_system(), one_minute());
-//
-//      return ::success;
-
-   }
-
-
-   ::e_status node::initialize(::object *pobject)
-   {
-
-      ::node_xfce::g_defer_init();
-
-      auto estatus = ::aura::netbsd::node::initialize(pobject);
-
-      if(!estatus)
-      {
-
-         return estatus;
-
-      }
-
-      estatus = ::node_xfce::node::initialize(pobject);
-
-      if(!estatus)
-      {
-
-         return estatus;
-
-      }
-
-      return estatus;
+      //~ return estatus;
 
    }
 
@@ -220,136 +220,138 @@ namespace desktop_environment_xfce
 //   }
 
 
-   bool node::windowing_message_loop_step()
-   {
+   //~ bool node::windowing_message_loop_step()
+   //~ {
 
-      auto psession = get_session();
+      //~ auto psession = get_session();
 
-      if(::is_null(psession))
-      {
+      //~ if(::is_null(psession))
+      //~ {
 
-         return false;
+         //~ return false;
 
-      }
+      //~ }
 
-      auto paurasession = psession->m_paurasession;
+      //~ auto paurasession = psession->m_paurasession;
 
-      if(::is_null(paurasession))
-      {
+      //~ if(::is_null(paurasession))
+      //~ {
 
-         return false;
+         //~ return false;
 
-      }
+      //~ }
 
-      auto puser = paurasession->user();
+      //~ auto puser = paurasession->user();
 
-      if(::is_null(puser))
-      {
+      //~ if(::is_null(puser))
+      //~ {
 
-         return false;
+         //~ return false;
 
-      }
+      //~ }
 
-      auto pwindowing = puser->windowing();
+      //~ auto pwindowing = puser->windowing();
 
-      if(::is_null(pwindowing))
-      {
+      //~ if(::is_null(pwindowing))
+      //~ {
 
-         return false;
+         //~ return false;
 
-      }
+      //~ }
 
-      bool bRet = pwindowing->message_loop_step();
+      //~ bool bRet = pwindowing->message_loop_step();
 
-      return bRet;
+      //~ return bRet;
 
-   }
-
-
-   string node::os_get_user_theme()
-   {
-
-      return m_strTheme;
-
-   }
+   //~ }
 
 
-   bool node::os_set_user_theme(const ::string &strUserTheme)
-   {
+  // string node::os_get_user_theme()
+   //{
 
-      // https://ubuntuforums.org/showthread.php?t=2140488
-      // gsettings set org.xfce.desktop.interface gtk-theme your_theme
+     // return m_strTheme;
 
-      // indirect wall-changer sourceforge.net contribution
+   //}
 
-      auto psystem = m_psystem->m_papexsystem;
 
-      auto pnode = psystem->node();
+   //bool node::os_set_user_theme(const ::string &strUserTheme)
+  // {
+      
+    //  return ::node_xfce::node::os_set_user_theme(strUserTheme);
 
-      auto edesktop = pnode->get_edesktop();
+      //~ // https://ubuntuforums.org/showthread.php?t=2140488
+      //~ // gsettings set org.xfce.desktop.interface gtk-theme your_theme
 
-      switch (edesktop)
-      {
+      //~ // indirect wall-changer sourceforge.net contribution
 
-      case ::user::e_desktop_gnome:
-      case ::user::e_desktop_ubuntu_gnome:
-      case ::user::e_desktop_unity_gnome:
-      {
+      //~ auto psystem = m_psystem->m_papexsystem;
 
-      bool bOk1 = ::node_xfce::gsettings_set("org.gnome.desktop.interface", "gtk-theme", strUserTheme);
+      //~ auto pnode = psystem->node();
 
-      bool bOk2 = true;
+      //~ auto edesktop = pnode->get_edesktop();
 
-      //if(::file::system_short_name().contains_ci("manjaro"))
-      {
+      //~ switch (edesktop)
+      //~ {
 
-         bOk2 = ::node_xfce::gsettings_set("org.xfce.desktop.wm.preferences", "theme", strUserTheme);
+      //~ case ::user::e_desktop_gnome:
+      //~ case ::user::e_desktop_ubuntu_gnome:
+      //~ case ::user::e_desktop_unity_gnome:
+      //~ {
 
-      }
+      //~ bool bOk1 = ::node_xfce::gsettings_set("org.gnome.desktop.interface", "gtk-theme", strUserTheme);
 
-      sleep(300_ms);
+      //~ bool bOk2 = true;
 
-      ::node_xfce::gsettings_sync();
+      //~ //if(::file::system_short_name().contains_ci("manjaro"))
+      //~ {
 
-      sleep(300_ms);
+         //~ bOk2 = ::node_xfce::gsettings_set("org.xfce.desktop.wm.preferences", "theme", strUserTheme);
 
-      return
-      bOk1 &&bOk2;
+      //~ }
 
-      }
+      //~ sleep(300_ms);
 
-      case ::user::e_desktop_mate:
+      //~ ::node_xfce::gsettings_sync();
 
-      //return ::user::gsettings_set("org.mate.background", "picture-filename", strLocalImagePath);
+      //~ sleep(300_ms);
 
-      case ::user::e_desktop_lxde:
+      //~ return
+      //~ bOk1 &&bOk2;
 
-      //call_async("pcmanfm", "-w " + strLocalImagePath, nullptr, e_display_none, false);
+      //~ }
 
-      break;
+      //~ case ::user::e_desktop_mate:
 
-      case ::user::e_desktop_xfce:
-      {
-      //        Q_FOREACH(QString entry, Global::getOutputOfCommand("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << "/backdrop" << "-l").split("\n")){
-      //          if(entry.contains("image-path") || entry.contains("last-image")){
-      //            QProcess::startDetached("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << entry << "-s" << image);
-      //      }
-      //}
+      //~ //return ::user::gsettings_set("org.mate.background", "picture-filename", strLocalImagePath);
 
-      }
+      //~ case ::user::e_desktop_lxde:
 
-      //break;
+      //~ //call_async("pcmanfm", "-w " + strLocalImagePath, nullptr, e_display_none, false);
 
-      default:
+      //~ break;
 
-      output_debug_string("Failed to change wallpaper. If your Desktop Environment is not listed at \"Preferences->Integration-> Current Desktop Environment\", then it is not supported.");
-      return false;
+      //~ case ::user::e_desktop_xfce:
+      //~ {
+      //~ //        Q_FOREACH(QString entry, Global::getOutputOfCommand("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << "/backdrop" << "-l").split("\n")){
+      //~ //          if(entry.contains("image-path") || entry.contains("last-image")){
+      //~ //            QProcess::startDetached("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << entry << "-s" << image);
+      //~ //      }
+      //~ //}
 
-      }
+      //~ }
 
-      return true;
+      //~ //break;
 
-   }
+      //~ default:
+
+      //~ output_debug_string("Failed to change wallpaper. If your Desktop Environment is not listed at \"Preferences->Integration-> Current Desktop Environment\", then it is not supported.");
+      //~ return false;
+
+      //~ }
+
+      //~ return true;
+
+//   }
 
 
 //   void node::os_process_user_theme(string strTheme)
@@ -360,153 +362,157 @@ namespace desktop_environment_xfce
 //   }
 
 
-   bool node::set_wallpaper(index iScreen, string strLocalImagePath)
-   {
+   //bool node::set_wallpaper(::collection::index iScreen, string strLocalImagePath)
+   //{
+      
+     // return ::node_xfce::node::set_wallpaper(iScreen, strLocalImagePath);
 
-      // wall-changer sourceforge.net contribution
+      //~ // wall-changer sourceforge.net contribution
 
-      auto psystem = m_psystem->m_papexsystem;
+      //~ auto psystem = m_psystem->m_papexsystem;
 
-      auto pnode =  psystem->node();
+      //~ auto pnode =  psystem->node();
 
-      auto edesktop = pnode->get_edesktop();
+      //~ auto edesktop = pnode->get_edesktop();
 
-      switch (edesktop)
-      {
+      //~ switch (edesktop)
+      //~ {
 
-         case ::user::e_desktop_gnome:
-         case ::user::e_desktop_ubuntu_gnome:
-         case ::user::e_desktop_unity_gnome:
+         //~ case ::user::e_desktop_gnome:
+         //~ case ::user::e_desktop_ubuntu_gnome:
+         //~ case ::user::e_desktop_unity_gnome:
 
-            return ::node_xfce::gsettings_set("org.gnome.desktop.background", "picture-uri", "file://" + strLocalImagePath);
+            //~ return ::node_xfce::gsettings_set("org.gnome.desktop.background", "picture-uri", "file://" + strLocalImagePath);
 
-         case ::user::e_desktop_mate:
+         //~ case ::user::e_desktop_mate:
 
-            return ::node_xfce::gsettings_set("org.mate.background", "picture-filename", strLocalImagePath);
+            //~ return ::node_xfce::gsettings_set("org.mate.background", "picture-filename", strLocalImagePath);
 
-         case ::user::e_desktop_lxde:
+         //~ case ::user::e_desktop_lxde:
 
-            call_async("pcmanfm", "-w " + strLocalImagePath, nullptr, e_display_none, false);
+            //~ call_async("pcmanfm", "-w " + strLocalImagePath, nullptr, e_display_none, false);
 
-            break;
+            //~ break;
 
-         case ::user::e_desktop_xfce:
-         {
-            //        Q_FOREACH(QString entry, Global::getOutputOfCommand("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << "/backdrop" << "-l").split("\n")){
-            //          if(entry.contains("image-path") || entry.contains("last-image")){
-            //            QProcess::startDetached("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << entry << "-s" << image);
-            //      }
-            //}
+         //~ case ::user::e_desktop_xfce:
+         //~ {
+            //~ //        Q_FOREACH(QString entry, Global::getOutputOfCommand("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << "/backdrop" << "-l").split("\n")){
+            //~ //          if(entry.contains("image-path") || entry.contains("last-image")){
+            //~ //            QProcess::startDetached("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << entry << "-s" << image);
+            //~ //      }
+            //~ //}
 
-         }
+         //~ }
 
-            //break;
+            //~ //break;
 
-         default:
+         //~ default:
 
-            output_debug_string("Failed to change wallpaper. If your Desktop Environment is not listed at \"Preferences->Integration-> Current Desktop Environment\", then it is not supported.");
-            return false;
+            //~ output_debug_string("Failed to change wallpaper. If your Desktop Environment is not listed at \"Preferences->Integration-> Current Desktop Environment\", then it is not supported.");
+            //~ return false;
 
-      }
+      //~ }
 
-      return true;
+      //~ return true;
 
-   }
-
-
-   void node::enable_wallpaper_change_notification()
-   {
-
-      auto psystem = m_psystem->m_papexsystem;
-
-      auto pnode = psystem->node();
-
-      auto edesktop = pnode->get_edesktop();
-
-      switch (edesktop)
-      {
-
-         case ::user::e_desktop_gnome:
-         case ::user::e_desktop_ubuntu_gnome:
-         case ::user::e_desktop_unity_gnome:
-
-            ::node_xfce::g_enable_wallpaper_change_notification("org.gnome.desktop.background", "picture-uri");
-
-            break;
-
-         case ::user::e_desktop_mate:
-
-            ::node_xfce::g_enable_wallpaper_change_notification("org.mate.background", "picture-filename");
-
-            break;
-
-         case ::user::e_desktop_lxde:
-
-            //call_async("pcmanfm", "-w " + strLocalImagePath, nullptr, e_display_none, false);
-
-            break;
-
-         case ::user::e_desktop_xfce:
-         {
-            //        Q_FOREACH(QString entry, Global::getOutputOfCommand("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << "/backdrop" << "-l").split("\n")){
-            //          if(entry.contains("image-path") || entry.contains("last-image")){
-            //            QProcess::startDetached("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << entry << "-s" << image);
-            //      }
-            //}
-
-         }
-
-         break;
-         default:
-
-            output_debug_string("Failed to get wallpaper setting. If your Desktop Environment is not listed at \"Preferences->Integration-> Current Desktop Environment\", then it is not supported.");
-            //return "";
-
-      }
-
-   }
+   //}
 
 
-   string node::get_file_icon_path(const char * pszPath, int iSize)
-   {
+   //void node::enable_wallpaper_change_notification()
+   //{
+      
+      //::node_xfce::node::enable_wallpaper_change_notification();
 
-      string str = ::node_xfce::node::get_file_icon_path(pszPath, iSize);
+      //~ auto psystem = m_psystem->m_papexsystem;
 
-      return str;
+      //~ auto pnode = psystem->node();
 
-      //return ::netbsd_g_direct_get_file_icon_path(pszPath, iSize);
+      //~ auto edesktop = pnode->get_edesktop();
 
-   }
+      //~ switch (edesktop)
+      //~ {
+
+         //~ case ::windowing::e_desktop_gnome:
+         //~ case ::windowing::e_desktop_ubuntu_gnome:
+         //~ case ::windowing::e_desktop_unity_gnome:
+
+            //~ ::node_xfce::g_enable_wallpaper_change_notification("org.gnome.desktop.background", "picture-uri");
+
+            //~ break;
+
+         //~ case ::windowing::e_desktop_mate:
+
+            //~ ::node_xfce::g_enable_wallpaper_change_notification("org.mate.background", "picture-filename");
+
+            //~ break;
+
+         //~ case ::windowing::e_desktop_lxde:
+
+            //~ //call_async("pcmanfm", "-w " + strLocalImagePath, nullptr, e_display_none, false);
+
+            //~ break;
+
+         //~ case ::windowing::e_desktop_xfce:
+         //~ {
+            //~ //        Q_FOREACH(QString entry, Global::getOutputOfCommand("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << "/backdrop" << "-l").split("\n")){
+            //~ //          if(entry.contains("image-path") || entry.contains("last-image")){
+            //~ //            QProcess::startDetached("xfconf-query", QStringList() << "-c" << "xfce4-desktop" << "-point" << entry << "-s" << image);
+            //~ //      }
+            //~ //}
+
+         //~ }
+
+         //~ break;
+         //~ default:
+
+            //~ output_debug_string("Failed to get wallpaper setting. If your Desktop Environment is not listed at \"Preferences->Integration-> Current Desktop Environment\", then it is not supported.");
+            //~ //return "";
+
+      //~ }
+
+   //}
 
 
-   string node::get_file_content_type(const char * pszPath)
-   {
+   //~ string node::get_file_icon_path(const char * pszPath, int iSize)
+   //~ {
 
-      string str = ::node_xfce::node::get_file_content_type(pszPath);
+      //~ string str = ::node_xfce::node::get_file_icon_path(pszPath, iSize);
 
-      return str;
+      //~ return str;
 
-      //return ::netbsd_g_direct_get_file_content_type(pszPath);
+      //~ //return ::netbsd_g_direct_get_file_icon_path(pszPath, iSize);
 
-   }
-
-
-   string node::get_wallpaper(index iScreen)
-   {
-
-      return "";
-
-   }
+   //~ }
 
 
-   ::e_status node::node_branch(const ::routine & routine)
-   {
+   //~ string node::get_file_content_type(const char * pszPath)
+   //~ {
 
-      gdk_branch(routine);
+      //~ string str = ::node_xfce::node::get_file_content_type(pszPath);
 
-      return ::success;
+      //~ return str;
 
-   }
+      //~ //return ::netbsd_g_direct_get_file_content_type(pszPath);
+
+   //~ }
+
+
+   //~ string node::get_wallpaper(::collection::index iScreen)
+   //~ {
+
+      //~ return "";
+
+   //~ }
+
+
+   //~ ::e_status node::node_branch(const ::routine & routine)
+   //~ {
+
+      //~ gdk_branch(routine);
+
+      //~ return ::success;
+
+   //~ }
 
 
 //   void node::node_post_quit()
@@ -617,10 +623,10 @@ namespace desktop_environment_xfce
 //   }
 
 
-   void node::os_post_quit()
-   {
+   //~ void node::os_post_quit()
+   //~ {
 
-   }
+   //~ }
 
 
 //   void * node::node_wrap_window(void * pvoidDisplay, huge_integer window)
@@ -636,36 +642,36 @@ namespace desktop_environment_xfce
 //
 //   }
 
-   bool node::should_launch_on_node(::subject::subject * psubject)
-   {
+   //~ bool node::should_launch_on_node(::subject::subject * psubject)
+   //~ {
 
-      if(::is_null(psubject))
-      {
+      //~ if(::is_null(psubject))
+      //~ {
 
-         return false;
+         //~ return false;
 
-      }
+      //~ }
 
-      if(psubject->m_id == id_os_dark_mode)
-      {
+      //~ if(psubject->m_id == id_os_dark_mode)
+      //~ {
 
-         return false;
+         //~ return false;
 
-      }
+      //~ }
 
-      return false;
+      //~ return false;
 
-   }
+   //~ }
 
 
-   bool node::launch_on_node(::subject::subject * psubject)
-   {
+   //~ bool node::launch_on_node(::subject::subject * psubject)
+   //~ {
 
-      auto bOk = ::node_xfce::node::launch_on_node(psubject);
+      //~ auto bOk = ::node_xfce::node::launch_on_node(psubject);
 
-      return bOk;
+      //~ return bOk;
 
-   }
+   //~ }
 
 
 } // namespace desktop_environment_xfce

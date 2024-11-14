@@ -367,6 +367,23 @@ if (${LXDE_DESKTOP})
 
     add_compile_definitions(default_windowing=windowing_x11)
 
+elseif (${XFCE_DESKTOP})
+
+    list(APPEND app_common_dependencies
+            desktop_environment_xfce
+            node_netbsd
+            )
+
+    list(APPEND static_app_common_dependencies
+            static_desktop_environment_xfce)
+
+    set(default_windowing "windowing_gtk3")
+
+    add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
+
+    add_compile_definitions(default_windowing=windowing_gtk3)
+
+
 elseif (${GTK_BASED_DESKTOP})
 
 
@@ -386,21 +403,6 @@ elseif (${GTK_BASED_DESKTOP})
     set(default_windowing "windowing_x11")
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
-
-elseif (${XFCE_DESKTOP})
-
-    list(APPEND app_common_dependencies
-            desktop_environment_xfce)
-
-    list(APPEND static_app_common_dependencies
-            static_desktop_environment_xfce)
-
-    set(default_windowing "windowing_x11")
-
-    add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
-
-    add_compile_definitions(default_windowing=windowing_x11)
-
 
 elseif(${KDE_DESKTOP})
 

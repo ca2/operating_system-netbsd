@@ -44,9 +44,9 @@ list(APPEND library_references
    aura
    aura_posix
    aura_netbsd
-   windowing_x11
+   #windowing_x11
    #node_gtk
-   node_gdk
+   #node_gdk
    node_gtk_based
    )
 

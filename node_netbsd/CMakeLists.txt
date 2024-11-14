@@ -16,6 +16,7 @@ list(APPEND library_references
    acme
    acme_netbsd
    aura_posix
+   aura_netbsd
    )
 
 
