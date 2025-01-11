@@ -370,16 +370,18 @@ if (${LXDE_DESKTOP})
 elseif (${XFCE_DESKTOP})
 
     list(APPEND app_common_dependencies
-            desktop_environment_xfce
-            node_netbsd
+            operating_ambient_gtk3
+            node_gtk3
             )
 
     list(APPEND static_app_common_dependencies
-            static_desktop_environment_xfce)
+            static_operating_ambient_gtk3)
 
     set(default_windowing "windowing_gtk3")
+    set(acme_windowing "acme_windowing_gtk3")
+    set(default_innate_ui "innate_ui_gtk3")
 
-    add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
+    add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
 
     add_compile_definitions(default_windowing=windowing_gtk3)
 
