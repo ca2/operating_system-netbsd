@@ -8,12 +8,22 @@ message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 
 set(ENV{PKG_CONFIG_PATH} /usr/pkg/lib/ffmpeg5/pkgconfig/)
 
+
+execute_process(COMMAND uname -m OUTPUT_VARIABLE __SYSTEM_ARCHITECTURE)
+string(STRIP ${__SYSTEM_ARCHITECTURE} __SYSTEM_ARCHITECTURE)
+
+execute_process(COMMAND uname -s OUTPUT_VARIABLE __OPERATING_SYSTEM)
+string(STRIP ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
+string(TOLOWER ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
+
+
 #IF(PKG_CONFIG_FOUND)
     # use pkg_check_modules()
 #ENDIF(PKG_CONFIG_FOUND)
 set(USE_PKGCONFIG TRUE)
 set(NO_PRECOMPILED_HEADER TRUE)
 set(PLATFORM_NAME "netbsd")
+set(TOOL_RELEASE_NAME "netbsd")
 set(HAS_ALSA FALSE)
 set(CURL_NANO_HTTP TRUE)
 
@@ -81,27 +91,37 @@ endif ()
 #set(DONT_USE_PKG_CONFIG NOT PKG_CONFIG_FOUND)
 set(DONT_USE_PKG_CONFIG FALSE)
 
+set(CURRENT_DESKTOP "$ENV{XDG_CURRENT_DESKTOP}")
+string(STRIP ${__SYSTEM_ARCHITECTURE} __SYSTEM_ARCHITECTURE)
 
-if ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "KDE")
+execute_process(COMMAND xfce4-about -V OUTPUT_VARIABLE XFCE4_ABOUT_OUTPUT)
+set(XFCE4_ABOUT_TOKEN "xfce4-about ")
+string(LENGTH "${XFCE4_ABOUT_TOKEN}" XFCE4_ABOUT_LENGTH)
+string(SUBSTRING "${XFCE4_ABOUT_OUTPUT}" 0 ${XFCE4_ABOUT_LENGTH} XFCE4_ABOUT_CLIPPED)
+
+message(STATUS "xfce4-about clipped is *${XFCE4_ABOUT_CLIPPED}*")
+
+
+if ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "KDE")
     set(KDE_DESKTOP TRUE)
     message(STATUS "System is KDE")
     set(DESKTOP_ENVIRONMENT_NAME "kde")
-elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "ubuntu:GNOME")
+elseif ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "ubuntu:GNOME")
     set(GNOME_DESKTOP TRUE)
     message(STATUS "System is GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
-elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "GNOME")
+elseif ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "GNOME")
     set(GNOME_DESKTOP TRUE)
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
     message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
     include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
-elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "LXDE")
+elseif ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
     set(DESKTOP_ENVIRONMENT_NAME "lxde")
-elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "Xfce")
+elseif ("${XFCE4_ABOUT_CLIPPED}" STREQUAL "${XFCE4_ABOUT_TOKEN}")
     set(XFCE_DESKTOP TRUE)
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is XFCE")
@@ -115,7 +135,7 @@ message(STATUS "DESKTOP_ENVIRONMENT_NAME is ${DESKTOP_ENVIRONMENT_NAME}")
 
 set(UNDERSCORE_OPERATING_SYSTEM $ENV{__SYSTEM_UNDERSCORE_OPERATING_SYSTEM})
 set(SLASHED_OPERATING_SYSTEM $ENV{__SYSTEM_SLASHED_OPERATING_SYSTEM})
-set(OPERATING_SYSTEM $ENV{__OPERATING_SYSTEM})
+#set(OPERATING_SYSTEM $ENV{__OPERATING_SYSTEM})
 set(OPERATING_SYSTEM_RELEASE $ENV{__OPERATING_SYSTEM_RELEASE})
 
 
@@ -188,7 +208,7 @@ set(PTHREAD TRUE)
 
 message(STATUS "OPERATING_SYSTEM is ${OPERATING_SYSTEM}")
 
-if (${OPERATING_SYSTEM} STREQUAL "netbsd")
+if (${__OPERATING_SYSTEM} STREQUAL "netbsd")
 
     set(NETBSD TRUE)
 
@@ -380,6 +400,11 @@ elseif (${XFCE_DESKTOP})
     set(default_windowing "windowing_gtk3")
     set(acme_windowing "acme_windowing_gtk3")
     set(default_innate_ui "innate_ui_gtk3")
+    list(APPEND static_acme_libraries
+	static_acme
+	static_acme_posix
+	static_acme_netbsd)
+	
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
 
