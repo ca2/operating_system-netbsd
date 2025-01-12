@@ -6,7 +6,7 @@ message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 
 #include(FindPkgConfig)
 
-set(ENV{PKG_CONFIG_PATH} /usr/pkg/lib/ffmpeg5/pkgconfig/)
+set(ENV{PKG_CONFIG_PATH} /usr/pkg/lib/ffmpeg7/pkgconfig/)
 
 
 execute_process(COMMAND uname -m OUTPUT_VARIABLE __SYSTEM_ARCHITECTURE)
@@ -196,7 +196,7 @@ set(CMAKE_INSTALL_RPATH $ORIGIN)
 
 set(OPERATING_SYSTEM_NAME "netbsd")
 set(OPERATING_SYSTEM_POSIX TRUE)
-set(FILE_SYSTEM_INOTIFY TRUE)
+set(FILE_SYSTEM_INOTIFY FALSE)
 set(POSIX_SPAWN TRUE)
 set(POSIX_LIST_SERIAL_PORTS TRUE)
 set(WITH_X11 TRUE)
