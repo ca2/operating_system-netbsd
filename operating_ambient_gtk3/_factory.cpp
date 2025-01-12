@@ -2,7 +2,7 @@
 #include "node.h"
 
 
-__FACTORY_EXPORT void aura_linux_factory(::factory::factory * pfactory);
+__FACTORY_EXPORT void aura_netbsd_factory(::factory::factory * pfactory);
 
 
 __FACTORY_EXPORT void node_gtk3_factory(::factory::factory * pfactory);
@@ -12,7 +12,7 @@ __FACTORY_EXPORT void operating_ambient_gtk3_factory(::factory::factory * pfacto
 {
 
 
-   aura_linux_factory(pfactory);
+   aura_netbsd_factory(pfactory);
 
    node_gtk3_factory(pfactory);
 

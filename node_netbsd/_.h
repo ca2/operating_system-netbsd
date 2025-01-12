@@ -17,15 +17,15 @@
 #include "_const.h"
 
 
-namespace windowing
-{
+//namespace windowing
+//{
 
 
-   CLASS_DECL_ACME ::windowing::enum_desktop get_edesktop();
-   CLASS_DECL_ACME ::windowing::enum_desktop calculate_edesktop();
+//   CLASS_DECL_ACME ::windowing::enum_desktop get_edesktop();
+//   CLASS_DECL_ACME ::windowing::enum_desktop calculate_edesktop();
 
 
-} // namespace windowing
+//} // namespace windowing
 
 
 

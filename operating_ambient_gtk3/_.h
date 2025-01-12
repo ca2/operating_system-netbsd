@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "aura_linux/_.h"
+#include "aura_netbsd/_.h"
 #include "node_gtk3/_.h"
 
 

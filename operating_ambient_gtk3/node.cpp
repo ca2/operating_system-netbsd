@@ -73,7 +73,7 @@ namespace operating_ambient_gtk3
 
       //::node_xfce::g_defer_init();
 
-      ::aura_linux::node::initialize(pparticle);
+      ::aura_netbsd::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
