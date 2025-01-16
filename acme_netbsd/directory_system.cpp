@@ -445,7 +445,7 @@ namespace acme_netbsd
    ::file::path directory_system::module()
    {
 
-      return "";
+      return ::acme_posix::directory_system::module();
 
    }
 
