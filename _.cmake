@@ -26,6 +26,7 @@ set(PLATFORM_NAME "netbsd")
 set(TOOL_RELEASE_NAME "netbsd")
 set(HAS_ALSA FALSE)
 set(CURL_NANO_HTTP TRUE)
+add_compile_definitions(TOOL_FOLDER_OPERATING_SYSTEM_NAME="netbsd")
 
 
 cmake_policy(SET CMP0060 NEW)

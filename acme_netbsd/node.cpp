@@ -1,7 +1,9 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/operating_system/summary.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/filesystem/filesystem/file_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include "acme/windowing/windowing.h"
 
 
@@ -775,26 +777,26 @@ namespace acme_netbsd
 
          auto set = file_system()->parse_standard_configuration("/etc/os-release");
 
-         psummary->m_strDistro = set["ID"];
-         psummary->m_strDistroBranch = set["VARIANT_ID"];
-         psummary->m_strDesktopEnvironment = psummary->m_strDistroBranch;
-         psummary->m_strDistroRelease = set["VERSION_ID"];
-         psummary->m_strDistroFamily = set["ID_LIKE"];
+         psummary->m_strSystem = set["ID"];
+         psummary->m_strSystemBranch = set["VARIANT_ID"];
+         psummary->m_strAmbient = psummary->m_strSystemBranch;
+         psummary->m_strSystemRelease = set["VERSION_ID"];
+         psummary->m_strSystemFamily = set["ID_LIKE"];
 
-         character_count iDot = psummary->m_strDistroRelease.find_index('.');
+         character_count iDot = psummary->m_strSystemRelease.find_index('.');
 
          if(iDot > 0)
          {
 
-            psummary->m_strDistroRelease = psummary->m_strDistroRelease.left(iDot);
+            psummary->m_strSystemRelease = psummary->m_strSystemRelease.left(iDot);
 
          }
 
-         psummary->m_strDistro.make_lower();
-         psummary->m_strDistroBranch.make_lower();
-         psummary->m_strDesktopEnvironment.make_lower();
-         psummary->m_strDistroRelease.make_lower();
-         psummary->m_strDistroFamily.make_lower();
+         psummary->m_strSystem.make_lower();
+         psummary->m_strSystemBranch.make_lower();
+         psummary->m_strAmbient.make_lower();
+         psummary->m_strSystemRelease.make_lower();
+         psummary->m_strSystemFamily.make_lower();
 
       }
       else
@@ -817,10 +819,10 @@ namespace acme_netbsd
          if(strUnameA.case_insensitive_begins("netbsd ") && strUnameR.has_character())
          {
          
-            psummary->m_strDistro = "netbsd";
-//            psummary->m_strDistroBranch = "bsd";
-            psummary->m_strDistroRelease = strUnameR;
-            psummary->m_strDistroFamily = "netbsd";
+            psummary->m_strSystem = "netbsd";
+//            psummary->m_strSystemBranch = "bsd";
+            psummary->m_strSystemRelease = strUnameR;
+            psummary->m_strSystemFamily = "netbsd";
 
 
          }
@@ -839,7 +841,7 @@ namespace acme_netbsd
          //
          //# echo "lower case xdg_current_desktop contains gnome"
 
-         psummary->m_strDesktopEnvironment = "gnome";
+         psummary->m_strAmbient = "gnome";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("kde"))
@@ -852,7 +854,7 @@ namespace acme_netbsd
          //
          //# echo "lower case xdg_current_desktop contains gnome"
 
-         psummary->m_strDesktopEnvironment = "kde";
+         psummary->m_strAmbient = "kde";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("lxde"))
@@ -865,7 +867,7 @@ namespace acme_netbsd
          //
          //# echo "lower case xdg_current_desktop contains lxde"
 
-         psummary->m_strDesktopEnvironment = "lxde";
+         psummary->m_strAmbient = "lxde";
 
       }
       else
@@ -876,7 +878,7 @@ namespace acme_netbsd
          if(strXfceAbout.case_insensitive_begins("xfce4-about "))
          {
 
-            psummary->m_strDesktopEnvironment = "xfce";
+            psummary->m_strAmbient = "xfce";
 
          }
 
@@ -884,31 +886,42 @@ namespace acme_netbsd
 
       }
 
-      if(psummary->m_strDistroBranch.is_empty())
+      if(psummary->m_strSystemBranch.is_empty())
       {
 
-         psummary->m_strDistroBranch = psummary->m_strDesktopEnvironment;
+         psummary->m_strSystemBranch = psummary->m_strAmbient;
 
       }
 
-      psummary->m_strSlashedStore=psummary->m_strDistro + "/" + psummary->m_strDistroBranch + "/" + psummary->m_strDistroRelease;
+      psummary->m_strSystemAmbientRelease=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease;
 
-      psummary->m_strUnderscoreOperatingSystem = psummary->m_strSlashedStore;
+      //psummary->m_strUnderscoreOperatingSystem = psummary->m_strSlashedStore;
 
-      psummary->m_strSlashedIntegration = psummary->m_strSlashedStore;
+      //psummary->m_strSlashedIntegration = psummary->m_strSlashedStore;
 
-      psummary->m_strUnderscoreOperatingSystem.find_replace("/", "_");
+      //psummary->m_strUnderscoreOperatingSystem.find_replace("/", "_");
+      
+      auto pathToolFolder = path_system()->tool_folder_path();
 
-      this->set_environment_variable("__SYSTEM_DISTRO", psummary->m_strDistro);
-      this->set_environment_variable("__SYSTEM_DISTRO_FAMILY", psummary->m_strDistroFamily);
-      this->set_environment_variable("__SYSTEM_DISTRO_BRANCH", psummary->m_strDistroBranch);
-      this->set_environment_variable("__SYSTEM_DISTRO_RELEASE", psummary->m_strDistroRelease);
-      this->set_environment_variable("__SYSTEM_DESKTOP_ENVIRONMENT", psummary->m_strDesktopEnvironment);
-      this->set_environment_variable("__SYSTEM_SLASHED_STORE", psummary->m_strSlashedStore);
-      this->set_environment_variable("__SYSTEM_SLASHED_INTEGRATION", psummary->m_strSlashedIntegration);
-      this->set_environment_variable("__SYSTEM_UNDERSCORE_OPERATING_SYSTEM", psummary->m_strUnderscoreOperatingSystem);
-      this->set_environment_variable("__SYSTEM_SUDO_INSTALL", psummary->m_strSudoInstall);
-      this->set_environment_variable("__SYSTEM_TERMINAL", psummary->m_strTerminal);
+      auto pathToolBinFolder = pathToolFolder / "bin";
+
+      auto pathHome = directory_system()->home();
+
+      auto pathHomeBin = pathHome / "bin";
+      
+      psummary->m_strPathPrefix = pathHomeBin + ":" + pathToolBinFolder;
+
+      //this->set_environment_variable("__SYSTEM", psummary->m_strSystem);
+      //this->set_environment_variable("__SYSTEM_FAMILY", psummary->m_strSystemFamily);
+      //this->set_environment_variable("__SYSTEM_BRANCH", psummary->m_strSystemBranch);
+      //this->set_environment_variable("__SYSTEM_RELEASE", psummary->m_strSystemRelease);
+      //this->set_environment_variable("__SYSTEM_AMBIENT_RELEASE", psummary->m_strSystemAmbientRelease);
+      ////this->set_environment_variable("__SYSTEM_SLASHED_INTEGRATION", psummary->m_strSlashedIntegration);
+      ////this->set_environment_variable("__SYSTEM_UNDERSCORE_OPERATING_SYSTEM", psummary->m_strUnderscoreOperatingSystem);
+      //this->set_environment_variable("__SYSTEM_SUDO_INSTALL", psummary->m_strSudoInstall);
+      //this->set_environment_variable("__SYSTEM_TERMINAL", psummary->m_strTerminal);
+      //this->set_environment_variable("__AMBIENT", psummary->m_strAmbient);
+      //this->set_environment_variable("__PATH_PREFIX", psummary->m_strPathPrefix);
 
       return psummary;
 
