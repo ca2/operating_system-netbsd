@@ -367,8 +367,24 @@ set(default_acme_windowing "acme_windowing_gtk3")
 #add_compile_definitions(default_music_midi=music_midi_alsa)
 #add_compile_definitions(default_node=node_linux)
 
+
 list(APPEND global_library_references
-            c)
+   c
+   )
+
+
+list(APPEND acme_libraries
+   acme
+   acme_posix
+   acme_netbsd
+   )
+
+
+list(APPEND static_acme_libraries
+   static_acme
+   static_acme_posix
+   static_acme_netbsd
+   )
 
 
 if (${LXDE_DESKTOP})
@@ -392,21 +408,18 @@ elseif (${XFCE_DESKTOP})
 
 	message(STATUS "Setting up definitions for XFCE_DESKTOP")
 
-    list(APPEND app_common_dependencies
-            operating_ambient_gtk3
-            node_gtk3
-            )
+   list(APPEND app_common_dependencies
+      operating_ambient_gtk3
+      node_gtk3
+      )
 
-    list(APPEND static_app_common_dependencies
-            static_operating_ambient_gtk3)
+   list(APPEND static_app_common_dependencies
+      static_operating_ambient_gtk3
+      )
 
-    set(default_windowing "windowing_gtk3")
-    set(acme_windowing "acme_windowing_gtk3")
-    set(default_innate_ui "innate_ui_gtk3")
-    list(APPEND static_acme_libraries
-	static_acme
-	static_acme_posix
-	static_acme_netbsd)
+   set(default_windowing "windowing_gtk3")
+   set(acme_windowing "acme_windowing_gtk3")
+   set(default_innate_ui "innate_ui_gtk3")
 	
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
