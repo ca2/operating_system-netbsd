@@ -368,84 +368,131 @@ set(default_acme_windowing "acme_windowing_gtk3")
 #add_compile_definitions(default_node=node_linux)
 
 
-list(APPEND global_library_references
-   c
-   )
 
 
 list(APPEND acme_libraries
    acme
    acme_posix
-   acme_netbsd
-   )
+   acme_netbsd)
 
 
 list(APPEND static_acme_libraries
    static_acme
    static_acme_posix
-   static_acme_netbsd
-   )
+   static_acme_netbsd)
 
 
-if (${LXDE_DESKTOP})
+list(APPEND apex_libraries
+   ${acme_libraries}
+   apex
+   apex_posix
+   apex_netbsd
+)
 
-    list(APPEND app_common_dependencies
-            desktop_environment_gnome)
+list(APPEND aura_libraries
+   ${apex_libraries}
+   aura
+   aura_posix
+   aura_netbsd
+   node_netbsd
+)
 
-#    list(APPEND static_app_common_dependencies
-#            static_desktop_environment_gnome
-#            static_node_gnome
-#            static_node_gtk
-#            static_windowing_x11)
+set(default_nano_graphics nano_graphics_cairo)
 
-    set(default_windowing "windowing_x11")
 
-    add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 
-    add_compile_definitions(default_windowing=windowing_x11)
+#~ if (${LXDE_DESKTOP})
 
-elseif (${XFCE_DESKTOP})
+    #~ list(APPEND app_common_dependencies
+            #~ desktop_environment_gnome)
 
-	message(STATUS "Setting up definitions for XFCE_DESKTOP")
+#~ #    list(APPEND static_app_common_dependencies
+#~ #            static_desktop_environment_gnome
+#~ #            static_node_gnome
+#~ #            static_node_gtk
+#~ #            static_windowing_x11)
 
-   list(APPEND app_common_dependencies
-      operating_ambient_gtk3
-      node_gtk3
-      )
+    #~ set(default_windowing "windowing_x11")
 
-   list(APPEND static_app_common_dependencies
-      static_operating_ambient_gtk3
-      )
+    #~ add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 
-   set(default_windowing "windowing_gtk3")
-   set(acme_windowing "acme_windowing_gtk3")
-   set(default_innate_ui "innate_ui_gtk3")
+    #~ add_compile_definitions(default_windowing=windowing_x11)
+
+#~ elseif (${XFCE_DESKTOP})
+
+	#~ message(STATUS "Setting up definitions for XFCE_DESKTOP")
+
+   #~ list(APPEND app_common_dependencies
+      #~ operating_ambient_gtk3
+      #~ node_gtk3
+      #~ )
+
+   #~ list(APPEND static_app_common_dependencies
+      #~ static_operating_ambient_gtk3
+      #~ )
+
+   #~ set(default_windowing "windowing_gtk3")
+   #~ set(acme_windowing "acme_windowing_gtk3")
+   #~ set(default_innate_ui "innate_ui_gtk3")
 	
 
-    add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
+    #~ add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
 
-    add_compile_definitions(default_windowing=windowing_gtk3)
-
-
-elseif (${GTK_BASED_DESKTOP})
+    #~ add_compile_definitions(default_windowing=windowing_gtk3)
 
 
-    message(STATUS "Adding GTK/X11 dependency.")
+#~ elseif (${GTK_BASED_DESKTOP})
+if (${GTK_BASED_DESKTOP})
 
-    list(APPEND app_common_dependencies
-            desktop_environment_gtk_based)
+   include("operating_system/operating_system-posix/_default_gtk_based_windowing.cmake")
+
+   #~ message(STATUS "Adding GTK/X11 dependency.")
+   
+   #~ list(APPEND acme_windowing_libraries
+      #~ common_gtk
+      #~ )
 
 
-    list(APPEND static_app_common_dependencies
-            static_desktop_environment_gtk_based
-            static_node_gnome
-            static_node_gtk
-            static_node_linux
-            static_windowing_x11)
+   #~ if(${HAS_GTK3})
+   
+      #~ list(APPEND acme_windowing_libraries
+         #~ acme_windowing_gtk3
+         #~ nano_graphics_cairo
+      #~ )
 
-    set(default_windowing "windowing_x11")
+      #~ list(APPEND apex_windowing_libraries
+         #~ ${acme_windowing_libraries}
+         #~ innate_ui_gtk3
+      #~ )
 
-    add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
+      #~ list(APPEND aura_libraries
+         #~ ${apex_windowing_libraries}
+         #~ innate_ui_gtk3
+      #~ )
+
+      #~ list(APPEND app_common_dependencies
+         #~ operating_ambient_gtk3
+         #~ node_gtk3
+      #~ )
+
+      #~ list(APPEND static_app_common_dependencies
+            #~ operating_ambient_gtk3)
+
+
+      #~ set(default_windowing "windowing_gtk3")
+      #~ set(acme_windowing "acme_windowing_gtk3")
+      #~ set(default_innate_ui "innate_ui_gtk3")
+	
+
+      #~ add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
+
+      #~ add_compile_definitions(default_windowing=windowing_gtk3)
+      
+   #~ elseif(${HAS_GTK4})
+   
+   
+   #~ endif()
+
 
 elseif(${KDE_DESKTOP})
 
@@ -473,6 +520,9 @@ elseif(${KDE_DESKTOP})
     add_compile_definitions(default_windowing=windowing_xcb)
 
 endif ()
+
+
+include("operating_system/operating_system-posix/_default_posix_windowing.cmake")
 
 
 set(LIBCXX_TARGETING_MSVC OFF)
