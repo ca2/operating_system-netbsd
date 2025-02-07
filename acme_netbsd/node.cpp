@@ -5,9 +5,14 @@
 #include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/path_system.h"
 #include "acme/windowing/windowing.h"
-
-
+//#include "acme/operating_system/ansi/process.h"
+//#include <xfce4/libxfce4util/libxfce4util.h>
+typedef const char * XFCE_VERSION_STRING();
+typedef XFCE_VERSION_STRING * PFUNCTION_XFCE_VERSION_STRING;
+#include <dlfcn.h>
+#include <sched.h>
 //::user::enum_desktop _get_edesktop();
+void process_get_os_priority(int * piPolicy, sched_param * pparam, ::enum_priority epriority);
 
 
 namespace acme_netbsd
@@ -755,6 +760,39 @@ namespace acme_netbsd
            });
 
    }
+   
+   
+      bool node::set_process_priority(::enum_priority epriority)
+{
+      
+//~ //#ifdef LINUX
+      
+//~ //#error "please transfer the code commented below to linux-operating_system"
+//~ //
+//~ //#else
+      
+      //~ return ::platform::node::set_process_priority(epriority);
+      
+//~ ///#endif
+      
+      
+   //~ }
+   //~ {
+//~ //
+      int iPolicy = SCHED_OTHER;
+
+      sched_param schedparam;
+//
+      schedparam.sched_priority = 0;
+//
+      process_get_os_priority(&iPolicy, &schedparam, epriority);
+//
+     sched_setscheduler(0, iPolicy, &schedparam);
+//
+      return true;
+//
+   }
+
 
 
    ::pointer <::operating_system::summary > node::operating_system_summary()
@@ -804,24 +842,28 @@ namespace acme_netbsd
       
 //         printf("/etc/os-release doesnt exist?!?!");
       
-         ::string strUnameA = get_posix_shell_command_output("uname -a");
-
-         debugf("uname -a output: %s", strUnameA.c_str());
-
-         ::string strUnameR = get_posix_shell_command_output("uname -r");
-
-         debugf("uname -r output: %s", strUnameR.c_str());
+         //::string strUnameA = get_posix_shell_command_output("uname -a");
          
-         strUnameA.trim();
+         auto strUnameSystem = _uname_system();
+
+         debugf("_uname_system: %s", strUnameSystem.c_str());
+
+         //auto strUnameRelease = get_posix_shell_command_output("uname -r");
          
-         strUnameR.trim();
+         auto strUnameRelease = _uname_release();
+
+         debugf("_uname_release: %s", strUnameRelease.c_str());
          
-         if(strUnameA.case_insensitive_begins("netbsd ") && strUnameR.has_character())
+         strUnameSystem.trim();
+         
+         strUnameRelease.trim();
+         
+         if(strUnameSystem.case_insensitive_equals("netbsd") && strUnameRelease.has_character())
          {
          
             psummary->m_strSystem = "netbsd";
 //            psummary->m_strSystemBranch = "bsd";
-            psummary->m_strSystemRelease = strUnameR;
+            psummary->m_strSystemRelease = strUnameRelease;
             psummary->m_strSystemFamily = "netbsd";
 
 
@@ -872,17 +914,83 @@ namespace acme_netbsd
       }
       else
       {
-
-         ::string strXfceAbout = get_posix_shell_command_output("xfce4-about -V");
-
-         if(strXfceAbout.case_insensitive_begins("xfce4-about "))
+         
+         //~ if(1)
+         //~ {
+            
+            //~ psummary->m_strAmbient = "xfce";
+            
+         //~ }
+         //~ else
          {
+         
+            //auto plibraryXfce4Util = dlopen("libxfce4util.so", RTLD_LAZY | RTLD_GLOBAL);
+            
+            auto plibraryXfce4Util = dlopen("libxfce4util.so", 0);
+            
+            if(::is_null(plibraryXfce4Util))
+            {
+               
+               warningf("failed to open libxfce4util.so : \"%s\"", dlerror());
+               
+            }
+            else
+            {
+               
+               auto pXfceVersionString =  dlsym(plibraryXfce4Util, "xfce_version_string");
+               
+               if(::is_null(pXfceVersionString))
+               {
+               
+                  warningf("failed to get address of xfce_version_string : \"%s\"", dlerror());
+               
 
-            psummary->m_strAmbient = "xfce";
+                  //int main() {
+                  //  printf("XFCE Version: %s\n", xfce_version_string());
+               
+               }
+               else
+               {
+                  
+                  PFUNCTION_XFCE_VERSION_STRING pfnXfceVersionString = (PFUNCTION_XFCE_VERSION_STRING) pXfceVersionString;
+                  
+                  auto pszXfceVersionString = pfnXfceVersionString();
+                  
+                  if(::is_null(pszXfceVersionString) || *pszXfceVersionString == '\0')
+                  {
+                     
+                     warningf("failed to get xfce_version_string");
+                     
+                  }
+                  else
+                  {
+                  
+                     informationf("xfce_version_string %s", pszXfceVersionString);
+                  //"failed to get address of xfce_version_string : \"%s\"", dlerror());
+     
+                     psummary->m_strAmbient = "xfce";
+                     
+                     //exit(0);
+                
+                  }
+                  
+               }
+               
+               dlclose(plibraryXfce4Util);
+
+            ///::string strXfceAbout = get_posix_shell_command_output("xfce4-about -V");
+            
+            }
+
 
          }
+//         if(strXfceAbout.case_insensitive_begins("xfce4-about "))
+  //       {
 
-         debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
+  
+    //     }
+
+//         debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
 
       }
 

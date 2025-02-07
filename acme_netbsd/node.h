@@ -65,6 +65,8 @@ namespace acme_netbsd
 
       void shell_open(const ::file::path & path, const ::string & strParams = "", const ::file::path & pathFolder = "") override;
 
+     bool set_process_priority(::enum_priority epriority) override;
+
 
       ::pointer <::operating_system::summary > operating_system_summary() override;
       
