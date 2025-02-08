@@ -922,6 +922,21 @@ namespace acme_netbsd
             
          //~ }
          //~ else
+         #if defined(CUBE)
+         
+            ::string strXfceAbout = get_posix_shell_command_output("xfce4-about -V");
+
+            debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
+
+            if(strXfceAbout.case_insensitive_begins("xfce4-about "))
+            {
+
+               psummary->m_strAmbient = "xfce";
+  
+            }
+
+         #else
+         
          {
          
             //auto plibraryXfce4Util = dlopen("libxfce4util.so", RTLD_LAZY | RTLD_GLOBAL);
@@ -991,6 +1006,8 @@ namespace acme_netbsd
     //     }
 
 //         debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
+
+#endif
 
       }
 
