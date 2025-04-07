@@ -102,7 +102,7 @@ string(LENGTH "${XFCE4_ABOUT_TOKEN}" XFCE4_ABOUT_LENGTH)
 string(SUBSTRING "${XFCE4_ABOUT_OUTPUT}" 0 ${XFCE4_ABOUT_LENGTH} XFCE4_ABOUT_CLIPPED)
 
 message(STATUS "xfce4-about clipped is *${XFCE4_ABOUT_CLIPPED}*")
-
+set(OPERATING_SYSTEM_POSIX_PATH "${WORKSPACE_FOLDER}/operating_system/operating_system-posix")
 
 if ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "KDE")
     set(KDE_DESKTOP TRUE)
@@ -117,8 +117,9 @@ elseif ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "GNOME")
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
-    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
-    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
+    set(GTK_DESKTOP_CMAKE_PATH "${OPERATING_SYSTEM_POSIX_PATH}/_gtk_desktop.cmake")
+    message(STATUS "including ${GTK_DESKTOP_CMAKE_PATH}")
+    include(${GTK_DESKTOP_CMAKE_PATH})
 elseif ("$ENV{XDG_CURRENT_DESKTOP}" STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
@@ -128,8 +129,9 @@ elseif ("${XFCE4_ABOUT_CLIPPED}" STREQUAL "${XFCE4_ABOUT_TOKEN}")
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is XFCE")
     set(DESKTOP_ENVIRONMENT_NAME "xfce")
-    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake")
-    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_desktop.cmake)
+    set(GTK_DESKTOP_CMAKE_PATH "${OPERATING_SYSTEM_POSIX_PATH}/_gtk_desktop.cmake")
+    message(STATUS "including ${GTK_DESKTOP_CMAKE_PATH}")
+    include(${GTK_DESKTOP_CMAKE_PATH})
 endif ()
 
 
@@ -454,45 +456,45 @@ if (${GTK_BASED_DESKTOP})
       #~ )
 
 
-   #~ if(${HAS_GTK3})
+   if(${HAS_GTK3})
    
-      #~ list(APPEND acme_windowing_libraries
-         #~ acme_windowing_gtk3
-         #~ nano_graphics_cairo
-      #~ )
+      #list(APPEND acme_windowing_libraries
+         #acme_windowing_gtk3
+         #nano_graphics_cairo
+         #)
 
-      #~ list(APPEND apex_windowing_libraries
-         #~ ${acme_windowing_libraries}
-         #~ innate_ui_gtk3
-      #~ )
+      #list(APPEND apex_windowing_libraries
+         #${acme_windowing_libraries}
+         #innate_ui_gtk3
+      #)
 
-      #~ list(APPEND aura_libraries
-         #~ ${apex_windowing_libraries}
-         #~ innate_ui_gtk3
-      #~ )
+      #list(APPEND aura_libraries
+         #${apex_windowing_libraries}
+         #innate_ui_gtk3
+      #)
 
-      #~ list(APPEND app_common_dependencies
-         #~ operating_ambient_gtk3
-         #~ node_gtk3
-      #~ )
+      #list(APPEND app_common_dependencies
+         #operating_ambient_gtk3
+         #node_gtk3
+      #)
 
-      #~ list(APPEND static_app_common_dependencies
-            #~ operating_ambient_gtk3)
+      #list(APPEND static_app_common_dependencies
+            #operating_ambient_gtk3)
 
 
-      #~ set(default_windowing "windowing_gtk3")
-      #~ set(acme_windowing "acme_windowing_gtk3")
-      #~ set(default_innate_ui "innate_ui_gtk3")
+      #set(default_windowing "windowing_gtk3")
+      #set(acme_windowing "acme_windowing_gtk3")
+      #set(default_innate_ui "innate_ui_gtk3")
 	
 
       #~ add_compile_definitions(DESKTOP_ENVIRONMENT_GTK3)
 
       #~ add_compile_definitions(default_windowing=windowing_gtk3)
       
-   #~ elseif(${HAS_GTK4})
+   elseif(${HAS_GTK4})
    
    
-   #~ endif()
+   endif()
 
 
 elseif(${KDE_DESKTOP})
