@@ -129,7 +129,7 @@ elseif ("${XFCE4_ABOUT_CLIPPED}" STREQUAL "${XFCE4_ABOUT_TOKEN}")
     message(STATUS "System is XFCE")
     set(DESKTOP_ENVIRONMENT_NAME "xfce")
     message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake")
-    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake)
+    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_desktop.cmake)
 endif ()
 
 
@@ -445,7 +445,7 @@ set(default_nano_graphics nano_graphics_cairo)
 #~ elseif (${GTK_BASED_DESKTOP})
 if (${GTK_BASED_DESKTOP})
 
-   include("operating_system/operating_system-posix/_default_gtk_based_windowing.cmake")
+   include("operating_system/operating_system-posix/_default_gtk_windowing.cmake")
 
    #~ message(STATUS "Adding GTK/X11 dependency.")
    
