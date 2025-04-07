@@ -6,7 +6,9 @@ message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 
 #include(FindPkgConfig)
 
-set(ENV{PKG_CONFIG_PATH} /usr/pkg/lib/ffmpeg7/pkgconfig/)
+set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/pkg/lib/ffmpeg7/pkgconfig/")
+
+message(STATUS "ENV{PKG_CONFIG_PATH} is $ENV{PKG_CONFIG_PATH}")
 
 
 execute_process(COMMAND uname -m OUTPUT_VARIABLE __SYSTEM_ARCHITECTURE)
