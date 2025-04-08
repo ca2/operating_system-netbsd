@@ -70,6 +70,8 @@ namespace acme_netbsd
 
       ::pointer <::operating_system::summary > operating_system_summary() override;
       
+      process_identifier_array processes_identifiers() override;
+      
 
    };
 

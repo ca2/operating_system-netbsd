@@ -232,7 +232,7 @@ if (${__OPERATING_SYSTEM} STREQUAL "netbsd")
 
     message(STATUS "added __BSD__ compile definition!!")
 
-    set(APPINDICATOR_PKG_MODULE "")
+    set(APPINDICATOR_PKG_MODULE "appindicator3-0.1")
 
     set(HAS_NO_APPINDICATOR TRUE)
 

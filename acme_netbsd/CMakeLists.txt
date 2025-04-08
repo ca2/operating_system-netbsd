@@ -18,6 +18,7 @@ list(APPEND library_source
    #file.h
    framework.cpp
    framework.h
+   list_processes.cpp
    node.cpp
    node.h
    path_system.cpp
@@ -28,6 +29,9 @@ list(APPEND library_source
 
 add_library(${PROJECT_NAME} SHARED ${library_source} )
 add_library(static_${PROJECT_NAME} STATIC ${library_source} )
+
+
+set_source_files_properties(list_processes.cpp PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
 
 
 list(APPEND library_references

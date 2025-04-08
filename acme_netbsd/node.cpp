@@ -14,7 +14,7 @@ typedef XFCE_VERSION_STRING * PFUNCTION_XFCE_VERSION_STRING;
 //::user::enum_desktop _get_edesktop();
 void process_get_os_priority(int * piPolicy, sched_param * pparam, ::enum_priority epriority);
 
-
+long long * netbsd_list_processes(int & c);
 namespace acme_netbsd
 {
 
@@ -1052,6 +1052,33 @@ namespace acme_netbsd
 
    }
 
+
+	process_identifier_array node::processes_identifiers()
+	{
+		int c = 0;
+		
+		auto pp = netbsd_list_processes(c);
+		
+		process_identifier_array processidentifierarray;
+		if(pp)
+		{
+			processidentifierarray.set_size(c);
+			
+			for(int i = 0; i < c; i++)
+			{
+				
+				processidentifierarray[i] = pp[i];
+				
+			}
+			
+			::free(pp);
+			
+		}
+
+return ::transfer(processidentifierarray);		
+		
+		
+	}
 
 
 } // namespace acme_netbsd
