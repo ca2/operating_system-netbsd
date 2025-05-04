@@ -2,6 +2,7 @@
 #include "node.h"
 #include "acme/operating_system/summary.h"
 #include "acme/filesystem/filesystem/directory_system.h"
+#include "acme/filesystem/filesystem/file_context.h"
 #include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/path_system.h"
 #include "acme/windowing/windowing.h"
@@ -813,7 +814,7 @@ namespace acme_netbsd
       
 //         printf("/etc/os-release exists?!?!");
 
-         auto set = file_system()->parse_standard_configuration("/etc/os-release");
+         auto set = file()->get_standard_configuration("/etc/os-release");
 
          psummary->m_strSystem = set["ID"];
          psummary->m_strSystemBranch = set["VARIANT_ID"];
