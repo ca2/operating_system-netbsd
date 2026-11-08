@@ -925,11 +925,17 @@ namespace acme_netbsd
          //~ else
          #if defined(CUBE)
          
-            ::string strXfceAbout = get_posix_shell_command_output("xfce4-about -V");
+            // Desktop tools may be absent or unable to open a display during setup.
+            int iXfceExitCode = -1;
+            ::string strXfceAbout;
+            if (get_environment_variable("DISPLAY").has_character())
+            {
+               strXfceAbout = get_posix_shell_command_output("xfce4-about -V", e_posix_shell_system_default, nullptr, &iXfceExitCode);
+            }
 
             debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
 
-            if(strXfceAbout.case_insensitive_begins("xfce4-about "))
+            if(iXfceExitCode == 0 && strXfceAbout.case_insensitive_begins("xfce4-about "))
             {
 
                psummary->m_strAmbient = "xfce";
@@ -1019,7 +1025,7 @@ namespace acme_netbsd
 
       }
 
-      psummary->m_strSystemArchitecture = get_posix_shell_command_output("uname -m");
+      psummary->m_strSystemArchitecture = system_architecture();
       psummary->m_strSystemArchitecture.trim();
       psummary->m_strSystemAmbientReleaseArchitecture = psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease + "/" + psummary->m_strSystemArchitecture;
       psummary->m_strSystemAmbientReleaseArchitecture.trim("/");
@@ -1038,7 +1044,8 @@ namespace acme_netbsd
 
       auto pathHomeBin = pathHome / "bin";
       
-      psummary->m_strPathPrefix = pathHomeBin + ":" + pathToolBinFolder;
+      auto pathToolArchitectureBinFolder = pathToolBinFolder / psummary->m_strSystemArchitecture;
+      psummary->m_strPathPrefix = pathHomeBin + ":" + pathToolBinFolder + ":" + pathToolArchitectureBinFolder;
 
       //this->set_environment_variable("__SYSTEM", psummary->m_strSystem);
       //this->set_environment_variable("__SYSTEM_FAMILY", psummary->m_strSystemFamily);
