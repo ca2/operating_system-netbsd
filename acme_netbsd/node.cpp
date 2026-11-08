@@ -579,7 +579,7 @@ namespace acme_netbsd
 // enzymes: Liveedu.tv, Twitch.tv and Mixer.com streamers and viewers
 // Mummi and bilbo!!
 // create call to :
-   void node::install_crash_dump_reporting(const string & strModuleNameWithTheExeExtension)
+   void node::install_crash_dump_reporting(const ::scoped_string & strModuleNameWithTheExeExtension)
    {
 
 //      ::netbsd::registry::key k;
@@ -731,7 +731,7 @@ namespace acme_netbsd
    }
 
 
-   void node::shell_open(const ::file::path & path, const ::string & strParams, const ::file::path & pathFolder)
+   void node::shell_open(const ::file::path & path, const ::scoped_string & strParams, const ::file::path & pathFolder)
    {
       
       printf_line("acme_netbsd::node::shell_open for path : \"%s\"", path.c_str());
@@ -799,7 +799,7 @@ namespace acme_netbsd
    ::pointer <::operating_system::summary > node::operating_system_summary()
    {
 
-      auto psummary = __create_new < ::operating_system::summary >();
+      auto psummary = create_newø < ::operating_system::summary >();
 
 
       //::particle::initialize(pparticle);
@@ -1019,7 +1019,10 @@ namespace acme_netbsd
 
       }
 
-      psummary->m_strSystemAmbientRelease=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease;
+      psummary->m_strSystemArchitecture = get_posix_shell_command_output("uname -m");
+      psummary->m_strSystemArchitecture.trim();
+      psummary->m_strSystemAmbientReleaseArchitecture = psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease + "/" + psummary->m_strSystemArchitecture;
+      psummary->m_strSystemAmbientReleaseArchitecture.trim("/");
 
       //psummary->m_strUnderscoreOperatingSystem = psummary->m_strSlashedStore;
 
