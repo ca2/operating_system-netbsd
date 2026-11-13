@@ -24,7 +24,7 @@ string(STRIP ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
     # use pkg_check_modules()
 #ENDIF(PKG_CONFIG_FOUND)
 set(USE_PKGCONFIG TRUE)
-set(NO_PRECOMPILED_HEADER TRUE)
+option(NO_PRECOMPILED_HEADER "Disable precompiled headers on NetBSD" OFF)
 set(PLATFORM_NAME "netbsd")
 set(TOOL_RELEASE_NAME "netbsd")
 set(MAIN_STORE_SLASHED_OPERATING_SYSTEM "netbsd")
@@ -212,6 +212,7 @@ set(WITH_XCB FALSE)
 set(WITH_XI TRUE)
 set(USE_OPENSSL TRUE)
 set(PTHREAD TRUE)
+set(USE_PORT_FREEIMAGE TRUE)
 
 
 message(STATUS "OPERATING_SYSTEM is ${OPERATING_SYSTEM}")
@@ -265,6 +266,7 @@ endif ()
 
 message(STATUS "DISTRO_RELEASE is ${DISTRO_RELEASE}")
 
+include("operating_system/operating_system-posix/_desktop_ambient_1.cmake")
 
 set(MIDI FALSE)
 set(ALSA_MIDI FALSE)
@@ -360,7 +362,8 @@ set(default_draw2d "draw2d_cairo")
 set(default_imaging "imaging_freeimage")
 set(default_write_text "write_text_pango")
 set(default_audio "audio_sunaudio")
-set(default_music_midi "music_midi_alsa")
+set(default_music_midi "music_midi_fluidsynth")
+message(STATUS "NetBSD default MIDI backend: ${default_music_midi}")
 set(default_node "node_netbsd")
 set(default_audio_mixer "audio_mixer_alsa")
 set(default_gpu "gpu_opengl")
@@ -373,7 +376,7 @@ set(default_acme_windowing "acme_windowing_gtk3")
 #add_compile_definitions(default_imaging=imaging_freeimage)
 #add_compile_definitions(default_write_text=write_text_pango)
 #add_compile_definitions(default_audio=audio_alsa)
-#add_compile_definitions(default_music_midi=music_midi_alsa)
+#add_compile_definitions(default_music_midi=music_midi_fluidsynth)
 #add_compile_definitions(default_node=node_linux)
 
 
@@ -406,8 +409,10 @@ list(APPEND aura_libraries
    node_netbsd
 )
 
+
 set(default_nano_graphics nano_graphics_cairo)
 
+include("operating_system/operating_system-posix/_desktop_ambient_2.cmake")
 
 
 #~ if (${LXDE_DESKTOP})
@@ -562,6 +567,8 @@ include_directories(${WORKSPACE_FOLDER})
 include_directories($ENV{HOME}/__config)
 include_directories(${WORKSPACE_FOLDER}/source)
 include_directories(${WORKSPACE_FOLDER}/source/app)
+## Use the shared ACME types before any older headers left in app/include.
+include_directories(BEFORE ${WORKSPACE_FOLDER}/source/app/_include)
 include_directories(${WORKSPACE_FOLDER}/source/app/include)
 include_directories(${WORKSPACE_FOLDER}/source/include)
 include_directories(${WORKSPACE_FOLDER}/port/_)
