@@ -7,10 +7,6 @@
 #include "acme/filesystem/filesystem/path_system.h"
 #include "acme/windowing/windowing.h"
 //#include "acme/operating_system/ansi/process.h"
-//#include <xfce4/libxfce4util/libxfce4util.h>
-typedef const char * XFCE_VERSION_STRING();
-typedef XFCE_VERSION_STRING * PFUNCTION_XFCE_VERSION_STRING;
-#include <dlfcn.h>
 #include <sched.h>
 //::user::enum_desktop _get_edesktop();
 void process_get_os_priority(int * piPolicy, sched_param * pparam, ::enum_priority epriority);
@@ -872,150 +868,68 @@ namespace acme_netbsd
       
       }
 
-      auto strLowerCaseCurrentDesktop = this->get_environment_variable("XDG_CURRENT_DESKTOP").lowered();
-
-      //# echo "lower case xdg_current_desktop is $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP"
-      if (strLowerCaseCurrentDesktop.equals("gnome"))
+      // SSH sessions do not normally inherit the graphical session environment.
+      // Prefer an explicit desktop; otherwise inspect the user's configured X
+      // session without executing scripts or starting display-dependent tools.
+      auto strDesktop = get_environment_variable("XDG_CURRENT_DESKTOP").lowered();
+      strDesktop.trim();
+      if (strDesktop.is_empty())
       {
-         //      if contains
-         //      $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP
-         //      "gnome";
-         //      then
-         //
-         //# echo "lower case xdg_current_desktop contains gnome"
-
-         psummary->m_strAmbient = "gnome";
-
+         strDesktop = get_environment_variable("DESKTOP_SESSION").lowered();
+         strDesktop.trim();
       }
-      else if (strLowerCaseCurrentDesktop.equals("kde"))
+
+      ::string_array straDesktops;
+      straDesktops.explode(":", strDesktop);
+      for (auto & strDesktopName : straDesktops)
       {
-         //      elif
-         //      contains
-         //      $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP
-         //      "kde";
-         //      then
-         //
-         //# echo "lower case xdg_current_desktop contains gnome"
+         if (strDesktopName == "xfce" || strDesktopName == "xfce4")
+            psummary->m_strAmbient = "xfce";
+         else if (strDesktopName == "gnome" || strDesktopName == "kde" || strDesktopName == "lxde")
+            psummary->m_strAmbient = strDesktopName;
 
-         psummary->m_strAmbient = "kde";
-
+         if (psummary->m_strAmbient.has_character())
+            break;
       }
-      else if (strLowerCaseCurrentDesktop.equals("lxde"))
+
+      if (strDesktop.is_empty())
       {
-         //      elif
-         //      contains
-         //      $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP
-         //      "lxde";
-         //      then
-         //
-         //# echo "lower case xdg_current_desktop contains lxde"
-
-         psummary->m_strAmbient = "lxde";
-
-      }
-      else
-      {
-         
-         //~ if(1)
-         //~ {
-            
-            //~ psummary->m_strAmbient = "xfce";
-            
-         //~ }
-         //~ else
-         #if defined(CUBE)
-         
-            // Desktop tools may be absent or unable to open a display during setup.
-            int iXfceExitCode = -1;
-            ::string strXfceAbout;
-            if (get_environment_variable("DISPLAY").has_character())
-            {
-               strXfceAbout = get_posix_shell_command_output("xfce4-about -V", e_posix_shell_system_default, nullptr, &iXfceExitCode);
-            }
-
-            debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
-
-            if(iXfceExitCode == 0 && strXfceAbout.case_insensitive_begins("xfce4-about "))
-            {
-
-               psummary->m_strAmbient = "xfce";
-  
-            }
-
-         #else
-         
+         for (auto pszSessionFile : {".xsession", ".xinitrc"})
          {
-         
-            //auto plibraryXfce4Util = dlopen("libxfce4util.so", RTLD_LAZY | RTLD_GLOBAL);
-            
-            auto plibraryXfce4Util = dlopen("libxfce4util.so", 0);
-            
-            if(::is_null(plibraryXfce4Util))
-            {
-               
-               warningf("failed to open libxfce4util.so : \"%s\"", dlerror());
-               
-            }
-            else
-            {
-               
-               auto pXfceVersionString =  dlsym(plibraryXfce4Util, "xfce_version_string");
-               
-               if(::is_null(pXfceVersionString))
-               {
-               
-                  warningf("failed to get address of xfce_version_string : \"%s\"", dlerror());
-               
+            auto pathSession = directory_system()->home() / pszSessionFile;
+            if (!file_system()->exists(pathSession))
+               continue;
 
-                  //int main() {
-                  //  printf("XFCE Version: %s\n", xfce_version_string());
-               
-               }
-               else
+            ::string_array straLines;
+            straLines.add_lines(file_system()->as_string(pathSession));
+            for (auto strLine : straLines)
+            {
+               strLine.find_replace("\t", " ");
+               strLine.trim();
+               if (strLine.begins("#"))
+                  continue;
+
+               if (strLine.begins_eat("exec "))
+                  strLine.trim();
+
+               // Recognize common direct launch commands, not comments, echo
+               // statements, or arbitrary shell code mentioning Xfce.
+               for (auto pszCommand : {"xfce4-session", "startxfce4",
+                    "/usr/pkg/bin/xfce4-session", "/usr/pkg/bin/startxfce4"})
                {
-                  
-                  PFUNCTION_XFCE_VERSION_STRING pfnXfceVersionString = (PFUNCTION_XFCE_VERSION_STRING) pXfceVersionString;
-                  
-                  auto pszXfceVersionString = pfnXfceVersionString();
-                  
-                  if(::is_null(pszXfceVersionString) || *pszXfceVersionString == '\0')
+                  ::string strCommand = pszCommand;
+                  if (strLine == strCommand || strLine.begins(strCommand + " "))
                   {
-                     
-                     warningf("failed to get xfce_version_string");
-                     
-                  }
-                  else
-                  {
-                  
-                     informationf("xfce_version_string %s", pszXfceVersionString);
-                  //"failed to get address of xfce_version_string : \"%s\"", dlerror());
-     
                      psummary->m_strAmbient = "xfce";
-                     
-                     //exit(0);
-                
+                     break;
                   }
-                  
                }
-               
-               dlclose(plibraryXfce4Util);
-
-            ///::string strXfceAbout = get_posix_shell_command_output("xfce4-about -V");
-            
+               if (psummary->m_strAmbient.has_character())
+                  break;
             }
-
-
+            if (psummary->m_strAmbient.has_character())
+               break;
          }
-//         if(strXfceAbout.case_insensitive_begins("xfce4-about "))
-  //       {
-
-  
-    //     }
-
-//         debugf("xfce4-about -V output: %s", strXfceAbout.c_str());
-
-#endif
-
       }
 
       if(psummary->m_strSystemBranch.is_empty())
