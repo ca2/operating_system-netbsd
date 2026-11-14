@@ -12,12 +12,65 @@ typedef const char * XFCE_VERSION_STRING();
 typedef XFCE_VERSION_STRING * PFUNCTION_XFCE_VERSION_STRING;
 #include <dlfcn.h>
 #include <sched.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 //::user::enum_desktop _get_edesktop();
 void process_get_os_priority(int * piPolicy, sched_param * pparam, ::enum_priority epriority);
 
 long long * netbsd_list_processes(int & c);
 namespace acme_netbsd
 {
+
+   ::file::path_array_base node::process_identifier_modules_paths(::process_identifier processidentifier)
+   {
+      ::file::path_array_base paths;
+      if (processidentifier <= 0)
+         return paths;
+
+      char map_path[80];
+      snprintf(map_path, sizeof(map_path), "/proc/%lld/maps", (long long)processidentifier);
+      FILE *maps = fopen(map_path, "r");
+      if (!maps)
+      {
+         const int open_error = errno;
+         // Other users' mappings may be private; processes may also exit while
+         // the system-wide module scan is running.
+         if (open_error == EACCES || open_error == EPERM || open_error == ESRCH)
+            return paths;
+         if (open_error == ENOENT)
+         {
+            FILE *self_maps = fopen("/proc/curproc/maps", "r");
+            if (self_maps)
+            {
+               fclose(self_maps);
+               return paths;
+            }
+         }
+         throw ::exception(error_failed, "Cannot inspect process mappings; mount procfs on /proc to check whether application libraries are in use.");
+      }
+
+      char *line = nullptr;
+      size_t capacity = 0;
+      while (getline(&line, &capacity, maps) >= 0)
+      {
+         // NetBSD's Linux-compatible maps view puts the pathname after the
+         // address, permissions, offset, device and inode fields. Keep spaces
+         // inside pathnames and ignore anonymous mappings.
+         char *path = strchr(line, '/');
+         if (!path)
+            continue;
+         path[strcspn(path, "\r\n")] = '\0';
+         paths.add_unique(::file::path(path));
+      }
+      const bool read_failed = ferror(maps) != 0;
+      free(line);
+      fclose(maps);
+      if (read_failed)
+         throw ::exception(error_failed, "Could not read process mappings while checking application libraries.");
+      return paths;
+   }
 
 
    node::node()
